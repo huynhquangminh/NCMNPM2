@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CookwareDBModelStoreContainer" CdmEntityContainer="ConnectionStringDBShop">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="CookwareDBModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
+          <ScalarProperty Name="ImageCategory" ColumnName="ImageCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="CookwareDBModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="NameCustomer" ColumnName="NameCustomer" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Headers">
+      <EntityTypeMapping TypeName="CookwareDBModel.Header">
+        <MappingFragment StoreEntitySet="Header">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ImagerHeader" ColumnName="ImagerHeader" />
+          <ScalarProperty Name="IDProdcut" ColumnName="IDProdcut" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IsSlider" ColumnName="IsSlider" />
+          <ScalarProperty Name="IsBanner" ColumnName="IsBanner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Introductions">
+      <EntityTypeMapping TypeName="CookwareDBModel.Introduction">
+        <MappingFragment StoreEntitySet="Introduction">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ContentIntroduction" ColumnName="ContentIntroduction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="CookwareDBModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameNews" ColumnName="NameNews" />
+          <ScalarProperty Name="IDCreater" ColumnName="IDCreater" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ImageNews" ColumnName="ImageNews" />
+          <ScalarProperty Name="ImageNewDetail" ColumnName="ImageNewDetail" />
+          <ScalarProperty Name="ViewMax" ColumnName="ViewMax" />
+          <ScalarProperty Name="DescriptionNews" ColumnName="DescriptionNews" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="CookwareDBModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="ImageProductDetail1" ColumnName="ImageProductDetail1" />
+          <ScalarProperty Name="ImageProductDetail2" ColumnName="ImageProductDetail2" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+          <ScalarProperty Name="InterestProduct" ColumnName="InterestProduct" />
+          <ScalarProperty Name="SellMax" ColumnName="SellMax" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="CookwareDBModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CookwareDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SupportFeatures">
+      <EntityTypeMapping TypeName="CookwareDBModel.SupportFeature">
+        <MappingFragment StoreEntitySet="SupportFeature">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PhoneHouse" ColumnName="PhoneHouse" />
+          <ScalarProperty Name="MailAddress" ColumnName="MailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ADD_CATEGORY" FunctionName="CookwareDBModel.Store.ADD_CATEGORY" />
+    <FunctionImportMapping FunctionImportName="DELETE_CATEGORY" FunctionName="CookwareDBModel.Store.DELETE_CATEGORY" />
+    <FunctionImportMapping FunctionImportName="EDIT_CATEGORY" FunctionName="CookwareDBModel.Store.EDIT_CATEGORY" />
+    <FunctionImportMapping FunctionImportName="FIND_PRODUCT" FunctionName="CookwareDBModel.Store.FIND_PRODUCT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.FIND_PRODUCT_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GET_HEADER" FunctionName="CookwareDBModel.Store.GET_HEADER">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GET_HEADER_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ImagerHeader" ColumnName="ImagerHeader" />
+          <ScalarProperty Name="IDProdcut" ColumnName="IDProdcut" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GET_INFO_WEBSITE" FunctionName="CookwareDBModel.Store.GET_INFO_WEBSITE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GET_INFO_WEBSITE_Result">
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="PhoneHouse" ColumnName="PhoneHouse" />
+          <ScalarProperty Name="MailAddress" ColumnName="MailAddress" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GET_INTRODUCTION" FunctionName="CookwareDBModel.Store.GET_INTRODUCTION">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GET_INTRODUCTION_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ContentIntroduction" ColumnName="ContentIntroduction" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GET_LIST_BANNER_IMG" FunctionName="CookwareDBModel.Store.GET_LIST_BANNER_IMG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GET_LIST_BANNER_IMG_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ImagerHeader" ColumnName="ImagerHeader" />
+          <ScalarProperty Name="IDProdcut" ColumnName="IDProdcut" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GET_LIST_SLIDER_IMG" FunctionName="CookwareDBModel.Store.GET_LIST_SLIDER_IMG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GET_LIST_SLIDER_IMG_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ImagerHeader" ColumnName="ImagerHeader" />
+          <ScalarProperty Name="IDProdcut" ColumnName="IDProdcut" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GET_PRODUCT_BY_CATEGORY" FunctionName="CookwareDBModel.Store.GET_PRODUCT_BY_CATEGORY">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GET_PRODUCT_BY_CATEGORY_Result">
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETLISTCATEGORY" FunctionName="CookwareDBModel.Store.GETLISTCATEGORY">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETLISTCATEGORY_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
+          <ScalarProperty Name="ImageCategory" ColumnName="ImageCategory" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETLISTPRODUCT_INTEREST" FunctionName="CookwareDBModel.Store.GETLISTPRODUCT_INTEREST">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETLISTPRODUCT_INTEREST_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="ImageProductDetail1" ColumnName="ImageProductDetail1" />
+          <ScalarProperty Name="ImageProductDetail2" ColumnName="ImageProductDetail2" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETLISTPRODUCT_PRICESALE" FunctionName="CookwareDBModel.Store.GETLISTPRODUCT_PRICESALE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETLISTPRODUCT_PRICESALE_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="ImageProductDetail1" ColumnName="ImageProductDetail1" />
+          <ScalarProperty Name="ImageProductDetail2" ColumnName="ImageProductDetail2" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETLISTPRODUCT_SELLMAX" FunctionName="CookwareDBModel.Store.GETLISTPRODUCT_SELLMAX">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETLISTPRODUCT_SELLMAX_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="ImageProductDetail1" ColumnName="ImageProductDetail1" />
+          <ScalarProperty Name="ImageProductDetail2" ColumnName="ImageProductDetail2" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETNEWS_BY_DATE" FunctionName="CookwareDBModel.Store.GETNEWS_BY_DATE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETNEWS_BY_DATE_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameNews" ColumnName="NameNews" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ViewMax" ColumnName="ViewMax" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ImageNews" ColumnName="ImageNews" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETNEWS_BY_VIEW" FunctionName="CookwareDBModel.Store.GETNEWS_BY_VIEW">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETNEWS_BY_VIEW_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameNews" ColumnName="NameNews" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ViewMax" ColumnName="ViewMax" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ImageNews" ColumnName="ImageNews" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETNEWSDETAIL" FunctionName="CookwareDBModel.Store.GETNEWSDETAIL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETNEWSDETAIL_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameNews" ColumnName="NameNews" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ViewMax" ColumnName="ViewMax" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ImageNews" ColumnName="ImageNews" />
+          <ScalarProperty Name="DescriptionNews" ColumnName="DescriptionNews" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETPRODUCT_BY_TYPE_DATE_ASC" FunctionName="CookwareDBModel.Store.GETPRODUCT_BY_TYPE_DATE_ASC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETPRODUCT_BY_TYPE_DATE_ASC_Result">
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETPRODUCT_BY_TYPE_PRICE_ASC" FunctionName="CookwareDBModel.Store.GETPRODUCT_BY_TYPE_PRICE_ASC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETPRODUCT_BY_TYPE_PRICE_ASC_Result">
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETPRODUCT_BY_TYPE_PRICE_DESC" FunctionName="CookwareDBModel.Store.GETPRODUCT_BY_TYPE_PRICE_DESC">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETPRODUCT_BY_TYPE_PRICE_DESC_Result">
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETPRODUCT_NEWS" FunctionName="CookwareDBModel.Store.GETPRODUCT_NEWS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETPRODUCT_NEWS_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="ImageProductDetail1" ColumnName="ImageProductDetail1" />
+          <ScalarProperty Name="ImageProductDetail2" ColumnName="ImageProductDetail2" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETPRODUCTALL" FunctionName="CookwareDBModel.Store.GETPRODUCTALL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETPRODUCTALL_Result">
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GETPRODUCTDETAIL_BY_ID" FunctionName="CookwareDBModel.Store.GETPRODUCTDETAIL_BY_ID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GETPRODUCTDETAIL_BY_ID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="ImageProductDetail1" ColumnName="ImageProductDetail1" />
+          <ScalarProperty Name="ImageProductDetail2" ColumnName="ImageProductDetail2" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
+          <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ADD_NEWS" FunctionName="CookwareDBModel.Store.ADD_NEWS" />
+    <FunctionImportMapping FunctionImportName="DELETE_NEWS" FunctionName="CookwareDBModel.Store.DELETE_NEWS" />
+    <FunctionImportMapping FunctionImportName="EDIT_NEWS" FunctionName="CookwareDBModel.Store.EDIT_NEWS" />
+    <FunctionImportMapping FunctionImportName="DELETE_ROLES" FunctionName="CookwareDBModel.Store.DELETE_ROLES" />
+    <FunctionImportMapping FunctionImportName="GET_LIST_ROLE" FunctionName="CookwareDBModel.Store.GET_LIST_ROLE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GET_LIST_ROLE_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INSERT_ROLES" FunctionName="CookwareDBModel.Store.INSERT_ROLES" />
+    <FunctionImportMapping FunctionImportName="UPDATE_ROLES" FunctionName="CookwareDBModel.Store.UPDATE_ROLES" />
+    <FunctionImportMapping FunctionImportName="DELETE_CUSTOMER" FunctionName="CookwareDBModel.Store.DELETE_CUSTOMER" />
+    <FunctionImportMapping FunctionImportName="GET_LIST_CUSTOMERS" FunctionName="CookwareDBModel.Store.GET_LIST_CUSTOMERS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GET_LIST_CUSTOMERS_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="NameCustomer" ColumnName="NameCustomer" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INSERT_CUSTOMER" FunctionName="CookwareDBModel.Store.INSERT_CUSTOMER" />
+    <FunctionImportMapping FunctionImportName="UPDATE_CUSTOMER" FunctionName="CookwareDBModel.Store.UPDATE_CUSTOMER" />
+    <FunctionImportMapping FunctionImportName="GET_NEWS_ALL" FunctionName="CookwareDBModel.Store.GET_NEWS_ALL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GET_NEWS_ALL_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameNews" ColumnName="NameNews" />
+          <ScalarProperty Name="IDCreater" ColumnName="IDCreater" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ImageNews" ColumnName="ImageNews" />
+          <ScalarProperty Name="ImageNewDetail" ColumnName="ImageNewDetail" />
+          <ScalarProperty Name="ViewMax" ColumnName="ViewMax" />
+          <ScalarProperty Name="DescriptionNews" ColumnName="DescriptionNews" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DETELET_PRODUCT" FunctionName="CookwareDBModel.Store.DETELET_PRODUCT" />
+    <FunctionImportMapping FunctionImportName="GET_LISTPRODUCT_ALL" FunctionName="CookwareDBModel.Store.GET_LISTPRODUCT_ALL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CookwareDBModel.GET_LISTPRODUCT_ALL_Result">
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="BriefDes" ColumnName="BriefDes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+          <ScalarProperty Name="ImageProductDetail1" ColumnName="ImageProductDetail1" />
+          <ScalarProperty Name="ImageProductDetail2" ColumnName="ImageProductDetail2" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="IDCategory" ColumnName="IDCategory" />
+          <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
+          <ScalarProperty Name="InterestProduct" ColumnName="InterestProduct" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INSERT_PRODUCT" FunctionName="CookwareDBModel.Store.INSERT_PRODUCT" />
+    <FunctionImportMapping FunctionImportName="UPDATE_PRODUCT" FunctionName="CookwareDBModel.Store.UPDATE_PRODUCT" />
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="CookwareDBModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

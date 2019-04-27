@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CookwareDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NameCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageCategory" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Header">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="ImagerHeader" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDProdcut" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Header_Product" FromRole="Header" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NameNews" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IDCreater" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ImageNews" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImageNewDetail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ViewMax" Type="Int32" />
+    <NavigationProperty Name="Customers" Relationship="CookwareDBModel.FK_Customer_News" FromRole="News" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NameProduct" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="BriefDes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageProduct" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImageProductDetail1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ImageProductDetail2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="IDCategory" Type="Int32" Nullable="false" />
+    <Property Name="PriceSale" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="InterestProduct" Type="Int32" />
+    <Property Name="SellMax" Type="Int32" />
+    <Property Name="DeletePro" Type="Boolean" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="Headers" Relationship="Self.FK_Header_Product" FromRole="Product" ToRole="Header" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Product_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IDCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Header_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Header" Type="Self.Header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Header">
+        <PropertyRef Name="IDProdcut" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ConnectionStringDBShop" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Headers" EntityType="Self.Header" />
+    <EntitySet Name="News" EntityType="Self.News" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Header_Product" Association="Self.FK_Header_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Header" EntitySet="Headers" />
+    </AssociationSet>
+    <FunctionImport Name="GET_HEADER" ReturnType="Collection(CookwareDBModel.GET_HEADER_Result)" />
+    <FunctionImport Name="GETLISTCATEGORY" ReturnType="Collection(CookwareDBModel.GETLISTCATEGORY_Result)" />
+    <FunctionImport Name="GETLISTPRODUCT_SELLMAX" ReturnType="Collection(CookwareDBModel.GETLISTPRODUCT_SELLMAX_Result)" />
+    <FunctionImport Name="GETPRODUCT_NEWS" ReturnType="Collection(CookwareDBModel.GETPRODUCT_NEWS_Result)" />
+    <FunctionImport Name="GETPRODUCTDETAIL_BY_ID" ReturnType="Collection(CookwareDBModel.GETPRODUCTDETAIL_BY_ID_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GET_PRODUCT_BY_CATEGORY" ReturnType="Collection(CookwareDBModel.GET_PRODUCT_BY_CATEGORY_Result)">
+      <Parameter Name="IDCategory" Mode="In" Type="Int32" />
+      <Parameter Name="PAGE" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GETPRODUCTALL" ReturnType="Collection(CookwareDBModel.GETPRODUCTALL_Result)">
+      <Parameter Name="PAGE" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GETPRODUCT_BY_TYPE_DATE_ASC" ReturnType="Collection(CookwareDBModel.GETPRODUCT_BY_TYPE_DATE_ASC_Result)">
+      <Parameter Name="PAGE" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GETPRODUCT_BY_TYPE_PRICE_ASC" ReturnType="Collection(CookwareDBModel.GETPRODUCT_BY_TYPE_PRICE_ASC_Result)">
+      <Parameter Name="PAGE" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GETPRODUCT_BY_TYPE_PRICE_DESC" ReturnType="Collection(CookwareDBModel.GETPRODUCT_BY_TYPE_PRICE_DESC_Result)">
+      <Parameter Name="PAGE" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="SupportFeatures" EntityType="CookwareDBModel.SupportFeature" />
+    <FunctionImport Name="GET_INFO_WEBSITE" ReturnType="Collection(CookwareDBModel.GET_INFO_WEBSITE_Result)" />
+    <FunctionImport Name="GETNEWS_BY_DATE" ReturnType="Collection(CookwareDBModel.GETNEWS_BY_DATE_Result)" />
+    <FunctionImport Name="GETNEWS_BY_VIEW" ReturnType="Collection(CookwareDBModel.GETNEWS_BY_VIEW_Result)" />
+    <EntitySet Name="Customers" EntityType="CookwareDBModel.Customer" />
+    <EntitySet Name="Roles" EntityType="CookwareDBModel.Role" />
+    <AssociationSet Name="FK_Customer_News" Association="CookwareDBModel.FK_Customer_News">
+      <End Role="News" EntitySet="News" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_Role" Association="CookwareDBModel.FK_Customer_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <FunctionImport Name="GETLISTPRODUCT_INTEREST" ReturnType="Collection(CookwareDBModel.GETLISTPRODUCT_INTEREST_Result)" />
+    <FunctionImport Name="GETLISTPRODUCT_PRICESALE" ReturnType="Collection(CookwareDBModel.GETLISTPRODUCT_PRICESALE_Result)" />
+  </EntityContainer>
+  <ComplexType Name="GET_HEADER_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="ImagerHeader" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="IDProdcut" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GETLISTCATEGORY_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="ImageCategory" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="GETLISTPRODUCT_SELLMAX_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="ImageProductDetail1" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ImageProductDetail2" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Amount" Nullable="false" />
+    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GETPRODUCT_NEWS_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="ImageProductDetail1" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ImageProductDetail2" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Amount" Nullable="false" />
+    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GETPRODUCTDETAIL_BY_ID_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="ImageProductDetail1" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ImageProductDetail2" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Amount" Nullable="false" />
+    <Property Type="Int32" Name="IDCategory" Nullable="false" />
+    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GET_PRODUCT_BY_CATEGORY_Result">
+    <Property Type="Int32" Name="TotalRows" Nullable="true" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GETPRODUCTALL_Result">
+    <Property Type="Int32" Name="TotalRows" Nullable="true" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GETPRODUCT_BY_TYPE_DATE_ASC_Result">
+    <Property Type="Int32" Name="TotalRows" Nullable="true" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GETPRODUCT_BY_TYPE_PRICE_ASC_Result">
+    <Property Type="Int32" Name="TotalRows" Nullable="true" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GETPRODUCT_BY_TYPE_PRICE_DESC_Result">
+    <Property Type="Int32" Name="TotalRows" Nullable="true" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="SupportFeature">
+    <Key>
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Phone" />
+      <PropertyRef Name="PhoneHouse" />
+      <PropertyRef Name="MailAddress" />
+    </Key>
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneHouse" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="GET_INFO_WEBSITE_Result">
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Phone" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="PhoneHouse" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="MailAddress" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GETNEWS_BY_DATE_Result">
+    <Property Type="String" Name="NameNews" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="Int32" Name="ViewMax" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GETNEWS_BY_VIEW_Result">
+    <Property Type="String" Name="NameNews" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="Date" Nullable="false" />
+    <Property Type="Int32" Name="ViewMax" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Telephone" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Telephone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PassWord" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NameCustomer" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="News" Relationship="CookwareDBModel.FK_Customer_News" FromRole="Customer" ToRole="News" />
+    <NavigationProperty Name="Role" Relationship="CookwareDBModel.FK_Customer_Role" FromRole="Customer" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customers" Relationship="CookwareDBModel.FK_Customer_Role" FromRole="Role" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_Customer_News">
+    <End Type="CookwareDBModel.News" Role="News" Multiplicity="1" />
+    <End Type="CookwareDBModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="News">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_Role">
+    <End Type="CookwareDBModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="CookwareDBModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GETLISTPRODUCT_INTEREST_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="ImageProductDetail1" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ImageProductDetail2" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Amount" Nullable="false" />
+    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GETLISTPRODUCT_PRICESALE_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="Description" Nullable="false" />
+    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="ImageProductDetail1" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ImageProductDetail2" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="Amount" Nullable="false" />
+    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
+  </ComplexType>
+</Schema>
