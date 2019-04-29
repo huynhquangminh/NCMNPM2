@@ -1,3 +1,42 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <br><br><br><br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Login</h3>
+    </div>
+    <div class="panel-body">
+
+      <form action="http://ghotel.site/account/register" method="post"><input name="__RequestVerificationToken"
+          type="hidden"
+          value="G3jREkNOoO3WO9x_FIeV6kgxvP-ORS-BRXiDUqsaYCs8CknzvBgh417-xk44QF7UvAP0rYRC75SDZafcowLqVDkd8nN58TvjtuOnjRikUTc1">
+        <div class="form-horizontal">
+
+          <div class="form-group">
+            <label class="control-label col-md-2" for="T_n_t_i_kho_n">Tên tài khoản</label>
+            <div class="col-md-10">
+              <input class="form-control text-box single-line" id="ma_kh" name="ma_kh" type="text" value="">
+              <span class="field-validation-valid text-danger" data-valmsg-for="ma_kh"
+                data-valmsg-replace="true"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-2" for="M_t_kh_u">Mật khẩu</label>
+            <div class="col-md-10">
+              <input class="form-control text-box single-line" id="mat_khau" name="mat_khau" type="password" value="">
+              <span class="field-validation-valid text-danger" data-valmsg-for="mat_khau"
+                data-valmsg-replace="true"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+              <input type="submit" value="Login" class="btn btn-default">
+            </div>
+          </div>
+        </div>
+      </form>
+      <br>
+      <a href="http://ghotel.site/">Back to Home</a>
+    </div>
+  </div>
+</div>
