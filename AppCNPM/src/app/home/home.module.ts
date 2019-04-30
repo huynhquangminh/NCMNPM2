@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { RoomComponent } from './room/room.component';
 import { TypeRoomComponent } from './type-room/type-room.component';
 import { TypeServiceComponent } from './type-service/type-service.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [

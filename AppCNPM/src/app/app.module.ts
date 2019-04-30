@@ -11,11 +11,13 @@ import { IndexComponent } from './home/index/index.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from './home/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
