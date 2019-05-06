@@ -89,3 +89,7 @@ E:\LienThong\NMCNPM2\API\BaseApplication\bin\Debug\Unity.ServiceLocation.pdb
 E:\LienThong\NMCNPM2\API\BaseApplication\obj\Debug\BaseApplication.csprojResolveAssemblyReference.cache
 E:\LienThong\NMCNPM2\API\BaseApplication\obj\Debug\BaseApplication.dll
 E:\LienThong\NMCNPM2\API\BaseApplication\obj\Debug\BaseApplication.pdb
+E:\LienThong\NMCNPM2\API\BaseApplication\bin\Debug\Newtonsoft.Json.dll
+E:\LienThong\NMCNPM2\API\BaseApplication\bin\Debug\System.Web.Http.dll
+E:\LienThong\NMCNPM2\API\BaseApplication\bin\Debug\Newtonsoft.Json.xml
+E:\LienThong\NMCNPM2\API\BaseApplication\bin\Debug\System.Web.Http.xml

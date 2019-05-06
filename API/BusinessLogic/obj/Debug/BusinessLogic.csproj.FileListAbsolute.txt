@@ -122,3 +122,5 @@ E:\LienThong\NMCNPM2\API\BusinessLogic\bin\Debug\Unity.ServiceLocation.pdb
 E:\LienThong\NMCNPM2\API\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
 E:\LienThong\NMCNPM2\API\BusinessLogic\obj\Debug\BusinessLogic.dll
 E:\LienThong\NMCNPM2\API\BusinessLogic\obj\Debug\BusinessLogic.pdb
+E:\LienThong\NMCNPM2\API\BusinessLogic\bin\Debug\System.Web.Http.xml
+E:\LienThong\NMCNPM2\API\BusinessLogic\bin\Debug\Newtonsoft.Json.xml
