@@ -1,0 +1,10 @@
+﻿NameConnection : HotelDbConnection
+
+Step1 : add DB với entity FW
+Step2 : đặt tên connection đúng với tên trên 
+Step3 : vào file webconfig trong API thêm chuổi kết nối vào đó ( copy trên file app.config trong Entity Data )
+   <connectionStrings> 
+	// chuỗi kết nối 
+  </connectionStrings>
+
+Step4 : kiểm tra có đầy đủ các table và SP như dưới SQL chưa 
