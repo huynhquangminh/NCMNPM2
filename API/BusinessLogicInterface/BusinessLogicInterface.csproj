@@ -103,14 +103,6 @@
     <Compile Include="Dtos\RolesListDto.cs" />
     <Compile Include="Dtos\SendMailCommentCustomerDto.cs" />
     <Compile Include="Dtos\SupportFeatureDto.cs" />
-    <Compile Include="ICategoryBusinessLogic.cs" />
-    <Compile Include="ICustomerBusinessLogic.cs" />
-    <Compile Include="IHeaderBusinessLogic.cs" />
-    <Compile Include="IIntroductionBusinessLogic.cs" />
-    <Compile Include="INewsBusinessLogic.cs" />
-    <Compile Include="IProductBusinessLogic.cs" />
-    <Compile Include="IRoleBusinessLogic.cs" />
-    <Compile Include="ISupportFeatureBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\AddCategoryRequest.cs" />
     <Compile Include="Requests\ActionRoleRequest.cs" />

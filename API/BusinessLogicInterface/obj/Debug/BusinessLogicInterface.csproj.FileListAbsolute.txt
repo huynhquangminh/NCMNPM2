@@ -101,8 +101,8 @@ E:\LienThong\NMCNPM2\API\BusinessLogicInterface\bin\Debug\Unity.Interception.pdb
 E:\LienThong\NMCNPM2\API\BusinessLogicInterface\bin\Debug\Unity.Interception.Configuration.pdb
 E:\LienThong\NMCNPM2\API\BusinessLogicInterface\bin\Debug\Unity.RegistrationByConvention.pdb
 E:\LienThong\NMCNPM2\API\BusinessLogicInterface\bin\Debug\Unity.ServiceLocation.pdb
+E:\LienThong\NMCNPM2\API\BusinessLogicInterface\bin\Debug\System.Web.Http.xml
+E:\LienThong\NMCNPM2\API\BusinessLogicInterface\bin\Debug\Newtonsoft.Json.xml
 E:\LienThong\NMCNPM2\API\BusinessLogicInterface\obj\Debug\BusinessLogicInterface.csprojResolveAssemblyReference.cache
 E:\LienThong\NMCNPM2\API\BusinessLogicInterface\obj\Debug\BusinessLogicInterface.dll
 E:\LienThong\NMCNPM2\API\BusinessLogicInterface\obj\Debug\BusinessLogicInterface.pdb
-E:\LienThong\NMCNPM2\API\BusinessLogicInterface\bin\Debug\System.Web.Http.xml
-E:\LienThong\NMCNPM2\API\BusinessLogicInterface\bin\Debug\Newtonsoft.Json.xml

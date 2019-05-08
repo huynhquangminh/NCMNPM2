@@ -81,15 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CategoryDataAccess.cs" />
-    <Compile Include="CustomerDataAccess.cs" />
-    <Compile Include="HeaderDataAccess.cs" />
-    <Compile Include="IntroductionDataAccess.cs" />
-    <Compile Include="NewsDataAccess.cs" />
-    <Compile Include="ProductDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoleDataAccess.cs" />
-    <Compile Include="SupportFeatureDataAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

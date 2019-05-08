@@ -81,14 +81,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICategoryDataAccess.cs" />
-    <Compile Include="ICustomerDataAccess.cs" />
-    <Compile Include="IHeaderDataAccess.cs" />
-    <Compile Include="IIntroductionDataAccess.cs" />
-    <Compile Include="INewsDataAccess.cs" />
-    <Compile Include="IProductDataAccess.cs" />
-    <Compile Include="IRoleDataAccess.cs" />
-    <Compile Include="ISupportFeatureDataAccess.cs" />
     <Compile Include="Parameter\AddCategoryParameter.cs" />
     <Compile Include="Parameter\AddCustomerParameter.cs" />
     <Compile Include="Parameter\AddNewsParameter.cs" />
