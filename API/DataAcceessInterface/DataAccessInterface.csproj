@@ -81,6 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IServiceDataAccess.cs" />
     <Compile Include="Parameter\AddCategoryParameter.cs" />
     <Compile Include="Parameter\AddCustomerParameter.cs" />
     <Compile Include="Parameter\AddNewsParameter.cs" />

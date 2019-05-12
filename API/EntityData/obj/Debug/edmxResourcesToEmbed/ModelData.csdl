@@ -1,58 +1,144 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CookwareDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Category">
+<Schema Namespace="HotelDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BaiViet">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="NameCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ImageCategory" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenBaiViet" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NoiDung" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NoiDungChiTiet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayTao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="HinhAnh" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
-  <EntityType Name="Header">
+  <EntityType Name="DatPhong">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="ImagerHeader" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="IDProdcut" Type="Int32" Nullable="false" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-    <NavigationProperty Name="Product" Relationship="Self.FK_Header_Product" FromRole="Header" ToRole="Product" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SoPhong" Type="Int32" Nullable="false" />
+    <Property Name="NgayVao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NgayRa" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TenKhachHang" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CMND" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idNV" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_DatPhong_NhanVien" FromRole="DatPhong" ToRole="NhanVien" />
+    <NavigationProperty Name="Phong" Relationship="Self.FK_DatPhong_Phong" FromRole="DatPhong" ToRole="Phong" />
+    <NavigationProperty Name="PhieuDichVus" Relationship="Self.FK_PhieuDichVu_DatPhong" FromRole="DatPhong" ToRole="PhieuDichVu" />
   </EntityType>
-  <EntityType Name="News">
+  <EntityType Name="HoaDon">
     <Key>
       <PropertyRef Name="ID" />
+      <PropertyRef Name="SoPhong" />
+      <PropertyRef Name="NgayVao" />
+      <PropertyRef Name="NgayRa" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="NameNews" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="IDCreater" Type="Int32" Nullable="false" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="ImageNews" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ImageNewDetail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="ViewMax" Type="Int32" />
-    <NavigationProperty Name="Customers" Relationship="CookwareDBModel.FK_Customer_News" FromRole="News" ToRole="Customer" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SoPhong" Type="Int32" Nullable="false" />
+    <Property Name="NgayVao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NgayRa" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TienPhong" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="TienDichVu" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="PhuThu" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="TongTien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="TinhTrang" Type="Int32" Nullable="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="idNv" Type="Int32" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_HoaDon_NhanVien" FromRole="HoaDon" ToRole="NhanVien" />
+    <NavigationProperty Name="Phong" Relationship="Self.FK_HoaDon_Phong" FromRole="HoaDon" ToRole="Phong" />
   </EntityType>
-  <EntityType Name="Product">
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="CMND" />
+    </Key>
+    <Property Name="CMND" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SĐT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="imgKhachHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhieuDatPhongKhachSans" Relationship="Self.FK_PhieuDatPhongKhachSan_KhachHang" FromRole="KhachHang" ToRole="PhieuDatPhongKhachSan" />
+  </EntityType>
+  <EntityType Name="LoaiDichVu">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" />
-    <Property Name="NameProduct" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="BriefDes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ImageProduct" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ImageProductDetail1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="ImageProductDetail2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="Amount" Type="Int32" Nullable="false" />
-    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="IDCategory" Type="Int32" Nullable="false" />
-    <Property Name="PriceSale" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="InterestProduct" Type="Int32" />
-    <Property Name="SellMax" Type="Int32" />
-    <Property Name="DeletePro" Type="Boolean" />
-    <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
-    <NavigationProperty Name="Headers" Relationship="Self.FK_Header_Product" FromRole="Product" ToRole="Header" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDichVu" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DonViTinh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="imgDichVu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhieuDichVus" Relationship="Self.FK_PhieuDichVu_LoaiDichVu" FromRole="LoaiDichVu" ToRole="PhieuDichVu" />
+  </EntityType>
+  <EntityType Name="LoaiPhong">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiPhong" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GiaPhong" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="imgLoaiPhong" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Phongs" Relationship="Self.FK_Phong_LoaiPhong" FromRole="LoaiPhong" ToRole="Phong" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNhanVien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CMND" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idLoaiNV" Type="Int32" Nullable="false" />
+    <Property Name="SĐT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DatPhongs" Relationship="Self.FK_DatPhong_NhanVien" FromRole="NhanVien" ToRole="DatPhong" />
+    <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_NhanVien" FromRole="NhanVien" ToRole="HoaDon" />
+    <NavigationProperty Name="PhieuDichVus" Relationship="Self.FK_PhieuDichVu_NhanVien" FromRole="NhanVien" ToRole="PhieuDichVu" />
+  </EntityType>
+  <EntityType Name="PhieuDatPhongKhachSan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SoPhong" Type="Int32" Nullable="false" />
+    <Property Name="NgayVao" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="NgayRa" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TinhTrang" Type="Int32" Nullable="false" />
+    <Property Name="idKhachHang" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_PhieuDatPhongKhachSan_KhachHang" FromRole="PhieuDatPhongKhachSan" ToRole="KhachHang" />
+    <NavigationProperty Name="Phong" Relationship="Self.FK_PhieuDatPhongKhachSan_Phong" FromRole="PhieuDatPhongKhachSan" ToRole="Phong" />
+  </EntityType>
+  <EntityType Name="PhieuDichVu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idDatPhong" Type="Int32" Nullable="false" />
+    <Property Name="NgayDat" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="idDichVu" Type="Int32" Nullable="false" />
+    <Property Name="SoLuong" Type="Int32" Nullable="false" />
+    <Property Name="Gia" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="TinhTrang" Type="Int32" Nullable="false" />
+    <Property Name="idNv" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DatPhong" Relationship="Self.FK_PhieuDichVu_DatPhong" FromRole="PhieuDichVu" ToRole="DatPhong" />
+    <NavigationProperty Name="LoaiDichVu" Relationship="Self.FK_PhieuDichVu_LoaiDichVu" FromRole="PhieuDichVu" ToRole="LoaiDichVu" />
+    <NavigationProperty Name="NhanVien" Relationship="Self.FK_PhieuDichVu_NhanVien" FromRole="PhieuDichVu" ToRole="NhanVien" />
+  </EntityType>
+  <EntityType Name="Phong">
+    <Key>
+      <PropertyRef Name="SoPhong" />
+    </Key>
+    <Property Name="SoPhong" Type="Int32" Nullable="false" />
+    <Property Name="idLoaiPhong" Type="Int32" Nullable="false" />
+    <Property Name="Tang" Type="Int32" Nullable="false" />
+    <Property Name="imgPhong" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TinhTrang" Type="Boolean" Nullable="false" />
+    <Property Name="MoTaPhong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DatPhongs" Relationship="Self.FK_DatPhong_Phong" FromRole="Phong" ToRole="DatPhong" />
+    <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_Phong" FromRole="Phong" ToRole="HoaDon" />
+    <NavigationProperty Name="LoaiPhong" Relationship="Self.FK_Phong_LoaiPhong" FromRole="Phong" ToRole="LoaiPhong" />
+    <NavigationProperty Name="PhieuDatPhongKhachSans" Relationship="Self.FK_PhieuDatPhongKhachSan_Phong" FromRole="Phong" ToRole="PhieuDatPhongKhachSan" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -64,279 +150,185 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <Association Name="FK_Product_Category">
-    <End Role="Category" Type="Self.Category" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+  <Association Name="FK_DatPhong_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Category">
+      <Principal Role="NhanVien">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="IDCategory" />
+      <Dependent Role="DatPhong">
+        <PropertyRef Name="idNV" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Header_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Header" Type="Self.Header" Multiplicity="*" />
+  <Association Name="FK_DatPhong_Phong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+    <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Product">
-        <PropertyRef Name="ID" />
+      <Principal Role="Phong">
+        <PropertyRef Name="SoPhong" />
       </Principal>
-      <Dependent Role="Header">
-        <PropertyRef Name="IDProdcut" />
+      <Dependent Role="DatPhong">
+        <PropertyRef Name="SoPhong" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ConnectionStringDBShop" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Categories" EntityType="Self.Category" />
-    <EntitySet Name="Headers" EntityType="Self.Header" />
-    <EntitySet Name="News" EntityType="Self.News" />
-    <EntitySet Name="Products" EntityType="Self.Product" />
+  <Association Name="FK_PhieuDichVu_DatPhong">
+    <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="1" />
+    <End Role="PhieuDichVu" Type="Self.PhieuDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DatPhong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhieuDichVu">
+        <PropertyRef Name="idDatPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="idNv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_Phong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phong">
+        <PropertyRef Name="SoPhong" />
+      </Principal>
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="SoPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuDatPhongKhachSan_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="PhieuDatPhongKhachSan" Type="Self.PhieuDatPhongKhachSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="CMND" />
+      </Principal>
+      <Dependent Role="PhieuDatPhongKhachSan">
+        <PropertyRef Name="idKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuDichVu_LoaiDichVu">
+    <End Role="LoaiDichVu" Type="Self.LoaiDichVu" Multiplicity="1" />
+    <End Role="PhieuDichVu" Type="Self.PhieuDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiDichVu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhieuDichVu">
+        <PropertyRef Name="idDichVu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phong_LoaiPhong">
+    <End Role="LoaiPhong" Type="Self.LoaiPhong" Multiplicity="1" />
+    <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiPhong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Phong">
+        <PropertyRef Name="idLoaiPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuDichVu_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="PhieuDichVu" Type="Self.PhieuDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhieuDichVu">
+        <PropertyRef Name="idNv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuDatPhongKhachSan_Phong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+    <End Role="PhieuDatPhongKhachSan" Type="Self.PhieuDatPhongKhachSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phong">
+        <PropertyRef Name="SoPhong" />
+      </Principal>
+      <Dependent Role="PhieuDatPhongKhachSan">
+        <PropertyRef Name="SoPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelDbConnection" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BaiViets" EntityType="Self.BaiViet" />
+    <EntitySet Name="DatPhongs" EntityType="Self.DatPhong" />
+    <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="LoaiDichVus" EntityType="Self.LoaiDichVu" />
+    <EntitySet Name="LoaiPhongs" EntityType="Self.LoaiPhong" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <EntitySet Name="PhieuDatPhongKhachSans" EntityType="Self.PhieuDatPhongKhachSan" />
+    <EntitySet Name="PhieuDichVus" EntityType="Self.PhieuDichVu" />
+    <EntitySet Name="Phongs" EntityType="Self.Phong" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
-      <End Role="Category" EntitySet="Categories" />
-      <End Role="Product" EntitySet="Products" />
+    <AssociationSet Name="FK_DatPhong_NhanVien" Association="Self.FK_DatPhong_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="DatPhong" EntitySet="DatPhongs" />
     </AssociationSet>
-    <AssociationSet Name="FK_Header_Product" Association="Self.FK_Header_Product">
-      <End Role="Product" EntitySet="Products" />
-      <End Role="Header" EntitySet="Headers" />
+    <AssociationSet Name="FK_DatPhong_Phong" Association="Self.FK_DatPhong_Phong">
+      <End Role="Phong" EntitySet="Phongs" />
+      <End Role="DatPhong" EntitySet="DatPhongs" />
     </AssociationSet>
-    <FunctionImport Name="GET_HEADER" ReturnType="Collection(CookwareDBModel.GET_HEADER_Result)" />
-    <FunctionImport Name="GETLISTCATEGORY" ReturnType="Collection(CookwareDBModel.GETLISTCATEGORY_Result)" />
-    <FunctionImport Name="GETLISTPRODUCT_SELLMAX" ReturnType="Collection(CookwareDBModel.GETLISTPRODUCT_SELLMAX_Result)" />
-    <FunctionImport Name="GETPRODUCT_NEWS" ReturnType="Collection(CookwareDBModel.GETPRODUCT_NEWS_Result)" />
-    <FunctionImport Name="GETPRODUCTDETAIL_BY_ID" ReturnType="Collection(CookwareDBModel.GETPRODUCTDETAIL_BY_ID_Result)">
-      <Parameter Name="ID" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="GET_PRODUCT_BY_CATEGORY" ReturnType="Collection(CookwareDBModel.GET_PRODUCT_BY_CATEGORY_Result)">
-      <Parameter Name="IDCategory" Mode="In" Type="Int32" />
-      <Parameter Name="PAGE" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="GETPRODUCTALL" ReturnType="Collection(CookwareDBModel.GETPRODUCTALL_Result)">
-      <Parameter Name="PAGE" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="GETPRODUCT_BY_TYPE_DATE_ASC" ReturnType="Collection(CookwareDBModel.GETPRODUCT_BY_TYPE_DATE_ASC_Result)">
-      <Parameter Name="PAGE" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="GETPRODUCT_BY_TYPE_PRICE_ASC" ReturnType="Collection(CookwareDBModel.GETPRODUCT_BY_TYPE_PRICE_ASC_Result)">
-      <Parameter Name="PAGE" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="GETPRODUCT_BY_TYPE_PRICE_DESC" ReturnType="Collection(CookwareDBModel.GETPRODUCT_BY_TYPE_PRICE_DESC_Result)">
-      <Parameter Name="PAGE" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <EntitySet Name="SupportFeatures" EntityType="CookwareDBModel.SupportFeature" />
-    <FunctionImport Name="GET_INFO_WEBSITE" ReturnType="Collection(CookwareDBModel.GET_INFO_WEBSITE_Result)" />
-    <FunctionImport Name="GETNEWS_BY_DATE" ReturnType="Collection(CookwareDBModel.GETNEWS_BY_DATE_Result)" />
-    <FunctionImport Name="GETNEWS_BY_VIEW" ReturnType="Collection(CookwareDBModel.GETNEWS_BY_VIEW_Result)" />
-    <EntitySet Name="Customers" EntityType="CookwareDBModel.Customer" />
-    <EntitySet Name="Roles" EntityType="CookwareDBModel.Role" />
-    <AssociationSet Name="FK_Customer_News" Association="CookwareDBModel.FK_Customer_News">
-      <End Role="News" EntitySet="News" />
-      <End Role="Customer" EntitySet="Customers" />
+    <AssociationSet Name="FK_PhieuDichVu_DatPhong" Association="Self.FK_PhieuDichVu_DatPhong">
+      <End Role="DatPhong" EntitySet="DatPhongs" />
+      <End Role="PhieuDichVu" EntitySet="PhieuDichVus" />
     </AssociationSet>
-    <AssociationSet Name="FK_Customer_Role" Association="CookwareDBModel.FK_Customer_Role">
-      <End Role="Role" EntitySet="Roles" />
-      <End Role="Customer" EntitySet="Customers" />
+    <AssociationSet Name="FK_HoaDon_NhanVien" Association="Self.FK_HoaDon_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
     </AssociationSet>
-    <FunctionImport Name="GETLISTPRODUCT_INTEREST" ReturnType="Collection(CookwareDBModel.GETLISTPRODUCT_INTEREST_Result)" />
-    <FunctionImport Name="GETLISTPRODUCT_PRICESALE" ReturnType="Collection(CookwareDBModel.GETLISTPRODUCT_PRICESALE_Result)" />
+    <AssociationSet Name="FK_HoaDon_Phong" Association="Self.FK_HoaDon_Phong">
+      <End Role="Phong" EntitySet="Phongs" />
+      <End Role="HoaDon" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuDatPhongKhachSan_KhachHang" Association="Self.FK_PhieuDatPhongKhachSan_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="PhieuDatPhongKhachSan" EntitySet="PhieuDatPhongKhachSans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuDichVu_LoaiDichVu" Association="Self.FK_PhieuDichVu_LoaiDichVu">
+      <End Role="LoaiDichVu" EntitySet="LoaiDichVus" />
+      <End Role="PhieuDichVu" EntitySet="PhieuDichVus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phong_LoaiPhong" Association="Self.FK_Phong_LoaiPhong">
+      <End Role="LoaiPhong" EntitySet="LoaiPhongs" />
+      <End Role="Phong" EntitySet="Phongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuDichVu_NhanVien" Association="Self.FK_PhieuDichVu_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanViens" />
+      <End Role="PhieuDichVu" EntitySet="PhieuDichVus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuDatPhongKhachSan_Phong" Association="Self.FK_PhieuDatPhongKhachSan_Phong">
+      <End Role="Phong" EntitySet="Phongs" />
+      <End Role="PhieuDatPhongKhachSan" EntitySet="PhieuDatPhongKhachSans" />
+    </AssociationSet>
+    <FunctionImport Name="GET_SERVICE_ALL" ReturnType="Collection(HotelDatabaseModel.GET_SERVICE_ALL_Result)" />
   </EntityContainer>
-  <ComplexType Name="GET_HEADER_Result">
+  <ComplexType Name="GET_SERVICE_ALL_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="ImagerHeader" Nullable="false" MaxLength="200" />
-    <Property Type="Int32" Name="IDProdcut" Nullable="false" />
-  </ComplexType>
-  <ComplexType Name="GETLISTCATEGORY_Result">
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
-    <Property Type="String" Name="ImageCategory" Nullable="false" MaxLength="200" />
-  </ComplexType>
-  <ComplexType Name="GETLISTPRODUCT_SELLMAX_Result">
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
-    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
-    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
-    <Property Type="String" Name="Description" Nullable="false" />
-    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="ImageProductDetail1" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="ImageProductDetail2" Nullable="true" MaxLength="200" />
-    <Property Type="Int32" Name="Amount" Nullable="false" />
-    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
-  </ComplexType>
-  <ComplexType Name="GETPRODUCT_NEWS_Result">
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
-    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
-    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
-    <Property Type="String" Name="Description" Nullable="false" />
-    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="ImageProductDetail1" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="ImageProductDetail2" Nullable="true" MaxLength="200" />
-    <Property Type="Int32" Name="Amount" Nullable="false" />
-    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
-  </ComplexType>
-  <ComplexType Name="GETPRODUCTDETAIL_BY_ID_Result">
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
-    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
-    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
-    <Property Type="String" Name="Description" Nullable="false" />
-    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="ImageProductDetail1" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="ImageProductDetail2" Nullable="true" MaxLength="200" />
-    <Property Type="Int32" Name="Amount" Nullable="false" />
-    <Property Type="Int32" Name="IDCategory" Nullable="false" />
-    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
-  </ComplexType>
-  <ComplexType Name="GET_PRODUCT_BY_CATEGORY_Result">
-    <Property Type="Int32" Name="TotalRows" Nullable="true" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
-    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
-    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
-    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
-  </ComplexType>
-  <ComplexType Name="GETPRODUCTALL_Result">
-    <Property Type="Int32" Name="TotalRows" Nullable="true" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
-    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
-    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
-    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
-  </ComplexType>
-  <ComplexType Name="GETPRODUCT_BY_TYPE_DATE_ASC_Result">
-    <Property Type="Int32" Name="TotalRows" Nullable="true" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
-    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
-    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
-    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
-  </ComplexType>
-  <ComplexType Name="GETPRODUCT_BY_TYPE_PRICE_ASC_Result">
-    <Property Type="Int32" Name="TotalRows" Nullable="true" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
-    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
-    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
-    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
-  </ComplexType>
-  <ComplexType Name="GETPRODUCT_BY_TYPE_PRICE_DESC_Result">
-    <Property Type="Int32" Name="TotalRows" Nullable="true" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
-    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
-    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
-    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
-    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
-  </ComplexType>
-  <EntityType Name="SupportFeature">
-    <Key>
-      <PropertyRef Name="Address" />
-      <PropertyRef Name="Phone" />
-      <PropertyRef Name="PhoneHouse" />
-      <PropertyRef Name="MailAddress" />
-    </Key>
-    <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="PhoneHouse" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="MailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <ComplexType Name="GET_INFO_WEBSITE_Result">
-    <Property Type="String" Name="Address" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="Phone" Nullable="false" MaxLength="20" />
-    <Property Type="String" Name="PhoneHouse" Nullable="false" MaxLength="20" />
-    <Property Type="String" Name="MailAddress" Nullable="false" MaxLength="100" />
-  </ComplexType>
-  <ComplexType Name="GETNEWS_BY_DATE_Result">
-    <Property Type="String" Name="NameNews" Nullable="false" MaxLength="100" />
-    <Property Type="DateTime" Name="Date" Nullable="false" />
-    <Property Type="Int32" Name="ViewMax" Nullable="true" />
-    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
-  </ComplexType>
-  <ComplexType Name="GETNEWS_BY_VIEW_Result">
-    <Property Type="String" Name="NameNews" Nullable="false" MaxLength="100" />
-    <Property Type="DateTime" Name="Date" Nullable="false" />
-    <Property Type="Int32" Name="ViewMax" Nullable="true" />
-    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
-  </ComplexType>
-  <EntityType Name="Customer">
-    <Key>
-      <PropertyRef Name="ID" />
-      <PropertyRef Name="Telephone" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Telephone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PassWord" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="NameCustomer" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="RoleId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="News" Relationship="CookwareDBModel.FK_Customer_News" FromRole="Customer" ToRole="News" />
-    <NavigationProperty Name="Role" Relationship="CookwareDBModel.FK_Customer_Role" FromRole="Customer" ToRole="Role" />
-  </EntityType>
-  <EntityType Name="Role">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Customers" Relationship="CookwareDBModel.FK_Customer_Role" FromRole="Role" ToRole="Customer" />
-  </EntityType>
-  <Association Name="FK_Customer_News">
-    <End Type="CookwareDBModel.News" Role="News" Multiplicity="1" />
-    <End Type="CookwareDBModel.Customer" Role="Customer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="News">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Customer">
-        <PropertyRef Name="ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Customer_Role">
-    <End Type="CookwareDBModel.Role" Role="Role" Multiplicity="1" />
-    <End Type="CookwareDBModel.Customer" Role="Customer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Role">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Customer">
-        <PropertyRef Name="RoleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <ComplexType Name="GETLISTPRODUCT_INTEREST_Result">
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
-    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
-    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
-    <Property Type="String" Name="Description" Nullable="false" />
-    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="ImageProductDetail1" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="ImageProductDetail2" Nullable="true" MaxLength="200" />
-    <Property Type="Int32" Name="Amount" Nullable="false" />
-    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
-  </ComplexType>
-  <ComplexType Name="GETLISTPRODUCT_PRICESALE_Result">
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="100" />
-    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
-    <Property Type="String" Name="BriefDes" Nullable="false" MaxLength="500" />
-    <Property Type="String" Name="Description" Nullable="false" />
-    <Property Type="String" Name="ImageProduct" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="ImageProductDetail1" Nullable="true" MaxLength="200" />
-    <Property Type="String" Name="ImageProductDetail2" Nullable="true" MaxLength="200" />
-    <Property Type="Int32" Name="Amount" Nullable="false" />
-    <Property Type="Decimal" Name="PriceSale" Nullable="true" Precision="18" Scale="2" />
+    <Property Type="String" Name="TenDichVu" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Gia" Nullable="false" Precision="19" />
+    <Property Type="String" Name="imgDichVu" Nullable="true" MaxLength="500" />
   </ComplexType>
 </Schema>

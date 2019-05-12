@@ -86,59 +86,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dtos\FindProductDto.cs" />
-    <Compile Include="Dtos\GetBrandDto.cs" />
-    <Compile Include="Dtos\GetCategoryDto.cs" />
-    <Compile Include="Dtos\GetCountProductBrandDto.cs" />
-    <Compile Include="Dtos\GetIntroductionDto.cs" />
-    <Compile Include="Dtos\GetListHeaderDto.cs" />
-    <Compile Include="Dtos\GetListNewsDto.cs" />
-    <Compile Include="Dtos\GetListProductAdminDto.cs" />
-    <Compile Include="Dtos\GetNewsAllDto.cs" />
-    <Compile Include="Dtos\GetNewsDetailDto.cs" />
-    <Compile Include="Dtos\GetProductAllDto.cs" />
-    <Compile Include="Dtos\GetProductIndex.cs" />
-    <Compile Include="Dtos\ListCustomersDto.cs" />
-    <Compile Include="Dtos\ProductDetailDto.cs" />
-    <Compile Include="Dtos\RolesListDto.cs" />
-    <Compile Include="Dtos\SendMailCommentCustomerDto.cs" />
-    <Compile Include="Dtos\SupportFeatureDto.cs" />
+    <Compile Include="Dtos\GetServiceDTO.cs" />
+    <Compile Include="IServiceBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Requests\AddCategoryRequest.cs" />
-    <Compile Include="Requests\ActionRoleRequest.cs" />
-    <Compile Include="Requests\AddNewsRequest.cs" />
-    <Compile Include="Requests\DeleteCategoryRequest.cs" />
-    <Compile Include="Requests\DeleteCustomerRequest.cs" />
-    <Compile Include="Requests\DeleteProductRequest.cs" />
-    <Compile Include="Requests\DeleteNewsRequest.cs" />
-    <Compile Include="Requests\EditCategoryRequest.cs" />
-    <Compile Include="Requests\EditNewsRequest.cs" />
-    <Compile Include="Requests\FindProductRequest.cs" />
-    <Compile Include="Requests\GetNewsDetailRequest.cs" />
-    <Compile Include="Requests\GetProductAllRequest.cs" />
-    <Compile Include="Requests\GetProductByCategoryRequest.cs" />
-    <Compile Include="Requests\InsertCustomerRequest.cs" />
-    <Compile Include="Requests\InsertProductRequest.cs" />
-    <Compile Include="Requests\ProductDetailRequest.cs" />
-    <Compile Include="Requests\SendMailCommentCustomerRequest.cs" />
-    <Compile Include="Requests\UpdateCustomerRequest.cs" />
-    <Compile Include="Requests\UpdateProductRequest.cs" />
-    <Compile Include="Response\FindProductResponse.cs" />
-    <Compile Include="Response\GetBrandResponse.cs" />
-    <Compile Include="Response\GetCategoryResponse.cs" />
-    <Compile Include="Response\GetCountProductBrandResponse.cs" />
-    <Compile Include="Response\GetIntroductionResponse.cs" />
-    <Compile Include="Response\GetListCustomerResponse.cs" />
-    <Compile Include="Response\GetListHeaderResponse.cs" />
-    <Compile Include="Response\GetListNewsAllResponse.cs" />
-    <Compile Include="Response\GetListProductAdminResponse.cs" />
-    <Compile Include="Response\GetNewsAllResponse.cs" />
-    <Compile Include="Response\GetNewsDetailResponse.cs" />
-    <Compile Include="Response\GetProductAllResponse.cs" />
-    <Compile Include="Response\GetProductIndexResponse.cs" />
-    <Compile Include="Response\GetProductDetailResponse.cs" />
-    <Compile Include="Response\RolesListResponse.cs" />
-    <Compile Include="Response\SupportFeatureResponse.cs" />
+    <Compile Include="Response\GetServiceResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -153,6 +104,9 @@
       <Project>{f76aa855-c9eb-472b-90c9-5fecbe89275a}</Project>
       <Name>EntityData</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Requests\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
