@@ -83,133 +83,69 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="BaiViet.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="Category.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="DatPhong.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="Customer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="GET_SERVICE_ALL_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="FIND_PRODUCT_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="HoaDon.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="GETLISTCATEGORY_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="KhachHang.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="GETLISTPRODUCT_INTEREST_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="LoaiDichVu.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="GETLISTPRODUCT_PRICESALE_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="LoaiPhong.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="GETLISTPRODUCT_SELLMAX_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GETNEWSDETAIL_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GETNEWS_BY_DATE_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GETNEWS_BY_VIEW_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GETPRODUCTALL_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GETPRODUCTDETAIL_BY_ID_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GETPRODUCT_BY_TYPE_DATE_ASC_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GETPRODUCT_BY_TYPE_PRICE_ASC_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GETPRODUCT_BY_TYPE_PRICE_DESC_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GETPRODUCT_NEWS_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GET_HEADER_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GET_INFO_WEBSITE_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GET_INTRODUCTION_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GET_LISTPRODUCT_ALL_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GET_LIST_BANNER_IMG_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GET_LIST_CUSTOMERS_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GET_LIST_ROLE_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GET_LIST_SLIDER_IMG_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GET_NEWS_ALL_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GET_PRODUCT_BY_CATEGORY_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Header.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Introduction.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model1.Context.cs">
+    <Compile Include="ModelData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>ModelData.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.cs">
+    <Compile Include="ModelData.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Designer.cs">
+    <Compile Include="ModelData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>ModelData.edmx</DependentUpon>
     </Compile>
-    <Compile Include="News.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="NhanVien.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="PhieuDatPhongKhachSan.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhieuDichVu.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Phong.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Role.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SupportFeature.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <EntityDeploy Include="Model1.edmx">
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="ModelData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelData.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="ModelData.edmx.diagram">
+      <DependentUpon>ModelData.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -217,15 +153,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model1.Context.tt">
+    <Content Include="ModelData.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>ModelData.edmx</DependentUpon>
+      <LastGenOutput>ModelData.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model1.tt">
+    <Content Include="ModelData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>ModelData.edmx</DependentUpon>
+      <LastGenOutput>ModelData.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

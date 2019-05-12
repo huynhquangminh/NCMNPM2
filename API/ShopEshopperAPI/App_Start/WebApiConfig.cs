@@ -1,4 +1,8 @@
 ﻿using BaseApplication;
+using BusinessLogic;
+using BusinessLogicInterface;
+using DataAcceessInterface;
+using DataAccess;
 using Microsoft.Owin.Security.OAuth;
 using System.Web.Http;
 using Unity;
@@ -16,9 +20,9 @@ namespace ShopEshopperAPI
 
             // Web API DI
             var container = new UnityContainer();
-            // CATEGORY
-            //container.RegisterType<ICategoryBusinessLogic, CategoryBusinessLogic>();
-            //container.RegisterType<ICategoryDataAccess, CategoryDataAccess>();
+            // Service
+            container.RegisterType<IServiceBusinessLogic, ServiceBusinessLogic>();
+            container.RegisterType<IServiceDataAccess, ServiceDataAccess>();
 
             config.DependencyResolver = new UnityResolver(container);
 

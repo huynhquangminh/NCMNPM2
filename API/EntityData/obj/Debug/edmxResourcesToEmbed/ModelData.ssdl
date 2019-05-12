@@ -1,86 +1,124 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CookwareDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Category">
+<Schema Namespace="HotelDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BaiViet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenBaiViet" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="NoiDung" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="NoiDungChiTiet" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NgayTao" Type="date" Nullable="false" />
+    <Property Name="HinhAnh" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DatPhong">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NameCategory" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="ImageCategory" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="SoPhong" Type="int" Nullable="false" />
+    <Property Name="NgayVao" Type="date" Nullable="false" />
+    <Property Name="NgayRa" Type="date" Nullable="false" />
+    <Property Name="TenKhachHang" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CMND" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="idNV" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Customer">
+  <EntityType Name="HoaDon">
     <Key>
       <PropertyRef Name="ID" />
-      <PropertyRef Name="Telephone" />
+      <PropertyRef Name="SoPhong" />
+      <PropertyRef Name="NgayVao" />
+      <PropertyRef Name="NgayRa" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Telephone" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="UserName" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="PassWord" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="NameCustomer" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="SoPhong" Type="int" Nullable="false" />
+    <Property Name="NgayVao" Type="date" Nullable="false" />
+    <Property Name="NgayRa" Type="date" Nullable="false" />
+    <Property Name="TienPhong" Type="money" Nullable="false" />
+    <Property Name="TienDichVu" Type="money" Nullable="false" />
+    <Property Name="PhuThu" Type="money" Nullable="false" />
+    <Property Name="TongTien" Type="money" Nullable="false" />
+    <Property Name="TinhTrang" Type="int" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="idNv" Type="int" />
   </EntityType>
-  <EntityType Name="Header">
+  <EntityType Name="KhachHang">
     <Key>
-      <PropertyRef Name="ID" />
+      <PropertyRef Name="CMND" />
     </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ImagerHeader" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="IDProdcut" Type="int" Nullable="false" />
-    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="CMND" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SĐT" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="imgKhachHang" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="News">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NameNews" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="IDCreater" Type="int" Nullable="false" />
-    <Property Name="Date" Type="date" Nullable="false" />
-    <Property Name="ImageNews" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="ImageNewDetail" Type="varchar" MaxLength="200" />
-    <Property Name="ViewMax" Type="int" />
-  </EntityType>
-  <EntityType Name="Product">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NameProduct" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="BriefDes" Type="nvarchar" MaxLength="500" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="ImageProduct" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="ImageProductDetail1" Type="varchar" MaxLength="200" />
-    <Property Name="ImageProductDetail2" Type="varchar" MaxLength="200" />
-    <Property Name="Amount" Type="int" Nullable="false" />
-    <Property Name="Date" Type="date" Nullable="false" />
-    <Property Name="IDCategory" Type="int" Nullable="false" />
-    <Property Name="PriceSale" Type="decimal" Precision="18" Scale="2" />
-    <Property Name="InterestProduct" Type="int" />
-    <Property Name="SellMax" Type="int" />
-    <Property Name="DeletePro" Type="bit" />
-  </EntityType>
-  <EntityType Name="Role">
+  <EntityType Name="LoaiDichVu">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="RoleName" Type="nvarchar" MaxLength="100" />
+    <Property Name="TenDichVu" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DonViTinh" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Gia" Type="money" Nullable="false" />
+    <Property Name="imgDichVu" Type="nvarchar" MaxLength="500" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'CookwareDB.dbo.SupportFeature' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="SupportFeature">
+  <EntityType Name="LoaiPhong">
     <Key>
-      <PropertyRef Name="Address" />
-      <PropertyRef Name="Phone" />
-      <PropertyRef Name="PhoneHouse" />
-      <PropertyRef Name="MailAddress" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
-    <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="PhoneHouse" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="MailAddress" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoaiPhong" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="GiaPhong" Type="money" Nullable="false" />
+    <Property Name="imgLoaiPhong" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNhanVien" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="CMND" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="idLoaiNV" Type="int" Nullable="false" />
+    <Property Name="SĐT" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PhieuDatPhongKhachSan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoPhong" Type="int" Nullable="false" />
+    <Property Name="NgayVao" Type="date" Nullable="false" />
+    <Property Name="NgayRa" Type="date" Nullable="false" />
+    <Property Name="TinhTrang" Type="int" Nullable="false" />
+    <Property Name="idKhachHang" Type="varchar" MaxLength="11" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PhieuDichVu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idDatPhong" Type="int" Nullable="false" />
+    <Property Name="NgayDat" Type="date" Nullable="false" />
+    <Property Name="idDichVu" Type="int" Nullable="false" />
+    <Property Name="SoLuong" Type="int" Nullable="false" />
+    <Property Name="Gia" Type="money" Nullable="false" />
+    <Property Name="TinhTrang" Type="int" Nullable="false" />
+    <Property Name="idNv" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Phong">
+    <Key>
+      <PropertyRef Name="SoPhong" />
+    </Key>
+    <Property Name="SoPhong" Type="int" Nullable="false" />
+    <Property Name="idLoaiPhong" Type="int" Nullable="false" />
+    <Property Name="Tang" Type="int" Nullable="false" />
+    <Property Name="imgPhong" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="TinhTrang" Type="bit" Nullable="false" />
+    <Property Name="MoTaPhong" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -92,113 +130,178 @@ warning 6002: The table/view 'CookwareDB.dbo.SupportFeature' does not have a pri
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <Association Name="FK_Customer_News">
-    <End Role="News" Type="Self.News" Multiplicity="1" />
-    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+  <Association Name="FK_DatPhong_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="News">
+      <Principal Role="NhanVien">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="Customer">
-        <PropertyRef Name="ID" />
+      <Dependent Role="DatPhong">
+        <PropertyRef Name="idNV" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Customer_Role">
-    <End Role="Role" Type="Self.Role" Multiplicity="1" />
-    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+  <Association Name="FK_DatPhong_Phong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+    <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Role">
-        <PropertyRef Name="ID" />
+      <Principal Role="Phong">
+        <PropertyRef Name="SoPhong" />
       </Principal>
-      <Dependent Role="Customer">
-        <PropertyRef Name="RoleId" />
+      <Dependent Role="DatPhong">
+        <PropertyRef Name="SoPhong" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Header_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="1" />
-    <End Role="Header" Type="Self.Header" Multiplicity="*" />
+  <Association Name="FK_HoaDon_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Product">
+      <Principal Role="NhanVien">
         <PropertyRef Name="ID" />
       </Principal>
-      <Dependent Role="Header">
-        <PropertyRef Name="IDProdcut" />
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="idNv" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Product_Category">
-    <End Role="Category" Type="Self.Category" Multiplicity="1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+  <Association Name="FK_HoaDon_Phong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+    <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Category">
-        <PropertyRef Name="ID" />
+      <Principal Role="Phong">
+        <PropertyRef Name="SoPhong" />
       </Principal>
-      <Dependent Role="Product">
-        <PropertyRef Name="IDCategory" />
+      <Dependent Role="HoaDon">
+        <PropertyRef Name="SoPhong" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="GET_HEADER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="GET_INFO_WEBSITE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="GET_PRODUCT_BY_CATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="IDCategory" Type="int" Mode="In" />
-    <Parameter Name="PAGE" Type="int" Mode="In" />
-  </Function>
-  <Function Name="GETLISTCATEGORY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="GETLISTPRODUCT_INTEREST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="GETLISTPRODUCT_PRICESALE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="GETLISTPRODUCT_SELLMAX" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="GETNEWS_BY_DATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="GETNEWS_BY_VIEW" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="GETPRODUCT_BY_TYPE_DATE_ASC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="PAGE" Type="int" Mode="In" />
-  </Function>
-  <Function Name="GETPRODUCT_BY_TYPE_PRICE_ASC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="PAGE" Type="int" Mode="In" />
-  </Function>
-  <Function Name="GETPRODUCT_BY_TYPE_PRICE_DESC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="PAGE" Type="int" Mode="In" />
-  </Function>
-  <Function Name="GETPRODUCT_NEWS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="GETPRODUCTALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="PAGE" Type="int" Mode="In" />
-  </Function>
-  <Function Name="GETPRODUCTDETAIL_BY_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-  </Function>
-  <EntityContainer Name="CookwareDBModelStoreContainer">
-    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Header" EntityType="Self.Header" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+  <Association Name="FK_PhieuDatPhongKhachSan_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="PhieuDatPhongKhachSan" Type="Self.PhieuDatPhongKhachSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="CMND" />
+      </Principal>
+      <Dependent Role="PhieuDatPhongKhachSan">
+        <PropertyRef Name="idKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuDatPhongKhachSan_Phong">
+    <End Role="Phong" Type="Self.Phong" Multiplicity="1" />
+    <End Role="PhieuDatPhongKhachSan" Type="Self.PhieuDatPhongKhachSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phong">
+        <PropertyRef Name="SoPhong" />
+      </Principal>
+      <Dependent Role="PhieuDatPhongKhachSan">
+        <PropertyRef Name="SoPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuDichVu_DatPhong">
+    <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="1" />
+    <End Role="PhieuDichVu" Type="Self.PhieuDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DatPhong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhieuDichVu">
+        <PropertyRef Name="idDatPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuDichVu_LoaiDichVu">
+    <End Role="LoaiDichVu" Type="Self.LoaiDichVu" Multiplicity="1" />
+    <End Role="PhieuDichVu" Type="Self.PhieuDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiDichVu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhieuDichVu">
+        <PropertyRef Name="idDichVu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuDichVu_NhanVien">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="PhieuDichVu" Type="Self.PhieuDichVu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhieuDichVu">
+        <PropertyRef Name="idNv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Phong_LoaiPhong">
+    <End Role="LoaiPhong" Type="Self.LoaiPhong" Multiplicity="1" />
+    <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiPhong">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Phong">
+        <PropertyRef Name="idLoaiPhong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GET_SERVICE_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="HotelDatabaseModelStoreContainer">
+    <EntitySet Name="BaiViet" EntityType="Self.BaiViet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DatPhong" EntityType="Self.DatPhong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoaDon" EntityType="Self.HoaDon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiDichVu" EntityType="Self.LoaiDichVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiPhong" EntityType="Self.LoaiPhong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuDatPhongKhachSan" EntityType="Self.PhieuDatPhongKhachSan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuDichVu" EntityType="Self.PhieuDichVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="SupportFeature" EntityType="Self.SupportFeature" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [SupportFeature].[Address] AS [Address], 
-    [SupportFeature].[Phone] AS [Phone], 
-    [SupportFeature].[PhoneHouse] AS [PhoneHouse], 
-    [SupportFeature].[MailAddress] AS [MailAddress]
-    FROM [dbo].[SupportFeature] AS [SupportFeature]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="FK_Customer_News" Association="Self.FK_Customer_News">
-      <End Role="News" EntitySet="News" />
-      <End Role="Customer" EntitySet="Customer" />
+    <AssociationSet Name="FK_DatPhong_NhanVien" Association="Self.FK_DatPhong_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="DatPhong" EntitySet="DatPhong" />
     </AssociationSet>
-    <AssociationSet Name="FK_Customer_Role" Association="Self.FK_Customer_Role">
-      <End Role="Role" EntitySet="Role" />
-      <End Role="Customer" EntitySet="Customer" />
+    <AssociationSet Name="FK_DatPhong_Phong" Association="Self.FK_DatPhong_Phong">
+      <End Role="Phong" EntitySet="Phong" />
+      <End Role="DatPhong" EntitySet="DatPhong" />
     </AssociationSet>
-    <AssociationSet Name="FK_Header_Product" Association="Self.FK_Header_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="Header" EntitySet="Header" />
+    <AssociationSet Name="FK_HoaDon_NhanVien" Association="Self.FK_HoaDon_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="HoaDon" EntitySet="HoaDon" />
     </AssociationSet>
-    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
-      <End Role="Category" EntitySet="Category" />
-      <End Role="Product" EntitySet="Product" />
+    <AssociationSet Name="FK_HoaDon_Phong" Association="Self.FK_HoaDon_Phong">
+      <End Role="Phong" EntitySet="Phong" />
+      <End Role="HoaDon" EntitySet="HoaDon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuDatPhongKhachSan_KhachHang" Association="Self.FK_PhieuDatPhongKhachSan_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="PhieuDatPhongKhachSan" EntitySet="PhieuDatPhongKhachSan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuDatPhongKhachSan_Phong" Association="Self.FK_PhieuDatPhongKhachSan_Phong">
+      <End Role="Phong" EntitySet="Phong" />
+      <End Role="PhieuDatPhongKhachSan" EntitySet="PhieuDatPhongKhachSan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuDichVu_DatPhong" Association="Self.FK_PhieuDichVu_DatPhong">
+      <End Role="DatPhong" EntitySet="DatPhong" />
+      <End Role="PhieuDichVu" EntitySet="PhieuDichVu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuDichVu_LoaiDichVu" Association="Self.FK_PhieuDichVu_LoaiDichVu">
+      <End Role="LoaiDichVu" EntitySet="LoaiDichVu" />
+      <End Role="PhieuDichVu" EntitySet="PhieuDichVu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuDichVu_NhanVien" Association="Self.FK_PhieuDichVu_NhanVien">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="PhieuDichVu" EntitySet="PhieuDichVu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Phong_LoaiPhong" Association="Self.FK_Phong_LoaiPhong">
+      <End Role="LoaiPhong" EntitySet="LoaiPhong" />
+      <End Role="Phong" EntitySet="Phong" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
