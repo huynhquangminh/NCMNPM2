@@ -14,3 +14,9 @@ API/.vs/ShopEshopperAPI/v15/.suo
 API/ShopEshopperAPI.sln
 /API/DataAcceessInterface/bin/Debug/*
 /API/BaseApplication/obj/Debug/*
+/API/ShopEshopperAPI/bin/*
+/API/.vs/ShopEshopperAPI/v15/*
+/API/BusinessLogic/bin/Debug/*
+/API/BusinessLogicInterface/bin/Debug/*
+/API/DataAcceessInterface/bin/Debug/*
+/API/DataAccess/bin/Debug/*
