@@ -20,5 +20,10 @@ namespace DataAccess
         {
             return db.GET_SERVICE_ALL();
         }
+
+        public IEnumerable<GET_LIST_ROOM_Result> GetRoomList()
+        {
+            return db.GET_LIST_ROOM();
+        }
     }
 }

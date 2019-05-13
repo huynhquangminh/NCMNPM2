@@ -14,5 +14,11 @@ namespace BusinessLogicInterface
         /// </summary>
         /// <returns>GetServiceResponse</returns>
         Task<GetServiceResponse> GetServiceAll();
+
+        /// <summary>
+        /// GetRoomList
+        /// </summary>
+        /// <returns>GetListRoomResponse</returns>
+        Task<GetListRoomResponse> GetRoomList();
     }
 }

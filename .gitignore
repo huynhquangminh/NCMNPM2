@@ -12,3 +12,5 @@ API/.vs/ShopEshopperAPI/v15/Server/sqlite3/storage.ide
 API/.vs/ShopEshopperAPI/v15/Server/sqlite3/storage.ide-shm
 API/.vs/ShopEshopperAPI/v15/.suo
 API/ShopEshopperAPI.sln
+/API/DataAcceessInterface/bin/Debug/*
+/API/BaseApplication/obj/Debug/*

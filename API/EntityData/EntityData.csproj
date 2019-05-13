@@ -89,6 +89,12 @@
     <Compile Include="DatPhong.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
+    <Compile Include="GetListRoom_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GET_LIST_ROOM_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
     <Compile Include="GET_SERVICE_ALL_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
