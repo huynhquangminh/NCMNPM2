@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EshopperDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameBrand" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Brands" FromRole="Brands" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SexID" Type="Int32" />
+    <NavigationProperty Name="Sex" Relationship="Self.FK_Category_Sex" FromRole="Category" ToRole="Sex" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameProduct" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Availability" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BrandID" Type="Int32" Nullable="false" />
+    <Property Name="Evaluate" Type="Int32" Nullable="false" />
+    <Property Name="Sale" Type="Boolean" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageDetail1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ImageDetail2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ImageDetail3" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ImageDeatail4" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sexid" Type="Int32" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LikeNumber" Type="Int32" />
+    <Property Name="DeleteProduct" Type="Boolean" />
+    <NavigationProperty Name="Brand" Relationship="Self.FK_Product_Brands" FromRole="Product" ToRole="Brands" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="Sex" Relationship="Self.FK_Product_Sex" FromRole="Product" ToRole="Sex" />
+  </EntityType>
+  <EntityType Name="Sex">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sex1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Category_Sex" FromRole="Sex" ToRole="Category" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Sex" FromRole="Sex" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ContactInfo">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Address" />
+      <PropertyRef Name="Mobile" />
+      <PropertyRef Name="Fax" />
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mobile" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Product_Brands">
+    <End Role="Brands" Type="Self.Brand" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brands">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="BrandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Category_Sex">
+    <End Role="Sex" Type="Self.Sex" Multiplicity="0..1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sex">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="SexID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Sex">
+    <End Role="Sex" Type="Self.Sex" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sex">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Sexid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ConnectionEshopperDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Brands" EntityType="Self.Brand" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Sexes" EntityType="Self.Sex" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="ContactInfoes" EntityType="Self.ContactInfo" />
+    <AssociationSet Name="FK_Product_Brands" Association="Self.FK_Product_Brands">
+      <End Role="Brands" EntitySet="Brands" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Category_Sex" Association="Self.FK_Category_Sex">
+      <End Role="Sex" EntitySet="Sexes" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Sex" Association="Self.FK_Product_Sex">
+      <End Role="Sex" EntitySet="Sexes" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(EshopperDBModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(EshopperDBModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="COUNTPRODUCT_IN_BRAND" ReturnType="Collection(EshopperDBModel.COUNTPRODUCT_IN_BRAND_Result)" />
+    <FunctionImport Name="GETLISTBRAND" ReturnType="Collection(EshopperDBModel.GETLISTBRAND_Result)" />
+    <FunctionImport Name="GETLISTCATEGORY" ReturnType="Collection(EshopperDBModel.GETLISTCATEGORY_Result)" />
+    <FunctionImport Name="GETPRODUCTMAXLIKE" ReturnType="Collection(EshopperDBModel.GETPRODUCTMAXLIKE_Result)" />
+    <FunctionImport Name="GETPRODUCTNEW" ReturnType="Collection(EshopperDBModel.GETPRODUCTNEW_Result)" />
+    <FunctionImport Name="GETPRODUCTSALE" ReturnType="Collection(EshopperDBModel.GETPRODUCTSALE_Result)" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="COUNTPRODUCT_IN_BRAND_Result">
+    <Property Type="Int32" Name="BrandID" Nullable="false" />
+    <Property Type="Int32" Name="SUMPR" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETLISTBRAND_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameBrand" Nullable="false" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GETLISTCATEGORY_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameCategory" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="SexID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GETPRODUCTMAXLIKE_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Image" Nullable="false" MaxLength="500" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GETPRODUCTNEW_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Image" Nullable="false" MaxLength="500" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="GETPRODUCTSALE_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="NameProduct" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="Image" Nullable="false" MaxLength="500" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+  </ComplexType>
+</Schema>
