@@ -125,16 +125,6 @@
           <Property Name="TinhTrang" Type="bit" Nullable="false" />
           <Property Name="MoTaPhong" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <Association Name="FK_DatPhong_NhanVien">
           <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
           <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
@@ -255,7 +245,8 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="GET_SERVICE_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GET_LIST_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GET_LIST_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="HotelDatabaseModelStoreContainer">
           <EntitySet Name="BaiViet" EntityType="Self.BaiViet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DatPhong" EntityType="Self.DatPhong" Schema="dbo" store:Type="Tables" />
@@ -267,7 +258,6 @@
           <EntitySet Name="PhieuDatPhongKhachSan" EntityType="Self.PhieuDatPhongKhachSan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhieuDichVu" EntityType="Self.PhieuDichVu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DatPhong_NhanVien" Association="Self.FK_DatPhong_NhanVien">
             <End Role="NhanVien" EntitySet="NhanVien" />
             <End Role="DatPhong" EntitySet="DatPhong" />
@@ -453,16 +443,6 @@
           <NavigationProperty Name="LoaiPhong" Relationship="Self.FK_Phong_LoaiPhong" FromRole="Phong" ToRole="LoaiPhong" />
           <NavigationProperty Name="PhieuDatPhongKhachSans" Relationship="Self.FK_PhieuDatPhongKhachSan_Phong" FromRole="Phong" ToRole="PhieuDatPhongKhachSan" />
         </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <Association Name="FK_DatPhong_NhanVien">
           <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
           <End Role="DatPhong" Type="Self.DatPhong" Multiplicity="*" />
@@ -594,7 +574,6 @@
           <EntitySet Name="PhieuDatPhongKhachSans" EntityType="Self.PhieuDatPhongKhachSan" />
           <EntitySet Name="PhieuDichVus" EntityType="Self.PhieuDichVu" />
           <EntitySet Name="Phongs" EntityType="Self.Phong" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <AssociationSet Name="FK_DatPhong_NhanVien" Association="Self.FK_DatPhong_NhanVien">
             <End Role="NhanVien" EntitySet="NhanViens" />
             <End Role="DatPhong" EntitySet="DatPhongs" />
@@ -636,8 +615,23 @@
             <End Role="PhieuDatPhongKhachSan" EntitySet="PhieuDatPhongKhachSans" />
           </AssociationSet>
           <FunctionImport Name="GET_SERVICE_ALL" ReturnType="Collection(HotelDatabaseModel.GET_SERVICE_ALL_Result)" />
+          <FunctionImport Name="GET_LIST_ROOM" ReturnType="Collection(HotelDatabaseModel.GET_LIST_ROOM_Result)" />
+          <FunctionImport Name="GET_LIST_SERVICE" ReturnType="Collection(HotelDatabaseModel.GET_LIST_SERVICE_Result)" />
         </EntityContainer>
         <ComplexType Name="GET_SERVICE_ALL_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="TenDichVu" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="Gia" Nullable="false" Precision="19" />
+          <Property Type="String" Name="imgDichVu" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="GET_LIST_ROOM_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="TenLoaiPhong" Nullable="false" MaxLength="200" />
+          <Property Type="Decimal" Name="GiaPhong" Nullable="false" Precision="19" />
+          <Property Type="String" Name="imgLoaiPhong" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="GET_LIST_SERVICE_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="TenDichVu" Nullable="false" MaxLength="200" />
           <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="100" />
@@ -777,20 +771,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="HotelDatabaseModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="GET_SERVICE_ALL" FunctionName="HotelDatabaseModel.Store.GET_SERVICE_ALL">
+          <FunctionImportMapping FunctionImportName="GET_LIST_ROOM" FunctionName="HotelDatabaseModel.Store.GET_LIST_ROOM">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_SERVICE_ALL_Result">
+              <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_LIST_ROOM_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TenLoaiPhong" ColumnName="TenLoaiPhong" />
+                <ScalarProperty Name="GiaPhong" ColumnName="GiaPhong" />
+                <ScalarProperty Name="imgLoaiPhong" ColumnName="imgLoaiPhong" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_LIST_SERVICE" FunctionName="HotelDatabaseModel.Store.GET_LIST_SERVICE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_LIST_SERVICE_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
                 <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
@@ -799,7 +792,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

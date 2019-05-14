@@ -21,9 +21,22 @@ namespace DataAccess
             return db.GET_SERVICE_ALL();
         }
 
+        /// <summary>
+        /// GetRoomList
+        /// </summary>
+        /// <returns>GetRoomList</returns>
         public IEnumerable<GET_LIST_ROOM_Result> GetRoomList()
         {
             return db.GET_LIST_ROOM();
+        }
+
+        /// <summary>
+        /// GetRoomList
+        /// </summary>
+        /// <returns>GetRoomList</returns>
+        public IEnumerable<GET_LIST_SERVICE_Result> GetServiceList()
+        {
+            return db.GET_LIST_SERVICE();
         }
     }
 }

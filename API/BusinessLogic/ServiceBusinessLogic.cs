@@ -82,5 +82,29 @@ namespace BusinessLogic
             }
             return await Task.FromResult(response);
         }
+
+        /// <summary>
+        /// GetServiceAll
+        /// </summary>
+        /// <returns>GetServiceResponse</returns>
+        public async Task<GetServiceListResponse> GetServiceList()
+        {
+            var response = new GetServiceListResponse();
+            try
+            {
+                var result = _dataAccess.GetServiceList();
+                if (result != null)
+                {
+                    response.ListService = MapList<GET_LIST_SERVICE_Result, GetServiceListDTO>(result.ToList());
+                    response.Success = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+            }
+            return await Task.FromResult(response);
+        }
     }
 }

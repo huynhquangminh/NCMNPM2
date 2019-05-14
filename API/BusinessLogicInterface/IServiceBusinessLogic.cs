@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace BusinessLogicInterface
 {
    public interface IServiceBusinessLogic
@@ -20,5 +21,11 @@ namespace BusinessLogicInterface
         /// </summary>
         /// <returns>GetListRoomResponse</returns>
         Task<GetListRoomResponse> GetRoomList();
+
+        /// <summary>
+        /// GetServiceList
+        /// </summary>
+        /// <returns>GetListRoomResponse</returns>
+        Task<GetServiceListResponse> GetServiceList();
     }
 }
