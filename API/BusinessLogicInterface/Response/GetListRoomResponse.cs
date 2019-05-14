@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicInterface.Response
 {
-    public class GetListRoomResponse:BaseResponse
+    public class GetListRoomResponse: BaseResponse
     {
         public List<GetListRoomDTO> ListRoom { get; set; }
     }

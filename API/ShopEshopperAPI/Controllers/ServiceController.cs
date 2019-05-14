@@ -30,5 +30,15 @@ namespace ShopEshopperAPI.Controllers
             return new ActionResult<GetServiceResponse>(result.Result, Request);
         }
 
+        /// <summary>
+        /// GetServiceAll
+        /// </summary>
+        /// <returns>IHttpActionResult</returns>
+        [HttpGet]
+        public IHttpActionResult GetRoomList()
+        {
+            var result = _businessLogic.GetRoomList();
+            return new ActionResult<GetListRoomResponse>(result.Result, Request);
+        }
     }
 }

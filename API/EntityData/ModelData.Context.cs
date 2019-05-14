@@ -37,16 +37,10 @@ namespace EntityData
         public virtual DbSet<PhieuDatPhongKhachSan> PhieuDatPhongKhachSans { get; set; }
         public virtual DbSet<PhieuDichVu> PhieuDichVus { get; set; }
         public virtual DbSet<Phong> Phongs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     
         public virtual ObjectResult<GET_SERVICE_ALL_Result> GET_SERVICE_ALL()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_SERVICE_ALL_Result>("GET_SERVICE_ALL");
-        }
-    
-        public virtual ObjectResult<GetListRoom_Result> GetListRoom()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetListRoom_Result>("GetListRoom");
         }
     
         public virtual ObjectResult<GET_LIST_ROOM_Result> GET_LIST_ROOM()
