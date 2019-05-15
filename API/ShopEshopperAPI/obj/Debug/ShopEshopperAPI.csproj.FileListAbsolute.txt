@@ -293,6 +293,7 @@ E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\Unity.Interception.dll
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\Unity.RegistrationByConvention.dll
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\Unity.ServiceLocation.dll
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\WebGrease.dll
+E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\EntityData.dll
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\BaseApplication.pdb
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\BusinessLogicInterface.pdb
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\BusinessLogic.pdb
@@ -344,8 +345,7 @@ E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\Microsoft.Owin.Security.Google.xml
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\Microsoft.Owin.Security.Twitter.xml
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\System.Web.Http.Owin.xml
+E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\EntityData.pdb
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\obj\Debug\ShopEshopperAPI.csprojResolveAssemblyReference.cache
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\obj\Debug\ShopEshopperAPI.dll
 E:\LienThong\NMCNPM2\API\ShopEshopperAPI\obj\Debug\ShopEshopperAPI.pdb
-E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\EntityData.dll
-E:\LienThong\NMCNPM2\API\ShopEshopperAPI\bin\EntityData.pdb

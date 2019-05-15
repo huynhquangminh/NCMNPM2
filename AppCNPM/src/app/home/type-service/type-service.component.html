@@ -1,159 +1,56 @@
 <style>
   .thumb {
-      width: 75px;
-      height: 75px;
-      background-color: transparent;
-      background-image: none;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
   }
+
 </style>
 <br><br><br><br>
 <div class="container">
 
   <div class="panel panel-default">
-      <div class="panel-heading">
-          <h3 class="panel-title">Bảng giá dịch vụ</h3>
-      </div>
-      <div class="panel-body">
+    <div class="panel-heading">
+      <h3 class="panel-title">Bảng giá dịch vụ</h3>
+    </div>
+    <div class="panel-body">
 
-          <div class="card mb-3">
-              <div class="card-body">
-                  <div class="table-responsive">
-                      <table class="table table-bordered table-striped table-hover" id="dataTable" cellspacing="0">
-                          <thead>
-                              <tr>
-                                  <th width="100px"></th>
-                                  <th>
-                                      Tên dịch vụ
-                                  </th>
-                                  <th>
-                                      Đơn vị
-                                  </th>
-                                  <th>
-                                      Giá
-                                  </th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                                  <tr>
-                                      <td>
-                                          <div class="thumb" style="background-image:url(/Content/Images/DichVu/1.png);">
-                                      </div></td>
-                                      <td>
-                                          Nước ngọt
-                                      </td>
-                                      <td>
-                                          lon
-                                      </td>
-                                      <td>
-                                          10000 VND
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <div class="thumb" style="background-image:url(/Content/Images/DichVu/2.png);">
-                                      </div></td>
-                                      <td>
-                                          Bia 333
-                                      </td>
-                                      <td>
-                                          lon
-                                      </td>
-                                      <td>
-                                          10000 VND
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <div class="thumb" style="background-image:url(/Content/Images/DichVu/3.jpg);">
-                                      </div></td>
-                                      <td>
-                                          Khăn lạnh
-                                      </td>
-                                      <td>
-                                          chiếc
-                                      </td>
-                                      <td>
-                                          5000 VND
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <div class="thumb" style="background-image:url(/Content/Images/DichVu/4.jpg);">
-                                      </div></td>
-                                      <td>
-                                          Bim Bim
-                                      </td>
-                                      <td>
-                                          gói
-                                      </td>
-                                      <td>
-                                          10000 VND
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <div class="thumb" style="background-image:url(/Content/Images/DichVu/5.png);">
-                                      </div></td>
-                                      <td>
-                                          Nước suối
-                                      </td>
-                                      <td>
-                                          chai
-                                      </td>
-                                      <td>
-                                          10000 VND
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <div class="thumb" style="background-image:url(/Content/Images/DichVu/6.png);">
-                                      </div></td>
-                                      <td>
-                                          Nước tăng lực
-                                      </td>
-                                      <td>
-                                          chai
-                                      </td>
-                                      <td>
-                                          20000 VND
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <div class="thumb" style="background-image:url(/Content/Images/DichVu/7.png);">
-                                      </div></td>
-                                      <td>
-                                          Thuốc lá
-                                      </td>
-                                      <td>
-                                          bao
-                                      </td>
-                                      <td>
-                                          20000 VND
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <div class="thumb" style="background-image:url(/Content/Images/DichVu/8.jpg);">
-                                      </div></td>
-                                      <td>
-                                          Cơm hộp
-                                      </td>
-                                      <td>
-                                          hộp
-                                      </td>
-                                      <td>
-                                          30000 VND
-                                      </td>
-                                  </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover" id="dataTable" cellspacing="0">
+              <thead>
+                <tr>
+                  <th width="100px"></th>
+                  <th>
+                    Tên dịch vụ
+                  </th>
+                  <th>
+                    Đơn vị
+                  </th>
+                  <th>
+                    Giá
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of listService">
+                  <td>
+                    <img class="img-responsive" src="{{urlImage}}{{item.imgDichVu}}">
+                  </td>
+                  <td> {{item.TenDichVu}} </td>
+                  <td> {{item.DonViTinh}} </td>
+                  <td> {{item.Gia}}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+        </div>
       </div>
+    </div>
   </div>
 </div>
