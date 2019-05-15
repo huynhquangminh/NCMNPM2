@@ -43,5 +43,10 @@ namespace EntityData
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_SERVICE_ALL_Result>("GET_SERVICE_ALL");
         }
+    
+        public virtual ObjectResult<GET_LIST_ROOM_Result> GET_LIST_ROOM()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_ROOM_Result>("GET_LIST_ROOM");
+        }
     }
 }
