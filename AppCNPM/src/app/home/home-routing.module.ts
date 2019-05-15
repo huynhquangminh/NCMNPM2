@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { TypeRoomComponent } from './type-room/type-room.component';
 import { RegisterComponent } from './register/register.component';
 import { TypeServiceComponent } from './type-service/type-service.component';
+import { IntroduceComponent } from './introduce/introduce.component';
 const homeRoutes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'index', component: IndexComponent },
@@ -14,9 +15,10 @@ const homeRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'typeroom', component: TypeRoomComponent },
     { path: 'typeservice', component: TypeServiceComponent },
+    { path: 'introduce', component: IntroduceComponent },
     // { path: 'category/product/:key', component: CategoryComponent },
     // { path: 'news-detail/:id', component: TintucDetailComponent },
-    // { path: 'introduce', component: GioithieuComponent },
+
     // { path: 'searchproduct/:key', component: FindProductComponent },
     // { path: '**', component: Page404Component }
 

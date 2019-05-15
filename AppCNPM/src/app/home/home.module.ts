@@ -11,6 +11,7 @@ import { RoomComponent } from './room/room.component';
 import { TypeRoomComponent } from './type-room/type-room.component';
 import { TypeServiceComponent } from './type-service/type-service.component';
 import { FooterComponent } from './footer/footer.component';
+import { IntroduceComponent } from './introduce/introduce.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { FooterComponent } from './footer/footer.component';
     RoomComponent,
     TypeRoomComponent,
     TypeServiceComponent,
+    IntroduceComponent,
   ],
   providers: []
 })
