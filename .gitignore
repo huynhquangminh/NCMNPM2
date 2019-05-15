@@ -11,3 +11,4 @@ ShopEshopperAPI/BaseApplication/obj/Debug/BaseApplication.csproj.FileListAbsolut
 ShopEshopperAPI/.vs/config/applicationhost.config
 ShopEshopperAPI/.vs/config/applicationhost.config
 ShopEshopperAPI/BaseApplication/obj/Debug/BaseApplication.csproj.FileListAbsolute.txt
+*.force
