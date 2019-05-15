@@ -6,3 +6,6 @@ ShopEshopperAPI/.vs/ShopEshopperAPI/v15/Server/sqlite3/storage.ide-shm
 ShopEshopperAPI/.vs/ShopEshopperAPI/v15/Server/sqlite3/storage.ide-wal
 *.cache
 *.config
+ShopEshopperAPI/ShopEshopperAPI/ShopEshopperAPI.csproj.user
+ShopEshopperAPI/BaseApplication/obj/Debug/BaseApplication.csproj.FileListAbsolute.txt
+ShopEshopperAPI/.vs/config/applicationhost.config
