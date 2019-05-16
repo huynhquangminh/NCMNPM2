@@ -16,4 +16,5 @@ namespace DataAcceessInterface
         /// <returns>GET_SERVICE_ALL_Result</returns>
         IEnumerable<GET_LIST_ROOM_Result> GetRoomList();
     }
+
 }

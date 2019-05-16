@@ -40,5 +40,7 @@ namespace ShopEshopperAPI.Controllers
             return new ActionResult<GetListRoomResponse>(result.Result, Request);
         }
 
+
+
     }
 }

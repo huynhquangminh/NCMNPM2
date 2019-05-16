@@ -20,7 +20,6 @@ namespace DataAccess
         {
             return db.GET_SERVICE_ALL();
         }
-
         /// <summary>
         /// GetRoomList
         /// </summary>
