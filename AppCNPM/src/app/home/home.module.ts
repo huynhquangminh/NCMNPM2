@@ -15,6 +15,7 @@ import { AppService } from '../service/app-service';
 import { IntroduceComponent } from './introduce/introduce.component';
 import { FindroomComponent } from './findroom/findroom.component';
 import { BillComponent } from './bill/bill.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { BillComponent } from './bill/bill.component';
     IntroduceComponent,
     FindroomComponent,
     BillComponent,
+    ContactComponent,
   ],
   providers: []
 })
