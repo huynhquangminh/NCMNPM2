@@ -13,6 +13,7 @@ import { TypeServiceComponent } from './type-service/type-service.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppService } from '../service/app-service';
 import { IntroduceComponent } from './introduce/introduce.component';
+import { FindroomComponent } from './findroom/findroom.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { IntroduceComponent } from './introduce/introduce.component';
     TypeRoomComponent,
     TypeServiceComponent,
     IntroduceComponent,
+    FindroomComponent,
   ],
   providers: []
 })
