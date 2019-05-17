@@ -29,6 +29,10 @@ namespace ShopEshopperAPI
             container.RegisterType<IRoomBusinessLogic, RoomBusinessLogic>();
             container.RegisterType<IRoomDataAccess, RoomDataAccess>();
 
+            // Posts
+            container.RegisterType<IPostsBusinessLogic, PostsBusinessLogic>();
+            container.RegisterType<IPostsDataAcess, PostsDataAccess>();
+
             config.DependencyResolver = new UnityResolver(container);
 
             // Web API routes

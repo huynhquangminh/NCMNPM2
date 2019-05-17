@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PostsBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomBusinessLogic.cs" />
     <Compile Include="ServiceBusinessLogic.cs" />

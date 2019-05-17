@@ -48,5 +48,70 @@ namespace EntityData
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_SERVICE_ALL_Result>("GET_SERVICE_ALL");
         }
+    
+        public virtual int ADD_LIST_SERVICE(string tenDichVu, string donViTinh, Nullable<int> gia, string imgDichVu)
+        {
+            var tenDichVuParameter = tenDichVu != null ?
+                new ObjectParameter("TenDichVu", tenDichVu) :
+                new ObjectParameter("TenDichVu", typeof(string));
+    
+            var donViTinhParameter = donViTinh != null ?
+                new ObjectParameter("DonViTinh", donViTinh) :
+                new ObjectParameter("DonViTinh", typeof(string));
+    
+            var giaParameter = gia.HasValue ?
+                new ObjectParameter("Gia", gia) :
+                new ObjectParameter("Gia", typeof(int));
+    
+            var imgDichVuParameter = imgDichVu != null ?
+                new ObjectParameter("imgDichVu", imgDichVu) :
+                new ObjectParameter("imgDichVu", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_LIST_SERVICE", tenDichVuParameter, donViTinhParameter, giaParameter, imgDichVuParameter);
+        }
+    
+        public virtual int DELETE_ITEM_SERVICE(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_ITEM_SERVICE", iDParameter);
+        }
+    
+        public virtual ObjectResult<GET_LIST_POSTS_Result> GET_POSTS()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_POSTS_Result>("GET_LIST_POSTS");
+        }
+    
+        public virtual int UPDATE_ITEM_SERVICE(Nullable<int> iD, string tenDichVu, string donViTinh, Nullable<int> gia, string imgDichVu)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var tenDichVuParameter = tenDichVu != null ?
+                new ObjectParameter("TenDichVu", tenDichVu) :
+                new ObjectParameter("TenDichVu", typeof(string));
+    
+            var donViTinhParameter = donViTinh != null ?
+                new ObjectParameter("DonViTinh", donViTinh) :
+                new ObjectParameter("DonViTinh", typeof(string));
+    
+            var giaParameter = gia.HasValue ?
+                new ObjectParameter("Gia", gia) :
+                new ObjectParameter("Gia", typeof(int));
+    
+            var imgDichVuParameter = imgDichVu != null ?
+                new ObjectParameter("imgDichVu", imgDichVu) :
+                new ObjectParameter("imgDichVu", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_ITEM_SERVICE", iDParameter, tenDichVuParameter, donViTinhParameter, giaParameter, imgDichVuParameter);
+        }
+    
+        public virtual ObjectResult<GET_LIST_POSTS_Result> GET_LIST_POSTS()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_POSTS_Result>("GET_LIST_POSTS");
+        }
     }
 }

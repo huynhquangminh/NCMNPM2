@@ -90,12 +90,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dtos\GetListRoomDTO.cs" />
+    <Compile Include="Dtos\GetListPostsDTO.cs" />
     <Compile Include="Dtos\GetServiceDTO.cs" />
+    <Compile Include="IPostsBusinessLogic.cs" />
     <Compile Include="IRoomBusinessLogic.cs" />
     <Compile Include="IServiceBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response\GetListRoomResponse.cs" />
     <Compile Include="Response\GetServiceResponse.cs" />
+    <Compile Include="Response\GetPostsResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

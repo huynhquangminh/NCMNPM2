@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HotelDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HotelDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BaiViet">
           <Key>
             <PropertyRef Name="id" />
@@ -255,8 +255,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ADD_LIST_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenDichVu" Type="char" Mode="In" />
+          <Parameter Name="DonViTinh" Type="char" Mode="In" />
+          <Parameter Name="Gia" Type="int" Mode="In" />
+          <Parameter Name="imgDichVu" Type="char" Mode="In" />
+        </Function>
+        <Function Name="DELETE_ITEM_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_LIST_POSTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GET_LIST_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="GET_SERVICE_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UPDATE_ITEM_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="TenDichVu" Type="char" Mode="In" />
+          <Parameter Name="DonViTinh" Type="char" Mode="In" />
+          <Parameter Name="Gia" Type="int" Mode="In" />
+          <Parameter Name="imgDichVu" Type="char" Mode="In" />
+        </Function>
         <EntityContainer Name="HotelDatabaseModelStoreContainer">
           <EntitySet Name="BaiViet" EntityType="Self.BaiViet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DatPhong" EntityType="Self.DatPhong" Schema="dbo" store:Type="Tables" />
@@ -310,8 +326,7 @@
             <End Role="Phong" EntitySet="Phong" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HotelDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -639,6 +654,24 @@
           </AssociationSet>
           <FunctionImport Name="GET_LIST_ROOM" ReturnType="Collection(HotelDatabaseModel.GET_LIST_ROOM_Result)" />
           <FunctionImport Name="GET_SERVICE_ALL" ReturnType="Collection(HotelDatabaseModel.GET_SERVICE_ALL_Result)" />
+          <FunctionImport Name="ADD_LIST_SERVICE">
+            <Parameter Name="TenDichVu" Mode="In" Type="String" />
+            <Parameter Name="DonViTinh" Mode="In" Type="String" />
+            <Parameter Name="Gia" Mode="In" Type="Int32" />
+            <Parameter Name="imgDichVu" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DELETE_ITEM_SERVICE">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_POSTS" ReturnType="Collection(HotelDatabaseModel.GET_POSTS_Result)" />
+          <FunctionImport Name="UPDATE_ITEM_SERVICE">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="TenDichVu" Mode="In" Type="String" />
+            <Parameter Name="DonViTinh" Mode="In" Type="String" />
+            <Parameter Name="Gia" Mode="In" Type="Int32" />
+            <Parameter Name="imgDichVu" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_LIST_POSTS" ReturnType="Collection(HotelDatabaseModel.GET_LIST_POSTS_Result)" />
         </EntityContainer>
         <ComplexType Name="GET_LIST_ROOM_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -652,6 +685,22 @@
           <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="100" />
           <Property Type="Decimal" Name="Gia" Nullable="false" Precision="19" />
           <Property Type="String" Name="imgDichVu" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="GET_POSTS_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="TenBaiViet" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="NoiDung" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="NoiDungChiTiet" Nullable="false" />
+          <Property Type="DateTime" Name="NgayTao" Nullable="false" />
+          <Property Type="String" Name="HinhAnh" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="GET_LIST_POSTS_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="TenBaiViet" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="NoiDung" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="NoiDungChiTiet" Nullable="false" />
+          <Property Type="DateTime" Name="NgayTao" Nullable="false" />
+          <Property Type="String" Name="HinhAnh" Nullable="false" MaxLength="200" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -807,14 +856,18 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GET_SERVICE_ALL" FunctionName="HotelDatabaseModel.Store.GET_SERVICE_ALL">
+          <FunctionImportMapping FunctionImportName="ADD_LIST_SERVICE" FunctionName="HotelDatabaseModel.Store.ADD_LIST_SERVICE" />
+          <FunctionImportMapping FunctionImportName="DELETE_ITEM_SERVICE" FunctionName="HotelDatabaseModel.Store.DELETE_ITEM_SERVICE" />
+          <FunctionImportMapping FunctionImportName="UPDATE_ITEM_SERVICE" FunctionName="HotelDatabaseModel.Store.UPDATE_ITEM_SERVICE" />
+          <FunctionImportMapping FunctionImportName="GET_LIST_POSTS" FunctionName="HotelDatabaseModel.Store.GET_LIST_POSTS">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_SERVICE_ALL_Result">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
-                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
-                <ScalarProperty Name="Gia" ColumnName="Gia" />
-                <ScalarProperty Name="imgDichVu" ColumnName="imgDichVu" />
+              <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_LIST_POSTS_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenBaiViet" ColumnName="TenBaiViet" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="NoiDungChiTiet" ColumnName="NoiDungChiTiet" />
+                <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

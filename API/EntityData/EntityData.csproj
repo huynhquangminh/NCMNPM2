@@ -92,6 +92,9 @@
     <Compile Include="DatPhong.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
+    <Compile Include="GET_LIST_POSTS_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
     <Compile Include="GET_LIST_ROOM_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>

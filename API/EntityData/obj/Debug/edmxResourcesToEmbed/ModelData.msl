@@ -149,14 +149,18 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GET_SERVICE_ALL" FunctionName="HotelDatabaseModel.Store.GET_SERVICE_ALL">
+    <FunctionImportMapping FunctionImportName="ADD_LIST_SERVICE" FunctionName="HotelDatabaseModel.Store.ADD_LIST_SERVICE" />
+    <FunctionImportMapping FunctionImportName="DELETE_ITEM_SERVICE" FunctionName="HotelDatabaseModel.Store.DELETE_ITEM_SERVICE" />
+    <FunctionImportMapping FunctionImportName="UPDATE_ITEM_SERVICE" FunctionName="HotelDatabaseModel.Store.UPDATE_ITEM_SERVICE" />
+    <FunctionImportMapping FunctionImportName="GET_LIST_POSTS" FunctionName="HotelDatabaseModel.Store.GET_LIST_POSTS">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_SERVICE_ALL_Result">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
-          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
-          <ScalarProperty Name="Gia" ColumnName="Gia" />
-          <ScalarProperty Name="imgDichVu" ColumnName="imgDichVu" />
+        <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_LIST_POSTS_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="TenBaiViet" ColumnName="TenBaiViet" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NoiDungChiTiet" ColumnName="NoiDungChiTiet" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
