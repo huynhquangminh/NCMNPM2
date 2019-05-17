@@ -274,6 +274,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\MailController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
@@ -298,6 +299,8 @@
     <Content Include="Global.asax" />
     <Content Include="Image\bia333.png" />
     <Content Include="Image\LoaiPhong1.jpg" />
+    <Content Include="Image\page404.png" />
+    <Content Include="Image\Post1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

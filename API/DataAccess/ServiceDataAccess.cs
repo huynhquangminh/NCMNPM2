@@ -16,9 +16,9 @@ namespace DataAccess
         /// GetServiceAll
         /// </summary>
         /// <returns>GET_SERVICE_ALL_Result</returns>
-        public IEnumerable<GET_SERVICE_ALL_Result> GetServiceAll()
+        public IEnumerable<GET_SERVICE_ALL1_Result> GetServiceAll()
         {
-            return db.GET_SERVICE_ALL();
+            return db.GET_SERVICE_ALL1();
         }
         
     }

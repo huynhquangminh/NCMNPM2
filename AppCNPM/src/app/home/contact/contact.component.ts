@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  urlImage = 'http://localhost:3100/image/';
+  content = 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus.';
+  from: FormGroup;
+  constructor(private fb: FormBuilder) {
+    this.from = this.fb.group({
+      userName: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
+      content: [null, [Validators.required]],
+    });
+  }
 
   ngOnInit() {
   }
 
+  sendMSM() {
+
+  }
 }

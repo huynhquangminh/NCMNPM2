@@ -1,1 +1,1 @@
-export const GETPSERVICEALL_UTL = 'api/Service/GetServiceAll';
+export const GETSERVICEALL_UTL = 'api/Service/GetServiceAll';

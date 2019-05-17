@@ -28,7 +28,7 @@ namespace BusinessLogic
         {
             configMap = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<GET_SERVICE_ALL_Result, GetServiceDTO>();
+                cfg.CreateMap<GET_SERVICE_ALL1_Result, GetServiceDTO>();
             });
             mapper = configMap.CreateMapper();
         }
@@ -45,7 +45,7 @@ namespace BusinessLogic
                 var result = _dataAccess.GetServiceAll();
                 if (result != null)
                 {
-                    response.ListServiceAll = MapList<GET_SERVICE_ALL_Result, GetServiceDTO>(result.ToList());
+                    response.ListServiceAll = MapList<GET_SERVICE_ALL1_Result, GetServiceDTO>(result.ToList());
                     response.Success = true;
                 }
             }

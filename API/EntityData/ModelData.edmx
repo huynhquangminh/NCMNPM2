@@ -266,6 +266,7 @@
         </Function>
         <Function Name="GET_LIST_POSTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GET_LIST_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GET_SERVICE_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UPDATE_ITEM_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
           <Parameter Name="TenDichVu" Type="char" Mode="In" />
@@ -672,6 +673,7 @@
             <Parameter Name="imgDichVu" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GET_LIST_POSTS" ReturnType="Collection(HotelDatabaseModel.GET_LIST_POSTS_Result)" />
+          <FunctionImport Name="GET_SERVICE_ALL1" ReturnType="Collection(HotelDatabaseModel.GET_SERVICE_ALL1_Result)" />
         </EntityContainer>
         <ComplexType Name="GET_LIST_ROOM_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -701,6 +703,13 @@
           <Property Type="String" Name="NoiDungChiTiet" Nullable="false" />
           <Property Type="DateTime" Name="NgayTao" Nullable="false" />
           <Property Type="String" Name="HinhAnh" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="GET_SERVICE_ALL1_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="TenDichVu" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="Gia" Nullable="false" Precision="19" />
+          <Property Type="String" Name="imgDichVu" Nullable="true" MaxLength="500" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -868,6 +877,17 @@
                 <ScalarProperty Name="NoiDungChiTiet" ColumnName="NoiDungChiTiet" />
                 <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
                 <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_SERVICE_ALL1" FunctionName="HotelDatabaseModel.Store.GET_SERVICE_ALL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_SERVICE_ALL1_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
+                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="imgDichVu" ColumnName="imgDichVu" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

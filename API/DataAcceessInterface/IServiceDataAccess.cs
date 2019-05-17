@@ -9,7 +9,7 @@ namespace DataAcceessInterface
         /// GetServiceAll
         /// </summary>
         /// <returns>GET_SERVICE_ALL_Result</returns>
-        IEnumerable<GET_SERVICE_ALL_Result> GetServiceAll();
+        IEnumerable<GET_SERVICE_ALL1_Result> GetServiceAll();
       
     }
 

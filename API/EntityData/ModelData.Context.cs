@@ -79,9 +79,9 @@ namespace EntityData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_ITEM_SERVICE", iDParameter);
         }
     
-        public virtual ObjectResult<GET_LIST_POSTS_Result> GET_POSTS()
+        public virtual ObjectResult<GET_POSTS_Result> GET_POSTS()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_POSTS_Result>("GET_LIST_POSTS");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_POSTS_Result>("GET_POSTS");
         }
     
         public virtual int UPDATE_ITEM_SERVICE(Nullable<int> iD, string tenDichVu, string donViTinh, Nullable<int> gia, string imgDichVu)
@@ -112,6 +112,11 @@ namespace EntityData
         public virtual ObjectResult<GET_LIST_POSTS_Result> GET_LIST_POSTS()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_POSTS_Result>("GET_LIST_POSTS");
+        }
+    
+        public virtual ObjectResult<GET_SERVICE_ALL1_Result> GET_SERVICE_ALL1()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_SERVICE_ALL1_Result>("GET_SERVICE_ALL1");
         }
     }
 }

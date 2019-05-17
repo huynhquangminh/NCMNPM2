@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Page404Component implements OnInit {
 
+  urlImage = 'http://localhost:3100/image/';
   constructor() { }
 
   ngOnInit() {

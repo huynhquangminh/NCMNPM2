@@ -1,1 +1,1 @@
-export const GETPROOMALL_UTL = 'api/Room/GetRoomList';
+export const GETROOMALL_UTL = 'api/Room/GetRoomList';

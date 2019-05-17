@@ -33,6 +33,9 @@ namespace ShopEshopperAPI
             container.RegisterType<IPostsBusinessLogic, PostsBusinessLogic>();
             container.RegisterType<IPostsDataAcess, PostsDataAccess>();
 
+            // mail
+            container.RegisterType<IMailBusinessLogic, MailBusinessLogic>();
+
             config.DependencyResolver = new UnityResolver(container);
 
             // Web API routes

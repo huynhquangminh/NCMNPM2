@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/service/app-service';
-import { GETPROOMALL_UTL } from './config';
+import { GETROOMALL_UTL } from './config';
 
 @Component({
   selector: 'app-type-room',
@@ -17,7 +17,7 @@ export class TypeRoomComponent implements OnInit {
   }
 
   callService() {
-    this.service.CallAllService(GETPROOMALL_UTL).subscribe(
+    this.service.CallAllService(GETROOMALL_UTL).subscribe(
       data => {
         if (data) {
           if (data.Success === false) {

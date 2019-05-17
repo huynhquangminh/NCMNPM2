@@ -92,10 +92,12 @@
     <Compile Include="Dtos\GetListRoomDTO.cs" />
     <Compile Include="Dtos\GetListPostsDTO.cs" />
     <Compile Include="Dtos\GetServiceDTO.cs" />
+    <Compile Include="IMailBusinessLogic.cs" />
     <Compile Include="IPostsBusinessLogic.cs" />
     <Compile Include="IRoomBusinessLogic.cs" />
     <Compile Include="IServiceBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\SendMailCommentCustomerRequest.cs" />
     <Compile Include="Response\GetListRoomResponse.cs" />
     <Compile Include="Response\GetServiceResponse.cs" />
     <Compile Include="Response\GetPostsResponse.cs" />
@@ -114,9 +116,7 @@
       <Name>EntityData</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Requests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

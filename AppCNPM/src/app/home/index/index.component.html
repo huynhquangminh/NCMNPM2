@@ -36,7 +36,7 @@
                       </div>
                       <div class="row form-group">
                         <div class="col-md-12">
-                          <input type="button" class="btn btn-primary btn-block" value="Book Now" (click)= "OnBookNow()">
+                          <input type="button" class="btn btn-primary btn-block" value="Book Now" (click)="OnBookNow()">
                         </div>
                       </div>
                     </form>
@@ -65,20 +65,20 @@
     </div>
     <div class="row">
 
-      <div class="col-lg-4 col-md-4 col-sm-6">
-        <a href="./G-Hotel Khách sạn hàng đầu Việt Nam_files/img_1.jpg" class="fh5co-card-item image-popup">
+      <div class="col-lg-4 col-md-4 col-sm-6" *ngFor="let item of listPost">
+        <a href="{{urlImage}}{{item.HinhAnh}}" class="fh5co-card-item image-popup">
           <figure>
             <div class="overlay"><i class="ti-plus"></i></div>
-            <img src="./G-Hotel Khách sạn hàng đầu Việt Nam_files/img_1.jpg" alt="Image" class="img-responsive">
+            <img src="{{urlImage}}{{item.HinhAnh}}" alt="Image" class="img-responsive">
           </figure>
           <div class="fh5co-text">
-            <h2>Phòng ở</h2>
-            <p>Khách sạn G-Hotel với nhiều phòng có sức chứa khác nhau, đáp ứng từng yêu cầu của quý khách hàng.</p>
+            <h2>{{item.TenBaiViet}}</h2>
+            <p>{{item.NoiDung}}</p>
             <p><span class="price cursive-font"></span></p>
           </div>
         </a>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-6">
+      <!-- <div class="col-lg-4 col-md-4 col-sm-6">
         <a href="./G-Hotel Khách sạn hàng đầu Việt Nam_files/img_2.jpg" class="fh5co-card-item image-popup">
           <figure>
             <div class="overlay"><i class="ti-plus"></i></div>
@@ -151,7 +151,7 @@
             <p><span class="price cursive-font"></span></p>
           </div>
         </a>
-      </div>
+      </div> -->
 
     </div>
   </div>
@@ -196,68 +196,6 @@
         </div>
       </div>
 
-
-    </div>
-  </div>
-</div>
-
-
-<div class="gtco-cover gtco-cover-sm"
-  style="background-image: url(&quot;/Content/Home/images/img_bg_1.jpg&quot;); background-position: 50% 50%;"
-  data-stellar-background-ratio="0.5">
-  <div class="overlay"></div>
-  <div class="gtco-container text-center">
-    <div class="display-t">
-      <div class="display-tc">
-        <h1>“ Their quality of service makes me come back over and over again!”</h1>
-        <p>— Trường Giang, CEO of Microsoft Co.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="gtco-counter" class="gtco-section">
-  <div class="gtco-container">
-
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 text-center gtco-heading animate-box">
-        <h2 class="cursive-font primary-color">Fun Facts</h2>
-        <p>Khách sạn đưa vào hoạt động từ năm 1996, đã phục vụ hơn 1.000.000 lượt khách.</p>
-      </div>
-    </div>
-
-    <div class="row">
-
-      <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
-        <div class="feature-center">
-          <span class="counter js-counter" data-from="0" data-to="5" data-speed="5000"
-            data-refresh-interval="50">1</span>
-          <span class="counter-label">Avg. Rating</span>
-
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
-        <div class="feature-center">
-          <span class="counter js-counter" data-from="0" data-to="48" data-speed="5000"
-            data-refresh-interval="50">1</span>
-          <span class="counter-label">Rooms</span>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
-        <div class="feature-center">
-          <span class="counter js-counter" data-from="0" data-to="72" data-speed="5000"
-            data-refresh-interval="50">1</span>
-          <span class="counter-label">Food type</span>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-6 animate-box" data-animate-effect="fadeInUp">
-        <div class="feature-center">
-          <span class="counter js-counter" data-from="0" data-to="1996" data-speed="5000"
-            data-refresh-interval="50">1</span>
-          <span class="counter-label">Year Started</span>
-
-        </div>
-      </div>
 
     </div>
   </div>

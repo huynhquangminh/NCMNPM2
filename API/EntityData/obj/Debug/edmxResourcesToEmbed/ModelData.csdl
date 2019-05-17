@@ -342,6 +342,7 @@
       <Parameter Name="imgDichVu" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="GET_LIST_POSTS" ReturnType="Collection(HotelDatabaseModel.GET_LIST_POSTS_Result)" />
+    <FunctionImport Name="GET_SERVICE_ALL1" ReturnType="Collection(HotelDatabaseModel.GET_SERVICE_ALL1_Result)" />
   </EntityContainer>
   <ComplexType Name="GET_LIST_ROOM_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -371,5 +372,12 @@
     <Property Type="String" Name="NoiDungChiTiet" Nullable="false" />
     <Property Type="DateTime" Name="NgayTao" Nullable="false" />
     <Property Type="String" Name="HinhAnh" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="GET_SERVICE_ALL1_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="TenDichVu" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Gia" Nullable="false" Precision="19" />
+    <Property Type="String" Name="imgDichVu" Nullable="true" MaxLength="500" />
   </ComplexType>
 </Schema>

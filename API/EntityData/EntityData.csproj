@@ -98,6 +98,12 @@
     <Compile Include="GET_LIST_ROOM_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
+    <Compile Include="GET_POSTS_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GET_SERVICE_ALL1_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
     <Compile Include="GET_SERVICE_ALL_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>

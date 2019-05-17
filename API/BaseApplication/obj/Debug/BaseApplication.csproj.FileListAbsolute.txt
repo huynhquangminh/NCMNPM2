@@ -244,3 +244,4 @@ E:\LienThong\NMCNPM2\API\BaseApplication\bin\Debug\Unity.RegistrationByConventio
 E:\LienThong\NMCNPM2\API\BaseApplication\bin\Debug\Unity.ServiceLocation.pdb
 E:\LienThong\NMCNPM2\API\BaseApplication\obj\Debug\BaseApplication.dll
 E:\LienThong\NMCNPM2\API\BaseApplication\obj\Debug\BaseApplication.pdb
+E:\LienThong\NMCNPM2\API\BaseApplication\obj\Debug\BaseApplication.csprojResolveAssemblyReference.cache
