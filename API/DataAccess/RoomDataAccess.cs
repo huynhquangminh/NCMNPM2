@@ -8,18 +8,16 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class ServiceDataAccess : IServiceDataAccess
+   public class RoomDataAccess: IRoomDataAccess
     {
         private HotelDbConnection db = new HotelDbConnection();
-
         /// <summary>
-        /// GetServiceAll
+        /// GetRoomList
         /// </summary>
-        /// <returns>GET_SERVICE_ALL_Result</returns>
-        public IEnumerable<GET_SERVICE_ALL_Result> GetServiceAll()
+        /// <returns>GetRoomList</returns>
+        public IEnumerable<GET_LIST_ROOM_Result> GetRoomList()
         {
-            return db.GET_SERVICE_ALL();
+            return db.GET_LIST_ROOM();
         }
-        
     }
 }

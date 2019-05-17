@@ -10,28 +10,23 @@ using System.Web.Http;
 
 namespace ShopEshopperAPI.Controllers
 {
-    public class ServiceController : ApiController
+    public class RoomController : ApiController
     {
-        private readonly IServiceBusinessLogic _businessLogic;
+        private readonly IRoomBusinessLogic _businessLogic;
 
-        public ServiceController(IServiceBusinessLogic businessLogic)
+        public RoomController(IRoomBusinessLogic businessLogic)
         {
             _businessLogic = businessLogic;
         }
-
         /// <summary>
-        /// GetServiceAll
+        /// GetRoomList
         /// </summary>
         /// <returns>IHttpActionResult</returns>
         [HttpPost]
-        public IHttpActionResult GetServiceAll()
+        public IHttpActionResult GetRoomList()
         {
-            var result = _businessLogic.GetServiceAll();
-            return new ActionResult<GetServiceResponse>(result.Result, Request);
+            var result = _businessLogic.GetRoomList();
+            return new ActionResult<GetListRoomResponse>(result.Result, Request);
         }
-       
-
-
-
     }
 }

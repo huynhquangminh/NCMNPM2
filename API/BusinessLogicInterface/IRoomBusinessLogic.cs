@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicInterface
 {
-   public interface IServiceBusinessLogic
+   public interface IRoomBusinessLogic
     {
         /// <summary>
-        /// GetServiceAll
+        /// GetRoomList
         /// </summary>
-        /// <returns>GetServiceResponse</returns>
-        Task<GetServiceResponse> GetServiceAll();
-        
+        /// <returns>GetListRoomResponse</returns>
+        Task<GetListRoomResponse> GetRoomList();
     }
 }

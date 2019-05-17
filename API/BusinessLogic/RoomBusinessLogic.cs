@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    public class ServiceBusinessLogic : BaseBusinessLogic, IServiceBusinessLogic
+    public class RoomBusinessLogic : BaseBusinessLogic, IRoomBusinessLogic
     {
-        private readonly IServiceDataAccess _dataAccess;
+        private readonly IRoomDataAccess _dataAccess;
 
-        public ServiceBusinessLogic(IServiceDataAccess dataAccess)
+        public RoomBusinessLogic(IRoomDataAccess dataAccess)
         {
             _dataAccess = dataAccess;
             ConfigAutoMapper();
@@ -28,7 +28,7 @@ namespace BusinessLogic
         {
             configMap = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<GET_SERVICE_ALL_Result, GetServiceDTO>();
+                cfg.CreateMap<GET_LIST_ROOM_Result, GetListRoomDTO>();
             });
             mapper = configMap.CreateMapper();
         }
@@ -37,15 +37,15 @@ namespace BusinessLogic
         /// GetServiceAll
         /// </summary>
         /// <returns>GetServiceResponse</returns>
-        public async Task<GetServiceResponse> GetServiceAll()
+        public async Task<GetListRoomResponse> GetRoomList()
         {
-            var response = new GetServiceResponse();
+            var response = new GetListRoomResponse();
             try
             {
-                var result = _dataAccess.GetServiceAll();
+                var result = _dataAccess.GetRoomList();
                 if (result != null)
                 {
-                    response.ListServiceAll = MapList<GET_SERVICE_ALL_Result, GetServiceDTO>(result.ToList());
+                    response.ListRoom = MapList<GET_LIST_ROOM_Result, GetListRoomDTO>(result.ToList());
                     response.Success = true;
                 }
             }

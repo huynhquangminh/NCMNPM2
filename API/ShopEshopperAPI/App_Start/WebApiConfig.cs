@@ -20,9 +20,14 @@ namespace ShopEshopperAPI
 
             // Web API DI
             var container = new UnityContainer();
+
             // Service
             container.RegisterType<IServiceBusinessLogic, ServiceBusinessLogic>();
             container.RegisterType<IServiceDataAccess, ServiceDataAccess>();
+
+            // Room
+            container.RegisterType<IRoomBusinessLogic, RoomBusinessLogic>();
+            container.RegisterType<IRoomDataAccess, RoomDataAccess>();
 
             config.DependencyResolver = new UnityResolver(container);
 

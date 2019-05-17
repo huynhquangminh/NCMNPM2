@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Dtos\GetListRoomDTO.cs" />
     <Compile Include="Dtos\GetServiceDTO.cs" />
+    <Compile Include="IRoomBusinessLogic.cs" />
     <Compile Include="IServiceBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response\GetListRoomResponse.cs" />

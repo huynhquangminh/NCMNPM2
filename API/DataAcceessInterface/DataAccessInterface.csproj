@@ -84,27 +84,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRoomDataAccess.cs" />
     <Compile Include="IServiceDataAccess.cs" />
-    <Compile Include="Parameter\AddCategoryParameter.cs" />
-    <Compile Include="Parameter\AddCustomerParameter.cs" />
-    <Compile Include="Parameter\AddNewsParameter.cs" />
-    <Compile Include="Parameter\AddRoleParameter.cs" />
-    <Compile Include="Parameter\DeleteCategoryParameter.cs" />
-    <Compile Include="Parameter\DeleteCustomerPrameter.cs" />
-    <Compile Include="Parameter\DeleteNewsParameter.cs" />
-    <Compile Include="Parameter\DeleteProductParameter.cs" />
-    <Compile Include="Parameter\DeleteRoleParameter.cs" />
-    <Compile Include="Parameter\EditNewsParameter.cs" />
-    <Compile Include="Parameter\FindProductParameter.cs" />
-    <Compile Include="Parameter\GetNewsDetailParameter.cs" />
-    <Compile Include="Parameter\GetProductAllParameter.cs" />
-    <Compile Include="Parameter\GetProductByCategoryParameter.cs" />
-    <Compile Include="Parameter\InsertProductParameter.cs" />
-    <Compile Include="Parameter\ProductDetailByIDParameter.cs" />
-    <Compile Include="Parameter\UpdateCategoryParameter.cs" />
-    <Compile Include="Parameter\UpdateCustomerParameter.cs" />
-    <Compile Include="Parameter\UpdateProductParameter.cs" />
-    <Compile Include="Parameter\UpdateRoleParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +97,9 @@
       <Project>{F76AA855-C9EB-472B-90C9-5FECBE89275A}</Project>
       <Name>EntityData</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Parameter\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
