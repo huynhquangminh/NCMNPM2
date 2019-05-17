@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AppService } from '../service/app-service';
 import { IntroduceComponent } from './introduce/introduce.component';
 import { FindroomComponent } from './findroom/findroom.component';
+import { BillComponent } from './bill/bill.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { FindroomComponent } from './findroom/findroom.component';
     TypeServiceComponent,
     IntroduceComponent,
     FindroomComponent,
+    BillComponent,
   ],
   providers: []
 })
