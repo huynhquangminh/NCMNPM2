@@ -16,6 +16,7 @@ import { IntroduceComponent } from './introduce/introduce.component';
 import { FindroomComponent } from './findroom/findroom.component';
 import { BillComponent } from './bill/bill.component';
 import { ContactComponent } from './contact/contact.component';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { ContactComponent } from './contact/contact.component';
     FindroomComponent,
     BillComponent,
     ContactComponent,
+    Page404Component,
   ],
   providers: []
 })
