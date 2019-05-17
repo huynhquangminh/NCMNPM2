@@ -149,9 +149,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GET_LIST_SERVICE" FunctionName="HotelDatabaseModel.Store.GET_LIST_SERVICE">
+    <FunctionImportMapping FunctionImportName="GET_SERVICE_ALL" FunctionName="HotelDatabaseModel.Store.GET_SERVICE_ALL">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_LIST_SERVICE_Result">
+        <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_SERVICE_ALL_Result">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
           <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
@@ -160,29 +160,5 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="HotelDatabaseModel.Store.sp_alterdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="HotelDatabaseModel.Store.sp_creatediagram" />
-    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="HotelDatabaseModel.Store.sp_dropdiagram" />
-    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="HotelDatabaseModel.Store.sp_helpdiagramdefinition">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="HotelDatabaseModel.sp_helpdiagramdefinition_Result">
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="HotelDatabaseModel.Store.sp_helpdiagrams">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="HotelDatabaseModel.sp_helpdiagrams_Result">
-          <ScalarProperty Name="Database" ColumnName="Database" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Owner" ColumnName="Owner" />
-          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="HotelDatabaseModel.Store.sp_renamediagram" />
-    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="HotelDatabaseModel.Store.sp_upgraddiagrams" />
   </EntityContainerMapping>
 </Mapping>

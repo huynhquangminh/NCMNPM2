@@ -128,6 +128,5 @@ E:\LienThong\NMCNPM2\API\EntityData\bin\Debug\Unity.Interception.pdb
 E:\LienThong\NMCNPM2\API\EntityData\bin\Debug\Unity.Interception.Configuration.pdb
 E:\LienThong\NMCNPM2\API\EntityData\bin\Debug\Unity.RegistrationByConvention.pdb
 E:\LienThong\NMCNPM2\API\EntityData\bin\Debug\Unity.ServiceLocation.pdb
-E:\LienThong\NMCNPM2\API\EntityData\obj\Debug\EntityData.csprojResolveAssemblyReference.cache
 E:\LienThong\NMCNPM2\API\EntityData\obj\Debug\EntityData.dll
 E:\LienThong\NMCNPM2\API\EntityData\obj\Debug\EntityData.pdb

@@ -322,69 +322,20 @@
       <End Role="Phong" EntitySet="Phongs" />
       <End Role="PhieuDatPhongKhachSan" EntitySet="PhieuDatPhongKhachSans" />
     </AssociationSet>
-    <FunctionImport Name="GET_SERVICE_ALL" ReturnType="Collection(HotelDatabaseModel.GET_SERVICE_ALL_Result)" />
     <FunctionImport Name="GET_LIST_ROOM" ReturnType="Collection(HotelDatabaseModel.GET_LIST_ROOM_Result)" />
-    <FunctionImport Name="GET_LIST_SERVICE" ReturnType="Collection(HotelDatabaseModel.GET_LIST_SERVICE_Result)" />
-    <FunctionImport Name="sp_alterdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_creatediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_dropdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(HotelDatabaseModel.sp_helpdiagramdefinition_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(HotelDatabaseModel.sp_helpdiagrams_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_renamediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="new_diagramname" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="GET_SERVICE_ALL" ReturnType="Collection(HotelDatabaseModel.GET_SERVICE_ALL_Result)" />
   </EntityContainer>
-  <ComplexType Name="GET_SERVICE_ALL_Result">
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="TenDichVu" Nullable="false" MaxLength="200" />
-    <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="100" />
-    <Property Type="Decimal" Name="Gia" Nullable="false" Precision="19" />
-    <Property Type="String" Name="imgDichVu" Nullable="true" MaxLength="500" />
-  </ComplexType>
   <ComplexType Name="GET_LIST_ROOM_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="TenLoaiPhong" Nullable="false" MaxLength="200" />
     <Property Type="Decimal" Name="GiaPhong" Nullable="false" Precision="19" />
     <Property Type="String" Name="imgLoaiPhong" Nullable="true" MaxLength="500" />
   </ComplexType>
-  <ComplexType Name="GET_LIST_SERVICE_Result">
+  <ComplexType Name="GET_SERVICE_ALL_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="TenDichVu" Nullable="false" MaxLength="200" />
     <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="100" />
     <Property Type="Decimal" Name="Gia" Nullable="false" Precision="19" />
     <Property Type="String" Name="imgDichVu" Nullable="true" MaxLength="500" />
-  </ComplexType>
-  <ComplexType Name="sp_helpdiagramdefinition_Result">
-    <Property Type="Int32" Name="version" Nullable="true" />
-    <Property Type="Binary" Name="definition" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="sp_helpdiagrams_Result">
-    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-    <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
 </Schema>
