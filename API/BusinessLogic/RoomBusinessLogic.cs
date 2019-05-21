@@ -2,8 +2,10 @@
 using BaseApplication;
 using BusinessLogicInterface;
 using BusinessLogicInterface.Dtos;
+using BusinessLogicInterface.Requests;
 using BusinessLogicInterface.Response;
 using DataAcceessInterface;
+using DataAcceessInterface.Parameter;
 using EntityData;
 using System;
 using System.Linq;
@@ -54,6 +56,33 @@ namespace BusinessLogic
                 response.Success = false;
             }
             return await Task.FromResult(response);
+        }
+
+        /// <summary>
+        /// AddListRoom
+        /// </summary>
+        /// <returns>bool</returns>
+        public async Task<bool> AddListRoom(AddListRoomRequest request)
+        {
+            bool result = false;
+            try
+            {
+                var param = new AddListRoomParameter()
+                {
+                    tenLoaiPhong = request.tenLoaiPhong,
+                    giaPhong = request.giaPhong,
+                    imgLoaiPhong=request.imgLoaiPhong
+                };
+                _dataAccess.AddListRoom(param);
+                result = true;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                return result;
+            }
+            return await Task.FromResult(result);
         }
     }
 }

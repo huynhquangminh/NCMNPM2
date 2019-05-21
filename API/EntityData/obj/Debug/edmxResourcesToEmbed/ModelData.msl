@@ -164,16 +164,8 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GET_SERVICE_ALL1" FunctionName="HotelDatabaseModel.Store.GET_SERVICE_ALL">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_SERVICE_ALL1_Result">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
-          <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
-          <ScalarProperty Name="Gia" ColumnName="Gia" />
-          <ScalarProperty Name="imgDichVu" ColumnName="imgDichVu" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ADD_LIST_ROOM" FunctionName="HotelDatabaseModel.Store.ADD_LIST_ROOM" />
+    <FunctionImportMapping FunctionImportName="DELETE_ITEM_ROOM" FunctionName="HotelDatabaseModel.Store.DELETE_ITEM_ROOM" />
+    <FunctionImportMapping FunctionImportName="UPDATE_ITEM_ROOM" FunctionName="HotelDatabaseModel.Store.UPDATE_ITEM_ROOM" />
   </EntityContainerMapping>
 </Mapping>

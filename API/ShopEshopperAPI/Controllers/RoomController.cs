@@ -1,5 +1,6 @@
 ﻿using BaseApplication;
 using BusinessLogicInterface;
+using BusinessLogicInterface.Requests;
 using BusinessLogicInterface.Response;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,17 @@ namespace ShopEshopperAPI.Controllers
         {
             var result = _businessLogic.GetRoomList();
             return new ActionResult<GetListRoomResponse>(result.Result, Request);
+        }
+
+        /// <summary>
+        /// AddListRoom
+        /// </summary>
+        /// <returns>bool</returns>
+        [HttpPost]
+        public IHttpActionResult AddListRoom(AddListRoomRequest request)
+        {
+            var result = _businessLogic.AddListRoom(request);
+            return new ActionResult<bool>(result.Result, Request);
         }
     }
 }

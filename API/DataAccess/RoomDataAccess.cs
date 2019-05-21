@@ -1,4 +1,5 @@
 ﻿using DataAcceessInterface;
+using DataAcceessInterface.Parameter;
 using EntityData;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,15 @@ namespace DataAccess
         public IEnumerable<GET_LIST_ROOM_Result> GetRoomList()
         {
             return db.GET_LIST_ROOM();
+        }
+
+        /// <summary>
+        /// AddListRoom
+        /// </summary>
+        /// <returns>AddListRoom</returns>
+        public void AddListRoom(AddListRoomParameter request)
+        {
+            db.ADD_LIST_ROOM(request.tenLoaiPhong, request.giaPhong, request.imgLoaiPhong);
         }
     }
 }

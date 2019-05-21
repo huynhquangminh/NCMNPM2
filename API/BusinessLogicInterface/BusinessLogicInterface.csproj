@@ -97,6 +97,7 @@
     <Compile Include="IRoomBusinessLogic.cs" />
     <Compile Include="IServiceBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\AddListRoomRequest.cs" />
     <Compile Include="Requests\AddListServiceRequest.cs" />
     <Compile Include="Requests\DeleteItemServiceRequest.cs" />
     <Compile Include="Requests\SendMailCommentCustomerRequest.cs" />

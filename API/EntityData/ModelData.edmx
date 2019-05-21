@@ -255,18 +255,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="ADD_LIST_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TenLoaiPhong" Type="char" Mode="In" />
+          <Parameter Name="GiaPhong" Type="int" Mode="In" />
+          <Parameter Name="imgLoaiPhong" Type="char" Mode="In" />
+        </Function>
         <Function Name="ADD_LIST_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TenDichVu" Type="char" Mode="In" />
           <Parameter Name="DonViTinh" Type="char" Mode="In" />
           <Parameter Name="Gia" Type="int" Mode="In" />
           <Parameter Name="imgDichVu" Type="char" Mode="In" />
         </Function>
+        <Function Name="DELETE_ITEM_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
         <Function Name="DELETE_ITEM_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
         <Function Name="GET_LIST_POSTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GET_LIST_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="GET_SERVICE_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UPDATE_ITEM_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="TenLoaiPhong" Type="char" Mode="In" />
+          <Parameter Name="GiaPhong" Type="int" Mode="In" />
+          <Parameter Name="imgLoaiPhong" Type="char" Mode="In" />
+        </Function>
         <Function Name="UPDATE_ITEM_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
           <Parameter Name="TenDichVu" Type="char" Mode="In" />
@@ -674,6 +687,20 @@
           </FunctionImport>
           <FunctionImport Name="GET_LIST_POSTS" ReturnType="Collection(HotelDatabaseModel.GET_LIST_POSTS_Result)" />
           <FunctionImport Name="GET_SERVICE_ALL1" ReturnType="Collection(HotelDatabaseModel.GET_SERVICE_ALL1_Result)" />
+          <FunctionImport Name="ADD_LIST_ROOM">
+            <Parameter Name="TenLoaiPhong" Mode="In" Type="String" />
+            <Parameter Name="GiaPhong" Mode="In" Type="Int32" />
+            <Parameter Name="imgLoaiPhong" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DELETE_ITEM_ROOM">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UPDATE_ITEM_ROOM">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="TenLoaiPhong" Mode="In" Type="String" />
+            <Parameter Name="GiaPhong" Mode="In" Type="Int32" />
+            <Parameter Name="imgLoaiPhong" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GET_LIST_ROOM_Result">
           <Property Type="Int32" Name="ID" Nullable="false" />
@@ -880,17 +907,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GET_SERVICE_ALL1" FunctionName="HotelDatabaseModel.Store.GET_SERVICE_ALL">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_SERVICE_ALL1_Result">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
-                <ScalarProperty Name="DonViTinh" ColumnName="DonViTinh" />
-                <ScalarProperty Name="Gia" ColumnName="Gia" />
-                <ScalarProperty Name="imgDichVu" ColumnName="imgDichVu" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ADD_LIST_ROOM" FunctionName="HotelDatabaseModel.Store.ADD_LIST_ROOM" />
+          <FunctionImportMapping FunctionImportName="DELETE_ITEM_ROOM" FunctionName="HotelDatabaseModel.Store.DELETE_ITEM_ROOM" />
+          <FunctionImportMapping FunctionImportName="UPDATE_ITEM_ROOM" FunctionName="HotelDatabaseModel.Store.UPDATE_ITEM_ROOM" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

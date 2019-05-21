@@ -118,5 +118,52 @@ namespace EntityData
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_SERVICE_ALL1_Result>("GET_SERVICE_ALL1");
         }
+    
+        public virtual int ADD_LIST_ROOM(string tenLoaiPhong, Nullable<int> giaPhong, string imgLoaiPhong)
+        {
+            var tenLoaiPhongParameter = tenLoaiPhong != null ?
+                new ObjectParameter("TenLoaiPhong", tenLoaiPhong) :
+                new ObjectParameter("TenLoaiPhong", typeof(string));
+    
+            var giaPhongParameter = giaPhong.HasValue ?
+                new ObjectParameter("GiaPhong", giaPhong) :
+                new ObjectParameter("GiaPhong", typeof(int));
+    
+            var imgLoaiPhongParameter = imgLoaiPhong != null ?
+                new ObjectParameter("imgLoaiPhong", imgLoaiPhong) :
+                new ObjectParameter("imgLoaiPhong", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_LIST_ROOM", tenLoaiPhongParameter, giaPhongParameter, imgLoaiPhongParameter);
+        }
+    
+        public virtual int DELETE_ITEM_ROOM(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_ITEM_ROOM", iDParameter);
+        }
+    
+        public virtual int UPDATE_ITEM_ROOM(Nullable<int> iD, string tenLoaiPhong, Nullable<int> giaPhong, string imgLoaiPhong)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var tenLoaiPhongParameter = tenLoaiPhong != null ?
+                new ObjectParameter("TenLoaiPhong", tenLoaiPhong) :
+                new ObjectParameter("TenLoaiPhong", typeof(string));
+    
+            var giaPhongParameter = giaPhong.HasValue ?
+                new ObjectParameter("GiaPhong", giaPhong) :
+                new ObjectParameter("GiaPhong", typeof(int));
+    
+            var imgLoaiPhongParameter = imgLoaiPhong != null ?
+                new ObjectParameter("imgLoaiPhong", imgLoaiPhong) :
+                new ObjectParameter("imgLoaiPhong", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_ITEM_ROOM", iDParameter, tenLoaiPhongParameter, giaPhongParameter, imgLoaiPhongParameter);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using EntityData;
+﻿using DataAcceessInterface.Parameter;
+using EntityData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,11 @@ namespace DataAcceessInterface
         /// </summary>
         /// <returns>GET_SERVICE_ALL_Result</returns>
         IEnumerable<GET_LIST_ROOM_Result> GetRoomList();
+
+        /// <summary>
+        /// AddListRoom
+        /// </summary>
+        /// <returns>void</returns>
+        void AddListRoom(AddListRoomParameter param);
     }
 }

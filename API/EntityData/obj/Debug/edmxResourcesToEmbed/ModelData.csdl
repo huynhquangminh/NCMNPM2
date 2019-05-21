@@ -343,6 +343,20 @@
     </FunctionImport>
     <FunctionImport Name="GET_LIST_POSTS" ReturnType="Collection(HotelDatabaseModel.GET_LIST_POSTS_Result)" />
     <FunctionImport Name="GET_SERVICE_ALL1" ReturnType="Collection(HotelDatabaseModel.GET_SERVICE_ALL1_Result)" />
+    <FunctionImport Name="ADD_LIST_ROOM">
+      <Parameter Name="TenLoaiPhong" Mode="In" Type="String" />
+      <Parameter Name="GiaPhong" Mode="In" Type="Int32" />
+      <Parameter Name="imgLoaiPhong" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DELETE_ITEM_ROOM">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATE_ITEM_ROOM">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="TenLoaiPhong" Mode="In" Type="String" />
+      <Parameter Name="GiaPhong" Mode="In" Type="Int32" />
+      <Parameter Name="imgLoaiPhong" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GET_LIST_ROOM_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />

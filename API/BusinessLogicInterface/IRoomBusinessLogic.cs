@@ -1,4 +1,5 @@
-﻿using BusinessLogicInterface.Response;
+﻿using BusinessLogicInterface.Requests;
+using BusinessLogicInterface.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,11 @@ namespace BusinessLogicInterface
         /// </summary>
         /// <returns>GetListRoomResponse</returns>
         Task<GetListRoomResponse> GetRoomList();
+
+        /// <summary>
+        /// AddListRoom
+        /// </summary>
+        /// <returns>bool</returns>
+        Task<bool> AddListRoom(AddListRoomRequest request);
     }
 }
