@@ -87,6 +87,9 @@
     <Compile Include="IPostsDataAcess.cs" />
     <Compile Include="IRoomDataAccess.cs" />
     <Compile Include="IServiceDataAccess.cs" />
+    <Compile Include="Parameter\AddListServiceParameter.cs" />
+    <Compile Include="Parameter\DeleteItemServiceParameter.cs" />
+    <Compile Include="Parameter\UpdateItemServiceParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -99,9 +102,7 @@
       <Name>EntityData</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Parameter\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

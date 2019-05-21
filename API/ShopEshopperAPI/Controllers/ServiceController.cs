@@ -1,5 +1,6 @@
 ﻿using BaseApplication;
 using BusinessLogicInterface;
+using BusinessLogicInterface.Requests;
 using BusinessLogicInterface.Response;
 using System;
 using System.Collections.Generic;
@@ -29,9 +30,38 @@ namespace ShopEshopperAPI.Controllers
             var result = _businessLogic.GetServiceAll();
             return new ActionResult<GetServiceResponse>(result.Result, Request);
         }
-       
 
+        /// <summary>
+        /// AddListService
+        /// </summary>
+        /// <returns>bool</returns>
+        [HttpPost]
+        public IHttpActionResult AddListService(AddListServiceRequest request)
+        {
+            var result = _businessLogic.AddListService(request);
+            return new ActionResult<bool>(result.Result, Request);
+        }
 
+        /// <summary>
+        /// DeleteItemService
+        /// </summary>
+        /// <returns>bool</returns>
+        [HttpPost]
+        public IHttpActionResult DeleteItemService(DeleteItemServiceRequest request)
+        {
+            var result = _businessLogic.DeleteItemService(request);
+            return new ActionResult<bool>(result.Result, Request);
+        }
 
+        /// <summary>
+        /// UpdateItemService
+        /// </summary>
+        /// <returns>bool</returns>
+        [HttpPost]
+        public IHttpActionResult UpdateItemService(UpdateItemServiceRequest request)
+        {
+            var result = _businessLogic.UpdateItemService(request);
+            return new ActionResult<bool>(result.Result, Request);
+        }
     }
 }

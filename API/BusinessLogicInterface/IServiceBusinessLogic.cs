@@ -1,4 +1,5 @@
-﻿using BusinessLogicInterface.Response;
+﻿using BusinessLogicInterface.Requests;
+using BusinessLogicInterface.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,24 @@ namespace BusinessLogicInterface
         /// </summary>
         /// <returns>GetServiceResponse</returns>
         Task<GetServiceResponse> GetServiceAll();
-        
+
+        /// <summary>
+        /// AddListService
+        /// </summary>
+        /// <returns>bool</returns>
+        Task<bool> AddListService(AddListServiceRequest request);
+
+        /// <summary>
+        /// DeleteItemService
+        /// </summary>
+        /// <returns>bool</returns>
+        Task<bool> DeleteItemService(DeleteItemServiceRequest request);
+
+        /// <summary>
+        /// UpdateItemService
+        /// </summary>
+        /// <returns>bool</returns>
+        Task<bool> UpdateItemService(UpdateItemServiceRequest request);
+
     }
 }
