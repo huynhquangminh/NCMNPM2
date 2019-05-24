@@ -87,10 +87,16 @@
     <Compile Include="IPostsDataAcess.cs" />
     <Compile Include="IRoomDataAccess.cs" />
     <Compile Include="IServiceDataAccess.cs" />
+    <Compile Include="IUserDataAccess.cs" />
+    <Compile Include="IOrderDataAccess.cs" />
     <Compile Include="Parameter\AddListRoomParameter.cs" />
     <Compile Include="Parameter\AddListServiceParameter.cs" />
     <Compile Include="Parameter\DeleteItemServiceParameter.cs" />
+    <Compile Include="Parameter\GetInfoFromRoomNoParameter.cs" />
+    <Compile Include="Parameter\GetListOrderFromIdentitycardParameter.cs" />
+    <Compile Include="Parameter\UserRegisterParameter.cs" />
     <Compile Include="Parameter\UpdateItemServiceParameter.cs" />
+    <Compile Include="Parameter\UserLoginParameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

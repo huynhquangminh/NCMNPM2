@@ -89,22 +89,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\GetInfoFromRoomNoDTO.cs" />
+    <Compile Include="Dtos\GetListOrderFromIdentitycardDTO.cs" />
     <Compile Include="Dtos\GetListRoomDTO.cs" />
     <Compile Include="Dtos\GetListPostsDTO.cs" />
     <Compile Include="Dtos\GetServiceDTO.cs" />
+    <Compile Include="Dtos\UserLoginDTO.cs" />
     <Compile Include="IMailBusinessLogic.cs" />
+    <Compile Include="IOrderBusinessLogic.cs" />
     <Compile Include="IPostsBusinessLogic.cs" />
     <Compile Include="IRoomBusinessLogic.cs" />
     <Compile Include="IServiceBusinessLogic.cs" />
+    <Compile Include="IUserBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\AddListRoomRequest.cs" />
     <Compile Include="Requests\AddListServiceRequest.cs" />
     <Compile Include="Requests\DeleteItemServiceRequest.cs" />
+    <Compile Include="Requests\GetInfoFromRoomNoRequest.cs" />
+    <Compile Include="Requests\GetListOrderFromIdentitycardRequest.cs" />
     <Compile Include="Requests\SendMailCommentCustomerRequest.cs" />
     <Compile Include="Requests\UpdateItemServiceRequest.cs" />
+    <Compile Include="Requests\UserLoginRequest.cs" />
+    <Compile Include="Requests\UserRegisterRequest.cs" />
+    <Compile Include="Response\GetInfoFromRoomNoResponse.cs" />
+    <Compile Include="Response\GetListOrderFromIdentitycardResponse.cs" />
     <Compile Include="Response\GetListRoomResponse.cs" />
     <Compile Include="Response\GetServiceResponse.cs" />
     <Compile Include="Response\GetPostsResponse.cs" />
+    <Compile Include="Response\UserLoginResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
