@@ -32,6 +32,12 @@ namespace ShopEshopperAPI
             // Posts
             container.RegisterType<IPostsBusinessLogic, PostsBusinessLogic>();
             container.RegisterType<IPostsDataAcess, PostsDataAccess>();
+            // Order
+            container.RegisterType<IOrderBusinessLogic, OrderBusinessLogic>();
+            container.RegisterType<IOrderDataAccess, OrderDataAccess>();
+            // User
+            container.RegisterType<IUserBusinessLogic, UserBusinessLogic>();
+            container.RegisterType<IUserDataAccess, UserDataAccess>();
 
             // mail
             container.RegisterType<IMailBusinessLogic, MailBusinessLogic>();

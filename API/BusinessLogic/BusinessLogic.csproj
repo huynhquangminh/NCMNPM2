@@ -90,10 +90,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MailBusinessLogic.cs" />
+    <Compile Include="OrderBusinessLogic.cs" />
     <Compile Include="PostsBusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomBusinessLogic.cs" />
     <Compile Include="ServiceBusinessLogic.cs" />
+    <Compile Include="UserBusinessLogic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -21,5 +21,11 @@ namespace BusinessLogicInterface
         /// </summary>
         /// <returns>bool</returns>
         Task<bool> AddListRoom(AddListRoomRequest request);
+
+        /// <summary>
+        /// GetInfoFromRoomNo 
+        /// </summary>
+        /// <returns>GetInfoFromRoomNoResponse</returns>
+        Task<GetInfoFromRoomNoResponse> GetInfoFromRoomNo(GetInfoFromRoomNoRequest request);
     }
 }

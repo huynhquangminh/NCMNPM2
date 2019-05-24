@@ -21,5 +21,11 @@ namespace DataAcceessInterface
         /// </summary>
         /// <returns>void</returns>
         void AddListRoom(AddListRoomParameter param);
+
+        /// <summary>
+        /// GetInfoFromRoomNo 
+        /// </summary>
+        /// <returns>GET_INFO_FROM_ROOM_NO_Result</returns>
+        IEnumerable<GET_INFO_FROM_ROOM_NO_Result> GetInfoFromRoomNo(GetInfoFromRoomNoParameter param);
     }
 }

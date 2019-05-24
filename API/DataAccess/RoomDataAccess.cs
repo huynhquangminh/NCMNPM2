@@ -29,5 +29,14 @@ namespace DataAccess
         {
             db.ADD_LIST_ROOM(request.tenLoaiPhong, request.giaPhong, request.imgLoaiPhong);
         }
+
+        /// <summary>
+        /// GetInfoFromRoomNo
+        /// </summary>
+        /// <returns>GET_INFO_FROM_ROOM_NO_Result</returns>
+        public IEnumerable<GET_INFO_FROM_ROOM_NO_Result> GetInfoFromRoomNo(GetInfoFromRoomNoParameter param)
+        {
+            return db.GET_INFO_FROM_ROOM_NO(param.roomNo);
+        }
     }
 }
