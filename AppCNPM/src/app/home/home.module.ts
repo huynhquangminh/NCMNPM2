@@ -17,6 +17,7 @@ import { FindroomComponent } from './findroom/findroom.component';
 import { BillComponent } from './bill/bill.component';
 import { ContactComponent } from './contact/contact.component';
 import { Page404Component } from './page404/page404.component';
+import { BookingticketComponent } from './bookingticket/bookingticket.component';
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { Page404Component } from './page404/page404.component';
     BillComponent,
     ContactComponent,
     Page404Component,
+    BookingticketComponent,
   ],
   providers: []
 })
