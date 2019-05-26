@@ -10,6 +10,17 @@ namespace BusinessLogicInterface
 {
     public interface IOrderBusinessLogic
     {
-       
+     
+        /// <summary>
+        /// SetBookingRoomRequest
+        /// </summary>
+        /// <returns>bool</returns>
+        Task<bool> SetBookingRoom(SetBookingRoomRequest request);
+
+        /// <summary>
+        /// UpdateBookingRoom
+        /// </summary>
+        /// <returns>bool</returns>
+        Task<bool> UpdateBookingRoom(UpdateBookingRoomRequest request);
     }
 }
