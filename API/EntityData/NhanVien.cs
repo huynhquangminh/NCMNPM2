@@ -28,7 +28,7 @@ namespace EntityData
         public string Password { get; set; }
         public string CMND { get; set; }
         public int idLoaiNV { get; set; }
-        public string SĐT { get; set; }
+        public string SDT { get; set; }
         public string Address { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

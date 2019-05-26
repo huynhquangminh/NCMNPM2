@@ -89,10 +89,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBookingTicketBusnessLogic.cs" />
     <Compile Include="Dtos\GetInfoFromRoomNoDTO.cs" />
+    <Compile Include="Dtos\GetListBookingTicketDTO.cs" />
     <Compile Include="Dtos\GetListOrderFromIdentitycardDTO.cs" />
     <Compile Include="Dtos\GetListRoomDTO.cs" />
     <Compile Include="Dtos\GetListPostsDTO.cs" />
+    <Compile Include="Dtos\GetRoomAllDTO.cs" />
     <Compile Include="Dtos\GetServiceDTO.cs" />
     <Compile Include="Dtos\UserLoginDTO.cs" />
     <Compile Include="IMailBusinessLogic.cs" />
@@ -112,8 +115,10 @@
     <Compile Include="Requests\UserLoginRequest.cs" />
     <Compile Include="Requests\UserRegisterRequest.cs" />
     <Compile Include="Response\GetInfoFromRoomNoResponse.cs" />
+    <Compile Include="Response\GetListBookingTicketResponse.cs" />
     <Compile Include="Response\GetListOrderFromIdentitycardResponse.cs" />
     <Compile Include="Response\GetListRoomResponse.cs" />
+    <Compile Include="Response\GetRoomAllResponse.cs" />
     <Compile Include="Response\GetServiceResponse.cs" />
     <Compile Include="Response\GetPostsResponse.cs" />
     <Compile Include="Response\UserLoginResponse.cs" />

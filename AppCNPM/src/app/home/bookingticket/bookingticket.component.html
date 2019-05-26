@@ -1,3 +1,22 @@
-<p>
-  bookingticket works!
-</p>
+<div class="container">
+  <br><br><br><br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Comfirm Booking </h3>
+    </div>
+    <div class="panel-body">
+      <h3>Thông tin đặt phòng của bạn. </h3>
+      <div>---------------------------------------------------------------------</div>
+      <div> <label>Ngày bắt đầu : <b>{{bookingticket.startDate | date: 'dd/MM/yyyy'}}</b></label></div>
+      <div><label>Ngày kết thúc:<b>{{bookingticket.endDate | date: 'dd/MM/yyyy'}}</b> </label></div>
+      <div><label>Số Phòng : <b *ngFor ="let item of bookingticket.SoPhong">{{item}} * </b> </label></div>
+      <div>---------------------------------------------------------------------</div>
+      <div class="col-md-2">
+        <input type="submit" class="btn btn-primary btn-block" value="Xác Nhận">
+      </div>
+      <div class="col-md-2">
+        <input type="submit" class="btn btn-danger btn-block" (click)= "btncancel()" value="Hủy Bỏ">
+      </div>
+    </div>
+  </div>
+</div>

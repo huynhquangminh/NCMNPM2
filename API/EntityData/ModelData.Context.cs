@@ -165,5 +165,131 @@ namespace EntityData
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_ITEM_ROOM", iDParameter, tenLoaiPhongParameter, giaPhongParameter, imgLoaiPhongParameter);
         }
+    
+        public virtual ObjectResult<GET_SERVICE_ALL2_Result> GET_SERVICE_ALL2()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_SERVICE_ALL2_Result>("GET_SERVICE_ALL2");
+        }
+    
+        public virtual int ADD_LIST_ROOM1(string tenLoaiPhong, Nullable<int> giaPhong, string imgLoaiPhong)
+        {
+            var tenLoaiPhongParameter = tenLoaiPhong != null ?
+                new ObjectParameter("TenLoaiPhong", tenLoaiPhong) :
+                new ObjectParameter("TenLoaiPhong", typeof(string));
+    
+            var giaPhongParameter = giaPhong.HasValue ?
+                new ObjectParameter("GiaPhong", giaPhong) :
+                new ObjectParameter("GiaPhong", typeof(int));
+    
+            var imgLoaiPhongParameter = imgLoaiPhong != null ?
+                new ObjectParameter("imgLoaiPhong", imgLoaiPhong) :
+                new ObjectParameter("imgLoaiPhong", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_LIST_ROOM1", tenLoaiPhongParameter, giaPhongParameter, imgLoaiPhongParameter);
+        }
+    
+        public virtual int DELETE_ITEM_ROOM1(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_ITEM_ROOM1", iDParameter);
+        }
+    
+        public virtual ObjectResult<GET_INFO_FROM_ROOM_NO_Result> GET_INFO_FROM_ROOM_NO(Nullable<int> roomNo)
+        {
+            var roomNoParameter = roomNo.HasValue ?
+                new ObjectParameter("RoomNo", roomNo) :
+                new ObjectParameter("RoomNo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_INFO_FROM_ROOM_NO_Result>("GET_INFO_FROM_ROOM_NO", roomNoParameter);
+        }
+    
+        public virtual ObjectResult<GET_LIST_ORDER_FROM_IDENTITYCARD_Result> GET_LIST_ORDER_FROM_IDENTITYCARD(string cMND)
+        {
+            var cMNDParameter = cMND != null ?
+                new ObjectParameter("CMND", cMND) :
+                new ObjectParameter("CMND", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_ORDER_FROM_IDENTITYCARD_Result>("GET_LIST_ORDER_FROM_IDENTITYCARD", cMNDParameter);
+        }
+    
+        public virtual int UPDATE_ITEM_ROOM1(Nullable<int> iD, string tenLoaiPhong, Nullable<int> giaPhong, string imgLoaiPhong)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var tenLoaiPhongParameter = tenLoaiPhong != null ?
+                new ObjectParameter("TenLoaiPhong", tenLoaiPhong) :
+                new ObjectParameter("TenLoaiPhong", typeof(string));
+    
+            var giaPhongParameter = giaPhong.HasValue ?
+                new ObjectParameter("GiaPhong", giaPhong) :
+                new ObjectParameter("GiaPhong", typeof(int));
+    
+            var imgLoaiPhongParameter = imgLoaiPhong != null ?
+                new ObjectParameter("imgLoaiPhong", imgLoaiPhong) :
+                new ObjectParameter("imgLoaiPhong", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_ITEM_ROOM1", iDParameter, tenLoaiPhongParameter, giaPhongParameter, imgLoaiPhongParameter);
+        }
+    
+        public virtual ObjectResult<USER_LOGIN_Result> USER_LOGIN(string userName, string password)
+        {
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USER_LOGIN_Result>("USER_LOGIN", userNameParameter, passwordParameter);
+        }
+    
+        public virtual int USER_REGISTER(string tenNhanVien, string userName, string password, string cMND, Nullable<int> idLoaiNV, string sDT, string address)
+        {
+            var tenNhanVienParameter = tenNhanVien != null ?
+                new ObjectParameter("TenNhanVien", tenNhanVien) :
+                new ObjectParameter("TenNhanVien", typeof(string));
+    
+            var userNameParameter = userName != null ?
+                new ObjectParameter("UserName", userName) :
+                new ObjectParameter("UserName", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            var cMNDParameter = cMND != null ?
+                new ObjectParameter("CMND", cMND) :
+                new ObjectParameter("CMND", typeof(string));
+    
+            var idLoaiNVParameter = idLoaiNV.HasValue ?
+                new ObjectParameter("idLoaiNV", idLoaiNV) :
+                new ObjectParameter("idLoaiNV", typeof(int));
+    
+            var sDTParameter = sDT != null ?
+                new ObjectParameter("SDT", sDT) :
+                new ObjectParameter("SDT", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("Address", address) :
+                new ObjectParameter("Address", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USER_REGISTER", tenNhanVienParameter, userNameParameter, passwordParameter, cMNDParameter, idLoaiNVParameter, sDTParameter, addressParameter);
+        }
+    
+        public virtual ObjectResult<GETROOM_ALL_Result> GETROOM_ALL()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GETROOM_ALL_Result>("GETROOM_ALL");
+        }
+    
+        public virtual ObjectResult<GET_LIST_BOOKING_TICKET_Result> GET_LIST_BOOKING_TICKET()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_BOOKING_TICKET_Result>("GET_LIST_BOOKING_TICKET");
+        }
     }
 }

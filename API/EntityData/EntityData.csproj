@@ -92,6 +92,18 @@
     <Compile Include="DatPhong.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
+    <Compile Include="GETROOM_ALL_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GET_INFO_FROM_ROOM_NO_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GET_LIST_BOOKING_TICKET_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GET_LIST_ORDER_FROM_IDENTITYCARD_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
     <Compile Include="GET_LIST_POSTS_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
@@ -102,6 +114,9 @@
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_SERVICE_ALL1_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GET_SERVICE_ALL2_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_SERVICE_ALL_Result.cs">
@@ -148,6 +163,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sysdiagram.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USER_LOGIN_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -1,3 +1,4 @@
+import { FindroomComponent } from './findroom/findroom.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './index/index.component';
@@ -8,10 +9,11 @@ import { TypeServiceComponent } from './type-service/type-service.component';
 import { IntroduceComponent } from './introduce/introduce.component';
 import { ContactComponent } from './contact/contact.component';
 import { Page404Component } from './page404/page404.component';
+import { BookingticketComponent } from './bookingticket/bookingticket.component';
+import { ListbookingComponent } from './listbooking/listbooking.component';
 const homeRoutes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'index', component: IndexComponent },
-    // { path: 'product/:page', component: ProductComponent },
     // { path: 'product-detail/:id', component: ProductDetailComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
@@ -19,7 +21,9 @@ const homeRoutes: Routes = [
     { path: 'typeservice', component: TypeServiceComponent },
     { path: 'introduce', component: IntroduceComponent },
     { path: 'contact', component: ContactComponent },
-    // { path: 'category/product/:key', component: CategoryComponent },
+    { path: 'findroom', component: FindroomComponent },
+    { path: 'booking-ticket', component: BookingticketComponent },
+    { path: 'list-booking-ticket', component: ListbookingComponent },
     // { path: 'news-detail/:id', component: TintucDetailComponent },
 
     // { path: 'searchproduct/:key', component: FindProductComponent },

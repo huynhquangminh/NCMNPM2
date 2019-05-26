@@ -8,6 +8,6 @@ namespace DataAcceessInterface.Parameter
 {
     public class GetListOrderFromIdentitycardParameter
     {
-        public string cMND { get; set; }
+        public string CMND { get; set; }
     }
 }

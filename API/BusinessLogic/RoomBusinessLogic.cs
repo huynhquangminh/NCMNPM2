@@ -31,6 +31,7 @@ namespace BusinessLogic
             configMap = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<GET_LIST_ROOM_Result, GetListRoomDTO>();
+                cfg.CreateMap<GETROOM_ALL_Result, GetRoomAllDTO>();
             });
             mapper = configMap.CreateMapper();
         }
@@ -48,6 +49,29 @@ namespace BusinessLogic
                 if (result != null)
                 {
                     response.ListRoom = MapList<GET_LIST_ROOM_Result, GetListRoomDTO>(result.ToList());
+                    response.Success = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+            }
+            return await Task.FromResult(response);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<GetRoomAllResponse> GetRoomAll()
+        {
+            var response = new GetRoomAllResponse();
+            try
+            {
+                var result = _dataAccess.GetRoomAll();
+                if (result != null)
+                {
+                    response.ListRoomAll = MapList<GETROOM_ALL_Result, GetRoomAllDTO>(result.ToList());
                     response.Success = true;
                 }
             }

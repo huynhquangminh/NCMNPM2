@@ -1,3 +1,62 @@
-<p>
-  findroom works!
-</p>
+<div class="container">
+  <br><br><br><br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Tìm phòng</h3>
+    </div>
+    <div class="panel-body">
+
+
+      <form novalidate [formGroup]="addForm">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="date_start">Start Date</label>
+            <input class="form-control" formControlName="DateStart"  id="datestart" name="datestart" type="date" value="14/05/2019">
+          </div>
+          <div class="col-md-3">
+            <label for="date_end">End Date</label>
+            <input class="form-control" formControlName="DateEnd" id="dateend" name="dateend" type="date" value="15/05/2019">
+          </div>
+          <div class="col-md-2">
+            <label for="date_end" style="visibility:hidden">End Date</label>
+            <input type="submit" onclick="return checkday()" class="btn btn-primary btn-block" value="Tìm phòng">
+          </div>
+          <div class="col-md-4">
+            <label for="date_end" style="visibility:hidden">OK</label>
+            <input type="submit"  class="btn btn-primary btn-block"  (click)= "btnHoanTat()" value="Hoàn Tất">
+          </div>
+        </div>
+      </form> <br>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered text-center align-middle">
+          <tbody>
+            <tr>
+              <th width="100px"></th>
+              <th>Số phòng</th>
+              <th>Mô tả</th>
+              <th>Tầng</th>
+              <th>Giá</th>
+              <th width="300px"></th>
+            </tr>
+            <tr *ngFor="let item of listRoom">
+              <td>
+                <img class="img-responsive" src="{{urlImage}}{{item.imgPhong}}">
+              </td>
+              <td> {{item.SoPhong}}</td>
+              <td>{{item.TenLoaiPhong}}</td>
+              <td> {{item.Tang}}</td>
+              <td> {{item.GiaPhong | currency:"VND"}} VND</td>
+              <td>
+                <!-- <button id="btn{{item.SoPhong}}cancel" class="btn" >Hủy Phòng</button> -->
+                <button id="btn_{{item.SoPhong}}" class="btn btn-success" (click)="btnClick(item.SoPhong)">Chọn
+                  Phòng</button>
+                <button id="btn_18" class="btn btn-primary">Chi tiết</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

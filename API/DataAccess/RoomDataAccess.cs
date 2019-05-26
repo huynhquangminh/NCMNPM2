@@ -1,17 +1,14 @@
 ﻿using DataAcceessInterface;
 using DataAcceessInterface.Parameter;
 using EntityData;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess
 {
-   public class RoomDataAccess: IRoomDataAccess
+    public class RoomDataAccess : IRoomDataAccess
     {
         private HotelDbConnection db = new HotelDbConnection();
+
         /// <summary>
         /// GetRoomList
         /// </summary>
@@ -19,6 +16,16 @@ namespace DataAccess
         public IEnumerable<GET_LIST_ROOM_Result> GetRoomList()
         {
             return db.GET_LIST_ROOM();
+        }
+
+        /// <summary>
+        /// get room all
+        /// </summary>
+        /// <returns>GETROOM_ALL_Result</returns>
+        public IEnumerable<GETROOM_ALL_Result> GetRoomAll()
+        {
+            var tamp = db.GETROOM_ALL();
+            return db.GETROOM_ALL();
         }
 
         /// <summary>

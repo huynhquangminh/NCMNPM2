@@ -32,37 +32,11 @@ namespace BusinessLogic
         {
             configMap = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<GET_LIST_ORDER_FROM_IDENTITYCARD_Result, GetListOrderFromIdentitycardDTO>();
+                //cfg.CreateMap<GET_LIST_ORDER_FROM_IDENTITYCARD_Result, GetListOrderFromIdentitycardDTO>();
             });
             mapper = configMap.CreateMapper();
         }
 
-        /// <summary>
-        /// GetListOrderFromIdentitycard
-        /// </summary>
-        /// <returns>GetListOrderFromIdentitycardResponse</returns>
-        public async Task<GetListOrderFromIdentitycardResponse> GetListOrderFromIdentitycard(GetListOrderFromIdentitycardRequest request)
-        {
-            var response = new GetListOrderFromIdentitycardResponse();
-
-            try
-            {
-                var param = new GetListOrderFromIdentitycardParameter()
-                {
-                    cMND=request.cMND
-                };
-                var result = _dataAccess.GetListOrderFromIdentitycard(param);
-                if (result != null)
-                {
-                    response.ListRoom = MapList<GET_LIST_ORDER_FROM_IDENTITYCARD_Result, GetListOrderFromIdentitycardDTO>(result.ToList());
-                    response.Success = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                response.Success = false;
-            }
-            return await Task.FromResult(response);
-        }
+        
     }
 }

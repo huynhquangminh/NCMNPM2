@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBookingTicketDataAccess.cs" />
     <Compile Include="IPostsDataAcess.cs" />
     <Compile Include="IRoomDataAccess.cs" />
     <Compile Include="IServiceDataAccess.cs" />

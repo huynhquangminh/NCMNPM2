@@ -54,10 +54,10 @@
     <Property Name="CMND" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="SĐT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="imgKhachHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PhieuDatPhongKhachSans" Relationship="Self.FK_PhieuDatPhongKhachSan_KhachHang" FromRole="KhachHang" ToRole="PhieuDatPhongKhachSan" />
+    <Property Name="SDT" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="LoaiDichVu">
     <Key>
@@ -90,7 +90,7 @@
     <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CMND" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="idLoaiNV" Type="Int32" Nullable="false" />
-    <Property Name="SĐT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SDT" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="DatPhongs" Relationship="Self.FK_DatPhong_NhanVien" FromRole="NhanVien" ToRole="DatPhong" />
     <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_NhanVien" FromRole="NhanVien" ToRole="HoaDon" />
@@ -357,6 +357,42 @@
       <Parameter Name="GiaPhong" Mode="In" Type="Int32" />
       <Parameter Name="imgLoaiPhong" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="GET_SERVICE_ALL2" ReturnType="Collection(HotelDatabaseModel.GET_SERVICE_ALL2_Result)" />
+    <FunctionImport Name="ADD_LIST_ROOM1">
+      <Parameter Name="TenLoaiPhong" Mode="In" Type="String" />
+      <Parameter Name="GiaPhong" Mode="In" Type="Int32" />
+      <Parameter Name="imgLoaiPhong" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DELETE_ITEM_ROOM1">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GET_INFO_FROM_ROOM_NO" ReturnType="Collection(HotelDatabaseModel.GET_INFO_FROM_ROOM_NO_Result)">
+      <Parameter Name="RoomNo" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GET_LIST_ORDER_FROM_IDENTITYCARD" ReturnType="Collection(HotelDatabaseModel.GET_LIST_ORDER_FROM_IDENTITYCARD_Result)">
+      <Parameter Name="CMND" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UPDATE_ITEM_ROOM1">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="TenLoaiPhong" Mode="In" Type="String" />
+      <Parameter Name="GiaPhong" Mode="In" Type="Int32" />
+      <Parameter Name="imgLoaiPhong" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USER_LOGIN" ReturnType="Collection(HotelDatabaseModel.USER_LOGIN_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="USER_REGISTER">
+      <Parameter Name="TenNhanVien" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="CMND" Mode="In" Type="String" />
+      <Parameter Name="idLoaiNV" Mode="In" Type="Int32" />
+      <Parameter Name="SDT" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GETROOM_ALL" ReturnType="Collection(HotelDatabaseModel.GETROOM_ALL_Result)" />
+    <FunctionImport Name="GET_LIST_BOOKING_TICKET" ReturnType="Collection(HotelDatabaseModel.GET_LIST_BOOKING_TICKET_Result)" />
   </EntityContainer>
   <ComplexType Name="GET_LIST_ROOM_Result">
     <Property Type="Int32" Name="ID" Nullable="false" />
@@ -393,5 +429,58 @@
     <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="100" />
     <Property Type="Decimal" Name="Gia" Nullable="false" Precision="19" />
     <Property Type="String" Name="imgDichVu" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="GET_SERVICE_ALL2_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="TenDichVu" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="DonViTinh" Nullable="false" MaxLength="100" />
+    <Property Type="Decimal" Name="Gia" Nullable="false" Precision="19" />
+    <Property Type="String" Name="imgDichVu" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="GET_INFO_FROM_ROOM_NO_Result">
+    <Property Type="Int32" Name="SoPhong" Nullable="false" />
+    <Property Type="Int32" Name="Tang" Nullable="false" />
+    <Property Type="String" Name="imgPhong" Nullable="false" MaxLength="500" />
+    <Property Type="Boolean" Name="TinhTrang" Nullable="false" />
+    <Property Type="String" Name="MoTaPhong" Nullable="false" />
+    <Property Type="String" Name="TenLoaiPhong" Nullable="true" MaxLength="200" />
+    <Property Type="Decimal" Name="GiaPhong" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="GET_LIST_ORDER_FROM_IDENTITYCARD_Result">
+    <Property Type="String" Name="CMND" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="SDT" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="500" />
+    <Property Type="String" Name="imgKhachHang" Nullable="true" />
+    <Property Type="Int32" Name="SoPhong" Nullable="true" />
+    <Property Type="DateTime" Name="NgayVao" Nullable="true" />
+    <Property Type="DateTime" Name="NgayRa" Nullable="true" />
+    <Property Type="Int32" Name="TinhTrang" Nullable="true" />
+    <Property Type="String" Name="idKhachHang" Nullable="true" MaxLength="11" />
+  </ComplexType>
+  <ComplexType Name="USER_LOGIN_Result">
+    <Property Type="String" Name="TenNhanVien" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="CMND" Nullable="false" MaxLength="12" />
+    <Property Type="Int32" Name="idLoaiNV" Nullable="false" />
+    <Property Type="String" Name="SDT" Nullable="false" MaxLength="11" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="GETROOM_ALL_Result">
+    <Property Type="Int32" Name="SoPhong" Nullable="false" />
+    <Property Type="Int32" Name="idLoaiPhong" Nullable="false" />
+    <Property Type="Int32" Name="Tang" Nullable="false" />
+    <Property Type="String" Name="imgPhong" Nullable="false" MaxLength="500" />
+    <Property Type="Boolean" Name="TinhTrang" Nullable="false" />
+    <Property Type="String" Name="MoTaPhong" Nullable="false" />
+    <Property Type="String" Name="TenLoaiPhong" Nullable="false" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="GET_LIST_BOOKING_TICKET_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="SoPhong" Nullable="false" />
+    <Property Type="DateTime" Name="NgayVao" Nullable="false" />
+    <Property Type="DateTime" Name="NgayRa" Nullable="false" />
+    <Property Type="Int32" Name="TinhTrang" Nullable="false" />
+    <Property Type="String" Name="CMND" Nullable="false" MaxLength="11" />
   </ComplexType>
 </Schema>

@@ -1,14 +1,10 @@
 ﻿using BusinessLogicInterface.Requests;
 using BusinessLogicInterface.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessLogicInterface
 {
-   public interface IRoomBusinessLogic
+    public interface IRoomBusinessLogic
     {
         /// <summary>
         /// GetRoomList
@@ -17,13 +13,19 @@ namespace BusinessLogicInterface
         Task<GetListRoomResponse> GetRoomList();
 
         /// <summary>
+        /// GetRoom all
+        /// </summary>
+        /// <returns>GetListRoomResponse</returns>
+        Task<GetRoomAllResponse> GetRoomAll();
+
+        /// <summary>
         /// AddListRoom
         /// </summary>
         /// <returns>bool</returns>
         Task<bool> AddListRoom(AddListRoomRequest request);
 
         /// <summary>
-        /// GetInfoFromRoomNo 
+        /// GetInfoFromRoomNo
         /// </summary>
         /// <returns>GetInfoFromRoomNoResponse</returns>
         Task<GetInfoFromRoomNoResponse> GetInfoFromRoomNo(GetInfoFromRoomNoRequest request);

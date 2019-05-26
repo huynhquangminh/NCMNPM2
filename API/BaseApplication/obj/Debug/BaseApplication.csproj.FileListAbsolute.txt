@@ -242,6 +242,6 @@ E:\LienThong\NMCNPM2\API\BaseApplication\bin\Debug\Unity.Interception.pdb
 E:\LienThong\NMCNPM2\API\BaseApplication\bin\Debug\Unity.Interception.Configuration.pdb
 E:\LienThong\NMCNPM2\API\BaseApplication\bin\Debug\Unity.RegistrationByConvention.pdb
 E:\LienThong\NMCNPM2\API\BaseApplication\bin\Debug\Unity.ServiceLocation.pdb
+E:\LienThong\NMCNPM2\API\BaseApplication\obj\Debug\BaseApplication.csprojResolveAssemblyReference.cache
 E:\LienThong\NMCNPM2\API\BaseApplication\obj\Debug\BaseApplication.dll
 E:\LienThong\NMCNPM2\API\BaseApplication\obj\Debug\BaseApplication.pdb
-E:\LienThong\NMCNPM2\API\BaseApplication\obj\Debug\BaseApplication.csprojResolveAssemblyReference.cache

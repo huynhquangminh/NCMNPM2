@@ -23,9 +23,9 @@ namespace EntityData
         public string CMND { get; set; }
         public string UserName { get; set; }
         public string PassWord { get; set; }
-        public string SĐT { get; set; }
         public string Address { get; set; }
         public string imgKhachHang { get; set; }
+        public string SDT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhieuDatPhongKhachSan> PhieuDatPhongKhachSans { get; set; }

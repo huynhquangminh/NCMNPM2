@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingTicketBusnessLogic.cs" />
     <Compile Include="MailBusinessLogic.cs" />
     <Compile Include="OrderBusinessLogic.cs" />
     <Compile Include="PostsBusinessLogic.cs" />

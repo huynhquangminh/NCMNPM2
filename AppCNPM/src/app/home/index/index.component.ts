@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { formatDate } from '@angular/common';
 import { AppService } from 'src/app/service/app-service';
 import { GETPOSTALL_UTL } from './config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -10,11 +11,13 @@ import { GETPOSTALL_UTL } from './config';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-  public addForm: FormGroup;
+  public indexform: FormGroup;
   listPost: any;
+  startDate: Date;
+  endDate: Date;
   urlImage = 'http://localhost:3100/image/';
-  constructor(private formBuilder: FormBuilder, private service: AppService) {
-    this.addForm = this.formBuilder.group({
+  constructor(private formBuilder: FormBuilder, private service: AppService, private router: Router) {
+    this.indexform = this.formBuilder.group({
       DateStart: [formatDate(new Date(), 'yyyy-MM-dd', 'en'), [Validators.required]],
       DateEnd: [formatDate(new Date(), 'yyyy-MM-dd', 'en'), [Validators.required]],
 
@@ -37,9 +40,11 @@ export class IndexComponent implements OnInit {
       });
   }
   OnBookNow() {
-    if (this.addForm.get('DateStart').value >= this.addForm.get('DateEnd').value
-      || this.addForm.get('DateStart').value < formatDate(new Date(), 'yyyy-MM-dd', 'en')) {
+    if (this.indexform.get('DateStart').value > this.indexform.get('DateEnd').value
+      || this.indexform.get('DateStart').value < formatDate(new Date(), 'yyyy-MM-dd', 'en')) {
       alert('Ngày Bắt đầu phải nhỏ hơn ngày kết thúc và lớn hơn ngày hiện tại ');
+    } else {
+      this.router.navigate(['/home/findroom']);
     }
   }
 }

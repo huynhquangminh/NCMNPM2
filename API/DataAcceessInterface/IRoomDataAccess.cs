@@ -11,10 +11,16 @@ namespace DataAcceessInterface
     public interface IRoomDataAccess
     {
         /// <summary>
-        /// GetRoomList
+        /// Get TYPE RoomList
         /// </summary>
         /// <returns>GET_SERVICE_ALL_Result</returns>
         IEnumerable<GET_LIST_ROOM_Result> GetRoomList();
+
+        /// <summary>
+        /// Get  Room all
+        /// </summary>
+        /// <returns>GETROOM_ALL_Result</returns>
+        IEnumerable<GETROOM_ALL_Result> GetRoomAll();
 
         /// <summary>
         /// AddListRoom

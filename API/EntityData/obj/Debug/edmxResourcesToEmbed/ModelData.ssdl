@@ -49,7 +49,7 @@
     <Property Name="CMND" Type="varchar" MaxLength="11" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="PassWord" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="SĐT" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="SDT" Type="varchar" MaxLength="11" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="imgKhachHang" Type="nvarchar(max)" />
   </EntityType>
@@ -82,7 +82,7 @@
     <Property Name="Password" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="CMND" Type="varchar" MaxLength="12" Nullable="false" />
     <Property Name="idLoaiNV" Type="int" Nullable="false" />
-    <Property Name="SĐT" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="SDT" Type="varchar" MaxLength="11" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
   </EntityType>
   <EntityType Name="PhieuDatPhongKhachSan">
@@ -267,8 +267,17 @@
   <Function Name="DELETE_ITEM_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
   </Function>
+  <Function Name="GET_INFO_FROM_ROOM_NO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RoomNo" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GET_LIST_BOOKING_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GET_LIST_ORDER_FROM_IDENTITYCARD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CMND" Type="char" Mode="In" />
+  </Function>
   <Function Name="GET_LIST_POSTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="GET_LIST_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GET_SERVICE_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GETROOM_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="UPDATE_ITEM_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ID" Type="int" Mode="In" />
     <Parameter Name="TenLoaiPhong" Type="char" Mode="In" />
@@ -281,6 +290,19 @@
     <Parameter Name="DonViTinh" Type="char" Mode="In" />
     <Parameter Name="Gia" Type="int" Mode="In" />
     <Parameter Name="imgDichVu" Type="char" Mode="In" />
+  </Function>
+  <Function Name="USER_LOGIN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="char" Mode="In" />
+    <Parameter Name="Password" Type="char" Mode="In" />
+  </Function>
+  <Function Name="USER_REGISTER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TenNhanVien" Type="char" Mode="In" />
+    <Parameter Name="UserName" Type="char" Mode="In" />
+    <Parameter Name="Password" Type="char" Mode="In" />
+    <Parameter Name="CMND" Type="char" Mode="In" />
+    <Parameter Name="idLoaiNV" Type="int" Mode="In" />
+    <Parameter Name="SDT" Type="char" Mode="In" />
+    <Parameter Name="Address" Type="char" Mode="In" />
   </Function>
   <EntityContainer Name="HotelDatabaseModelStoreContainer">
     <EntitySet Name="BaiViet" EntityType="Self.BaiViet" Schema="dbo" store:Type="Tables" />

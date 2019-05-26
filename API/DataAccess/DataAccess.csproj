@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingTicketDataAccess.cs" />
     <Compile Include="OrderDataAccess.cs" />
     <Compile Include="PostsDataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

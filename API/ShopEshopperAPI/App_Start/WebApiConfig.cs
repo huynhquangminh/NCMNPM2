@@ -38,7 +38,9 @@ namespace ShopEshopperAPI
             // User
             container.RegisterType<IUserBusinessLogic, UserBusinessLogic>();
             container.RegisterType<IUserDataAccess, UserDataAccess>();
-
+            // BookingTicket
+            container.RegisterType<IBookingTicketBusnessLogic, BookingTicketBusnessLogic>();
+            container.RegisterType<IBookingTicketDataAccess, BookingTicketDataAccess>();
             // mail
             container.RegisterType<IMailBusinessLogic, MailBusinessLogic>();
 

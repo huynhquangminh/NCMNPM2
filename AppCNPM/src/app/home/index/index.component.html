@@ -19,7 +19,7 @@
                 <div class="tab-content">
                   <div class="tab-content-inner active" data-content="signup">
                     <h3 class="cursive-font">Reservation</h3>
-                    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+                    <form novalidate  [formGroup]="indexform" >
                       <div class="row form-group">
                         <div class="col-md-12">
                           <label for="date_start">Check-in</label>
@@ -36,7 +36,7 @@
                       </div>
                       <div class="row form-group">
                         <div class="col-md-12">
-                          <input type="button" class="btn btn-primary btn-block" value="Book Now" (click)="OnBookNow()">
+                          <input type="button"  class="btn btn-primary btn-block" value="Book Now" (click)="OnBookNow()">
                         </div>
                       </div>
                     </form>

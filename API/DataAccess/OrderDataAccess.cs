@@ -13,14 +13,5 @@ namespace DataAccess
     {
         private HotelDbConnection db = new HotelDbConnection();
 
-        /// <summary>
-        /// GetListOrderFromIdentitycard
-        /// </summary>
-        /// <returns>GetRoomList</returns>
-        public IEnumerable<GET_LIST_ORDER_FROM_IDENTITYCARD_Result> GetListOrderFromIdentitycard(GetListOrderFromIdentitycardParameter request)
-        {
-            return db.GET_LIST_ORDER_FROM_IDENTITYCARD(request.cMND);
-        }
-
     }
 }

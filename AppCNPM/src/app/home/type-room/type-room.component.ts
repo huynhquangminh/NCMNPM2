@@ -23,7 +23,7 @@ export class TypeRoomComponent implements OnInit {
           if (data.Success === false) {
             alert('Your Request Is Unsuccessful');
           } else {
-            this.listRoom = data.ListRoom;
+            this.listRoom = data.ListRoomAll;
           }
         }
       });

@@ -10,10 +10,6 @@ namespace BusinessLogicInterface
 {
     public interface IOrderBusinessLogic
     {
-        /// <summary>
-        /// GetListOrderFromIdentitycard
-        /// </summary>
-        /// <returns>GetListOrderFromIdentitycard</returns>
-        Task<GetListOrderFromIdentitycardResponse> GetListOrderFromIdentitycard(GetListOrderFromIdentitycardRequest request);
+       
     }
 }

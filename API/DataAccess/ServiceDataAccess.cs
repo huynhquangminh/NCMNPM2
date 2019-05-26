@@ -1,11 +1,7 @@
 ﻿using DataAcceessInterface;
-using EntityData;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DataAcceessInterface.Parameter;
+using EntityData;
+using System.Collections.Generic;
 
 namespace DataAccess
 {
@@ -17,9 +13,9 @@ namespace DataAccess
         /// GetServiceAll
         /// </summary>
         /// <returns>GET_SERVICE_ALL_Result</returns>
-        public IEnumerable<GET_SERVICE_ALL1_Result> GetServiceAll()
+        public IEnumerable<GET_SERVICE_ALL2_Result> GetServiceAll()
         {
-            return db.GET_SERVICE_ALL1();
+            return db.GET_SERVICE_ALL2();
         }
 
         /// <summary>
@@ -28,7 +24,7 @@ namespace DataAccess
         /// <returns>bool</returns>
         public void AddListService(AddListServiceParameter param)
         {
-            db.ADD_LIST_SERVICE(param.tenDichVu,param.donViTinh,param.gia,param.imgDichVu);
+            db.ADD_LIST_SERVICE(param.tenDichVu, param.donViTinh, param.gia, param.imgDichVu);
         }
 
         /// <summary>
