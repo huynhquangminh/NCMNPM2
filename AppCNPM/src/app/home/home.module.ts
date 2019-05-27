@@ -20,6 +20,7 @@ import { Page404Component } from './page404/page404.component';
 import { BookingticketComponent } from './bookingticket/bookingticket.component';
 import { RoomdetailComponent } from './roomdetail/roomdetail.component';
 import { ListbookingComponent } from './listbooking/listbooking.component';
+import { OrderserviceComponent } from './orderservice/orderservice.component';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import { ListbookingComponent } from './listbooking/listbooking.component';
     BookingticketComponent,
     RoomdetailComponent,
     ListbookingComponent,
+    OrderserviceComponent,
   ],
   providers: []
 })
