@@ -22,6 +22,7 @@ import { RoomdetailComponent } from './roomdetail/roomdetail.component';
 import { ListbookingComponent } from './listbooking/listbooking.component';
 import { OrderserviceComponent } from './orderservice/orderservice.component';
 import { ListorderserviceComponent } from './listorderservice/listorderservice.component';
+import { ListbookroomComponent } from './listbookroom/listbookroom.component';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import { ListorderserviceComponent } from './listorderservice/listorderservice.c
     ListbookingComponent,
     OrderserviceComponent,
     ListorderserviceComponent,
+    ListbookroomComponent,
   ],
   providers: []
 })
