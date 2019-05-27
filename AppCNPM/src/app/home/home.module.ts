@@ -21,6 +21,7 @@ import { BookingticketComponent } from './bookingticket/bookingticket.component'
 import { RoomdetailComponent } from './roomdetail/roomdetail.component';
 import { ListbookingComponent } from './listbooking/listbooking.component';
 import { OrderserviceComponent } from './orderservice/orderservice.component';
+import { ListorderserviceComponent } from './listorderservice/listorderservice.component';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import { OrderserviceComponent } from './orderservice/orderservice.component';
     RoomdetailComponent,
     ListbookingComponent,
     OrderserviceComponent,
+    ListorderserviceComponent,
   ],
   providers: []
 })
