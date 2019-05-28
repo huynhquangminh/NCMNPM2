@@ -20,7 +20,7 @@ namespace DataAccess
         /// <returns>GetRoomList</returns>
         public void SetBookingRoom(SetBookingRoomParameter param)
         {
-             db.SET_BOOKING_ROOM(param.soPhong,param.ngayVao,param.ngayRa,param.tenKhachHang,param.cMND,param.idNV);
+             db.SET_BOOKING_ROOM(param.soPhong,param.ngayVao,param.ngayRa,param.tenKhachHang,param.cMND,param.idNV, param.tinhtrang);
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace DataAccess
         /// <returns>GetRoomList</returns>
         public void UpdateBookingRoom(UpdateBookingRoomParameter param)
         {
-             db.UPDATE_BOOKING_ROOM(param.iD,param.soPhong,param.ngayVao,param.ngayRa,param.tenKhachHang,param.cMND,param.idNV);
+             db.UPDATE_BOOKING_ROOM(param.iD,param.soPhong,param.ngayVao,param.ngayRa,param.tenKhachHang,param.cMND,param.idNV, param.tinhtrang);
         }
 
     }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataAcceessInterface.Parameter
+﻿namespace DataAcceessInterface.Parameter
 {
     public class UpdateBookingRoomParameter
     {
@@ -15,5 +9,6 @@ namespace DataAcceessInterface.Parameter
         public string tenKhachHang { get; set; }
         public string cMND { get; set; }
         public string idNV { get; set; }
+        public int tinhtrang { get; set; }
     }
 }

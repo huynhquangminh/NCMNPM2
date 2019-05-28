@@ -1,0 +1,58 @@
+<div class="container">
+  <br><br><br><br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Đặt Phòng</h3>
+    </div>
+    <div class="panel-body">
+
+
+      <form novalidate [formGroup]="addForm">
+        <div class="row">
+          <div class="col-md-4">
+            <label>Số Phòng <i style="color: red">(*)</i></label>
+            <input class="form-control" formControlName="SoPhong" placeholder="Số Phòng" type="text"
+              [(ngModel)]="bookRoomModel.SoPhong">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label>Ngày Vào <i style="color: red">(*)</i></label>
+            <input class="form-control" formControlName="NgayVao" type="date" [(ngModel)]="bookRoomModel.NgayVao">
+          </div>
+          <div class="col-md-4">
+            <label>Ngày Ra <i style="color: red">(*)</i></label>
+            <input class="form-control" formControlName="NgayRa" type="date" [(ngModel)]="bookRoomModel.NgayRa">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label>Tên Khách Hàng <i style="color: red">(*)</i></label>
+            <input class="form-control" formControlName="TenKhachHang" placeholder="Tên khách hàng" type="text"
+              [(ngModel)]="bookRoomModel.TenKhachHang">
+          </div>
+          <div class="col-md-4">
+            <label>Số CMND <i style="color: red">(*)</i></label>
+            <input class="form-control" formControlName="CMND" placeholder="Số CMND" type="text" [(ngModel)]="bookRoomModel.CMND">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-4">
+            <input type="submit" class="btn btn-primary" [disabled]="addForm.invalid" (click)="btnBookRoom()"
+              value="Đặt Phòng">
+          </div>
+          <div class="col-md-4">
+            <input type="submit" class="btn btn-success " (click)="btnBookingTicket()"
+              value="Danh sách Phiếu đặt Phòng">
+          </div>
+
+          <div class="col-md-4">
+              <input type="submit" class="btn " (click)="btnListRoom()"
+                value="Danh sách phòng ">
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

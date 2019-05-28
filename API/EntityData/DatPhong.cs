@@ -27,6 +27,7 @@ namespace EntityData
         public string TenKhachHang { get; set; }
         public string CMND { get; set; }
         public int idNV { get; set; }
+        public bool TinhTrang { get; set; }
     
         public virtual NhanVien NhanVien { get; set; }
         public virtual Phong Phong { get; set; }

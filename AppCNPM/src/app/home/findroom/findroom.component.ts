@@ -47,6 +47,7 @@ export class FindroomComponent implements OnInit {
     });
   }
 
+
   btnClick(value) {
     const id = 'btn_' + value;
     if (document.getElementById(id).innerHTML === 'Chọn Phòng') {

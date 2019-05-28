@@ -20,5 +20,6 @@ namespace EntityData
         public bool TinhTrang { get; set; }
         public string MoTaPhong { get; set; }
         public string TenLoaiPhong { get; set; }
+        public decimal GiaPhong { get; set; }
     }
 }

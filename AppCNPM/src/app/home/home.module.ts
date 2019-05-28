@@ -7,11 +7,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { RoomComponent } from './room/room.component';
+import { BookRoomComponent } from './bookroom/book-room.component';
 import { TypeRoomComponent } from './type-room/type-room.component';
 import { TypeServiceComponent } from './type-service/type-service.component';
 import { FooterComponent } from './footer/footer.component';
-import { AppService } from '../service/app-service';
 import { IntroduceComponent } from './introduce/introduce.component';
 import { FindroomComponent } from './findroom/findroom.component';
 import { BillComponent } from './bill/bill.component';
@@ -33,7 +32,7 @@ import { ListbookingComponent } from './listbooking/listbooking.component';
     IndexComponent,
     LoginComponent,
     RegisterComponent,
-    RoomComponent,
+    BookRoomComponent,
     TypeRoomComponent,
     TypeServiceComponent,
     IntroduceComponent,

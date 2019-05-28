@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAcceessInterface.Parameter;
-using EntityData;
+﻿using DataAcceessInterface.Parameter;
 
 namespace DataAcceessInterface
 {
     public interface IOrderDataAccess
     {
-       
         /// <summary>
         /// SetBookingRoom
         /// </summary>
@@ -21,6 +14,6 @@ namespace DataAcceessInterface
         /// UpdateBookingRoom
         /// </summary>
         /// <returns>bool</returns>
-         void  UpdateBookingRoom(UpdateBookingRoomParameter param);
+        void UpdateBookingRoom(UpdateBookingRoomParameter param);
     }
 }

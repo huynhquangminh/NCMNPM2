@@ -97,10 +97,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLogicInterface\BusinessLogicInterface.csproj">
-      <Project>{0303439D-EA90-45EA-9AC0-7E9B14891BD2}</Project>
-      <Name>BusinessLogicInterface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataAcceessInterface\DataAccessInterface.csproj">
       <Project>{10d36fd2-e248-4916-9d97-8561c066549c}</Project>
       <Name>DataAccessInterface</Name>

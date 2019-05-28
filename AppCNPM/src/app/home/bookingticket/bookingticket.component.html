@@ -12,7 +12,7 @@
       <div><label>Số Phòng : <b *ngFor ="let item of bookingticket.SoPhong">{{item}} * </b> </label></div>
       <div>---------------------------------------------------------------------</div>
       <div class="col-md-2">
-        <input type="submit" class="btn btn-primary btn-block" value="Xác Nhận">
+        <input type="submit" class="btn btn-primary btn-block" (click)= "btnComfrim()" value="Xác Nhận">
       </div>
       <div class="col-md-2">
         <input type="submit" class="btn btn-danger btn-block" (click)= "btncancel()" value="Hủy Bỏ">

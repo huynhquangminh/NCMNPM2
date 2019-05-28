@@ -92,9 +92,14 @@
     <Compile Include="IOrderDataAccess.cs" />
     <Compile Include="Parameter\AddListRoomParameter.cs" />
     <Compile Include="Parameter\AddListServiceParameter.cs" />
+    <Compile Include="Parameter\DeleteBookingTicketParameter.cs" />
     <Compile Include="Parameter\DeleteItemServiceParameter.cs" />
     <Compile Include="Parameter\GetInfoFromRoomNoParameter.cs" />
     <Compile Include="Parameter\GetListOrderFromIdentitycardParameter.cs" />
+    <Compile Include="Parameter\InsertBookingTicketParameter.cs" />
+    <Compile Include="Parameter\SetBookingRoomParameter.cs" />
+    <Compile Include="Parameter\UpdateBookingRoomParameter.cs" />
+    <Compile Include="Parameter\UpdateBookingTicketParameter.cs" />
     <Compile Include="Parameter\UserRegisterParameter.cs" />
     <Compile Include="Parameter\UpdateItemServiceParameter.cs" />
     <Compile Include="Parameter\UserLoginParameter.cs" />
@@ -105,10 +110,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BusinessLogicInterface\BusinessLogicInterface.csproj">
-      <Project>{0303439D-EA90-45EA-9AC0-7E9B14891BD2}</Project>
-      <Name>BusinessLogicInterface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EntityData\EntityData.csproj">
       <Project>{F76AA855-C9EB-472B-90C9-5FECBE89275A}</Project>
       <Name>EntityData</Name>

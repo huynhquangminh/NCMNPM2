@@ -8,14 +8,12 @@ using DataAcceessInterface;
 using DataAcceessInterface.Parameter;
 using EntityData;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-   public class BookingTicketBusnessLogic : BaseBusinessLogic,IBookingTicketBusnessLogic
+    public class BookingTicketBusnessLogic : BaseBusinessLogic, IBookingTicketBusnessLogic
     {
         private readonly IBookingTicketDataAccess _dataAccess;
 
@@ -38,6 +36,10 @@ namespace BusinessLogic
             mapper = configMap.CreateMapper();
         }
 
+        /// <summary>
+        /// GetListBookingTicket
+        /// </summary>
+        /// <returns>GetListBookingTicketResponse</returns>
         public async Task<GetListBookingTicketResponse> GetListBookingTicket()
         {
             var response = new GetListBookingTicketResponse();
@@ -56,7 +58,6 @@ namespace BusinessLogic
                 response.Success = false;
             }
             return await Task.FromResult(response);
-
         }
 
         /// <summary>
@@ -85,6 +86,73 @@ namespace BusinessLogic
                 response.Success = false;
             }
             return await Task.FromResult(response);
+        }
+
+        /// <summary>
+        /// InsertBookingTicket
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns>bool</returns>
+        public async Task<bool> InsertBookingTicket(InsertBookingTicketRequest request)
+        {
+
+            try
+            {
+                var param = new InsertBookingTicketParameter()
+                {
+                    SoPhong = request.SoPhong,
+                    NgayVao = request.NgayVao,
+                    NgayRa = request.NgayRa,
+                    TinhTrang = request.TinhTrang,
+                    idKhachHang = request.idKhachHang
+                };
+                _dataAccess.InsertBookingTicket(param);
+            }
+            catch (Exception ex)
+            {
+                return await Task.FromResult(false);
+            }
+            return await Task.FromResult(true);
+        }
+
+        public async Task<bool> UpdateStatusBookingTicket(UpdateBookingTicketRequest request)
+        {
+            try
+            {
+                var param = new UpdateBookingTicketParameter()
+                {
+                    ID = request.ID,
+                    TinhTrang = request.TinhTrang,
+                };
+                _dataAccess.UpdateBookingTicket(param);
+            }
+            catch (Exception ex)
+            {
+                return await Task.FromResult(false);
+            }
+            return await Task.FromResult(true);
+        }
+
+        /// <summary>
+        /// DeleteStatusBookingTicket
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public async Task<bool> DeleteStatusBookingTicket(DeleteBookingTicketRequest request)
+        {
+            try
+            {
+                var param = new DeleteBookingTicketParameter()
+                {
+                    ID = request.ID,
+                };
+                _dataAccess.DeleteBookingTicket(param);
+            }
+            catch (Exception ex)
+            {
+                return await Task.FromResult(false);
+            }
+            return await Task.FromResult(true);
         }
     }
 }

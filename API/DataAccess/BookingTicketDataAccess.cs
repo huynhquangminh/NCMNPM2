@@ -22,5 +22,32 @@ namespace DataAccess
         {
             return db.GET_LIST_ORDER_FROM_IDENTITYCARD(request.CMND);
         }
+
+        /// <summary>
+        /// InsertBookingTicket
+        /// </summary>
+        /// <param name="param"></param>
+        public void InsertBookingTicket(InsertBookingTicketParameter param)
+        {
+            db.INSERT_BOOKING_STICKET(param.SoPhong, param.NgayVao, param.NgayRa, param.TinhTrang, param.idKhachHang);
+        }
+
+        /// <summary>
+        /// UpdateBookingTicket
+        /// </summary>
+        /// <param name="param"></param>
+        public void UpdateBookingTicket(UpdateBookingTicketParameter param)
+        {
+            db.UPDATE_STATUS_BOOKING_STICKET(param.ID, param.TinhTrang);
+        }
+
+        /// <summary>
+        /// DeleteBookingTicket
+        /// </summary>
+        /// <param name="param"></param>
+        public void DeleteBookingTicket(DeleteBookingTicketParameter param)
+        {
+            db.DELETE_BOOKING_TICKET(param.ID);
+        }
     }
 }

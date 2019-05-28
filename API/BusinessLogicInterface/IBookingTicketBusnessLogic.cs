@@ -8,10 +8,12 @@ namespace BusinessLogicInterface
     {
         Task<GetListBookingTicketResponse> GetListBookingTicket();
 
-        /// <summary>
-        /// GetListOrderFromIdentitycard
-        /// </summary>
-        /// <returns>GetListOrderFromIdentitycard</returns>
         Task<GetListOrderFromIdentitycardResponse> GetListOrderFromIdentitycard(GetListOrderFromIdentitycardRequest request);
+
+        Task<bool> InsertBookingTicket(InsertBookingTicketRequest request);
+
+        Task<bool> UpdateStatusBookingTicket(UpdateBookingTicketRequest request);
+
+        Task<bool> DeleteStatusBookingTicket(DeleteBookingTicketRequest request);
     }
 }
