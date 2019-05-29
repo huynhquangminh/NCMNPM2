@@ -24,6 +24,7 @@ import { ListorderserviceComponent } from './listorderservice/listorderservice.c
 import { ListbookroomComponent } from './listbookroom/listbookroom.component';
 import { EditbookroomComponent } from './editbookroom/editbookroom.component';
 import { PayComponent } from './pay/pay.component';
+import { UpdatebookroomComponent } from './bookroom/updatebookroom/updatebookroom.component';
 
 @NgModule({
   imports: [
@@ -53,6 +54,7 @@ import { PayComponent } from './pay/pay.component';
     ListbookroomComponent,
     EditbookroomComponent,
     PayComponent,
+    UpdatebookroomComponent,
   ],
   providers: []
 })
