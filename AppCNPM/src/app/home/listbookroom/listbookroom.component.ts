@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/service/app-service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { GET_LIST_BOOK_ROOM_URL, FIND_BOOK_ROOM_URL } from './config';
+import { GET_LIST_BOOK_ROOM_URL, FIND_BOOK_ROOM_URL, DELETE_BOOK_ROOM_URL } from './config';
 import { GetListOrderFromIdentitycardRequest } from 'src/app/model/find-booking-ticket.request';
+import { DeleteBookRoomRequest } from '../model/delete-book-room.model';
 
 @Component({
   selector: 'app-listbookroom',
@@ -14,6 +15,7 @@ export class ListbookroomComponent implements OnInit {
   public addForm: FormGroup;
   listBookRoom: any;
   findRoomBookRequest = new GetListOrderFromIdentitycardRequest();
+  deleteBookRoomRequest = new DeleteBookRoomRequest();
   isThongbao = false;
   keycmnd = '';
   constructor(private appService: AppService, private formBuilder: FormBuilder, private router: Router) {
@@ -50,6 +52,19 @@ export class ListbookroomComponent implements OnInit {
           } else {
             this.isThongbao = false;
           }
+        }
+      }
+    });
+  }
+
+  btnCancel(value) {
+    this.deleteBookRoomRequest.ID = value;
+    this.appService.CallByResquestService(DELETE_BOOK_ROOM_URL, this.deleteBookRoomRequest).subscribe(data => {
+      if (data) {
+        if (data.Success === false) {
+          alert('Your Request Is Unsuccessful');
+        } else {
+          this.GetListBookRoom();
         }
       }
     });

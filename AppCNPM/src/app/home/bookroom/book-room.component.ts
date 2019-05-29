@@ -77,4 +77,8 @@ export class BookRoomComponent implements OnInit {
     this.router.navigate(['/home/findroom']);
   }
 
+  btnBookingRoom() {
+    this.router.navigate(['/home/list-book-room']);
+  }
+
 }

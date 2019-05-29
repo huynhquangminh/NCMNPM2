@@ -111,6 +111,7 @@
     <Compile Include="Requests\AddListRoomRequest.cs" />
     <Compile Include="Requests\AddListServiceRequest.cs" />
     <Compile Include="Requests\DeleteBookingTicketRequest.cs" />
+    <Compile Include="Requests\DeleteBookRoomRequest.cs" />
     <Compile Include="Requests\DeleteItemServiceRequest.cs" />
     <Compile Include="Requests\FindBookRoomRequest.cs" />
     <Compile Include="Requests\FindServiceTicketRequest.cs" />

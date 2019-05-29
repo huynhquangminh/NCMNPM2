@@ -63,5 +63,16 @@ namespace ShopEshopperAPI.Controllers
             return new ActionResult<GetListBookRoomResponse>(result.Result, Request);
         }
 
+        /// <summary>
+        /// DeleteBookRoom
+        /// </summary>
+        /// <returns>IHttpActionResult</returns>
+        [HttpPost]
+        public IHttpActionResult DeleteBookRoom(DeleteBookRoomRequest request)
+        {
+            var result = _businessLogic.DeleteBookRoom(request);
+            return new ActionResult<bool>(result.Result, Request);
+        }
+
     }
 }

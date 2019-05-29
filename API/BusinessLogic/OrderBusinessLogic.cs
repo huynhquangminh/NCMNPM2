@@ -70,7 +70,7 @@ namespace BusinessLogic
         }
 
         /// <summary>
-        /// SetBookingRoom
+        /// UpdateBookingRoom
         /// </summary>
         /// <returns>bool</returns>
         public async Task<bool> UpdateBookingRoom(UpdateBookingRoomRequest request)
@@ -99,6 +99,11 @@ namespace BusinessLogic
             return await Task.FromResult(result);
         }
 
+
+        /// <summary>
+        /// GetBookRoomAll
+        /// </summary>
+        /// <returns>GetListBookRoomResponse</returns>
         public async Task<GetListBookRoomResponse> GetBookRoomAll()
         {
             var response = new GetListBookRoomResponse();
@@ -119,6 +124,11 @@ namespace BusinessLogic
             return await Task.FromResult(response);
         }
 
+        /// <summary>
+        /// FindBookRoom
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns>GetListBookRoomResponse</returns>
         public async Task<GetListBookRoomResponse> FindBookRoom(FindBookRoomRequest request)
         {
             var response = new GetListBookRoomResponse();
@@ -141,6 +151,32 @@ namespace BusinessLogic
                 response.Success = false;
             }
             return await Task.FromResult(response);
+        }
+
+        /// <summary>
+        /// DeleteBookRoom
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns>bool</returns>
+        public async Task<bool> DeleteBookRoom(DeleteBookRoomRequest request)
+        {
+            bool result = false;
+            try
+            {
+                var param = new DeleteBookRoomParameter()
+                {
+                   ID = request.ID
+                };
+                _dataAccess.DeleteBookRoom(param);
+                result = true;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                return result;
+            }
+            return await Task.FromResult(result);
         }
     }
 }

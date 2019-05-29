@@ -1,16 +1,11 @@
 ﻿using BusinessLogicInterface.Requests;
 using BusinessLogicInterface.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusinessLogicInterface
 {
     public interface IOrderBusinessLogic
     {
-     
         /// <summary>
         /// SetBookingRoomRequest
         /// </summary>
@@ -26,5 +21,6 @@ namespace BusinessLogicInterface
         Task<GetListBookRoomResponse> GetBookRoomAll();
 
         Task<GetListBookRoomResponse> FindBookRoom(FindBookRoomRequest request);
+        Task<bool> DeleteBookRoom(DeleteBookRoomRequest request);
     }
 }

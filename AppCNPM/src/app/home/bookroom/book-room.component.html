@@ -38,17 +38,21 @@
         </div>
         <br>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-2">
             <input type="submit" class="btn btn-primary" [disabled]="addForm.invalid" (click)="btnBookRoom()"
               value="Đặt Phòng">
           </div>
-          <div class="col-md-4">
-            <input type="submit" class="btn btn-success " (click)="btnBookingTicket()"
+          <div class="col-md-3">
+            <input type="submit" class="btn  " (click)="btnBookingTicket()"
               value="Danh sách Phiếu đặt Phòng">
           </div>
+          <div class="col-md-3">
+            <input type="submit" class="btn  " (click)="btnBookingRoom()"
+              value="Danh sách đặt phòng">
+          </div>
 
-          <div class="col-md-4">
-              <input type="submit" class="btn " (click)="btnListRoom()"
+          <div class="col-md-3">
+              <input type="submit" class="btn  " (click)="btnListRoom()"
                 value="Danh sách phòng ">
             </div>
         </div>
