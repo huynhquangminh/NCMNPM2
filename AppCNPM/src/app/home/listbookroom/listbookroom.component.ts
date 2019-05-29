@@ -4,7 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GET_LIST_BOOK_ROOM_URL, FIND_BOOK_ROOM_URL, DELETE_BOOK_ROOM_URL } from './config';
 import { GetListOrderFromIdentitycardRequest } from 'src/app/model/find-booking-ticket.request';
-import { DeleteBookRoomRequest } from '../model/delete-book-room.model';
+import { DeleteBookRoomRequest } from '../../model/delete-book-room.model';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-listbookroom',
@@ -68,6 +69,12 @@ export class ListbookroomComponent implements OnInit {
         }
       }
     });
+  }
+  btnChangeBookRoom(data) {
+    const ngayVao = formatDate(data.NgayVao, 'yyyy-MM-dd', 'en');
+    const ngayRa = formatDate(data.NgayVao, 'yyyy-MM-dd', 'en');
+    this.router.navigate(['/home/book-room',
+    { isbook: 'true', sophong: data.SoPhong, ngayvao: ngayVao, ngayra: ngayRa, cmnd: data.CMND }]);
   }
 
 }

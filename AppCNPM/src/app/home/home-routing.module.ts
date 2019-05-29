@@ -13,6 +13,7 @@ import { BookingticketComponent } from './bookingticket/bookingticket.component'
 import { ListbookingComponent } from './listbooking/listbooking.component';
 import { BookRoomComponent } from './bookroom/book-room.component';
 import { ListbookroomComponent } from './listbookroom/listbookroom.component';
+import { UpdatebookroomComponent } from './bookroom/updatebookroom/updatebookroom.component';
 const homeRoutes: Routes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'index', component: IndexComponent },
@@ -28,7 +29,7 @@ const homeRoutes: Routes = [
     { path: 'list-booking-ticket', component: ListbookingComponent },
     { path: 'book-room', component: BookRoomComponent },
     { path: 'list-book-room', component: ListbookroomComponent },
-    // { path: 'news-detail/:id', component: TintucDetailComponent },
+    { path: 'update-book-room', component: UpdatebookroomComponent },
 
     // { path: 'searchproduct/:key', component: FindProductComponent },
      { path: '**', component: Page404Component }

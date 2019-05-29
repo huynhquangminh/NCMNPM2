@@ -46,9 +46,10 @@
               <td *ngIf="item.TinhTrang == 0"> <label class="checkbox-inline"><input type="checkbox"
                     disabled="true">Chưa thanh toán </label></td>
               <td>
-                <button *ngIf="item.TinhTrang == 0" class="btn btn-primary">Thanh Toán</button>
+                <button *ngIf="item.TinhTrang == 0" class="btn btn-primary" (click)="btnChangeBookRoom(item)">Thanh
+                  Toán</button>
                 <button *ngIf="item.TinhTrang == 0" class="btn btn-danger">Chỉnh Sửa</button>
-                <button *ngIf="item.TinhTrang == 0" class="btn " (click) = "btnCancel(item.ID)">Hủy </button>
+                <button *ngIf="item.TinhTrang == 0" class="btn " (click)="btnCancel(item.ID)">Hủy </button>
 
                 <!-- <button  *ngIf = "item.TinhTrang == 1" id="btn_18" class="btn btn-danger" >Đặt Phòng</button> -->
               </td>
