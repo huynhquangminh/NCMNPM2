@@ -29,5 +29,11 @@ namespace DataAcceessInterface
         /// </summary>
         /// <returns>GET_INFO_FROM_ROOM_NO_Result</returns>
         IEnumerable<GET_INFO_FROM_ROOM_NO_Result> GetInfoFromRoomNo(GetInfoFromRoomNoParameter param);
+
+        /// <summary>
+        /// GetListRoomFromDate
+        /// </summary>
+        /// <returns>GET_INFO_FROM_ROOM_NO_Result</returns>
+        IEnumerable<GET_LIST_ROOM_FROM_DATE_Result> GetListRoomFromDate(GetListRoomFromDateParameter param);
     }
 }

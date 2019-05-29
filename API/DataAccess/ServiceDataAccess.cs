@@ -62,5 +62,23 @@ namespace DataAccess
         {
             return db.FIND_SERVICE_TICKET(param.SoPhong);
         }
+
+        /// <summary>
+        /// DeleteServiceSticket
+        /// </summary>
+        /// <returns>void</returns>
+        public void DeleteServiceSticket(DeleteServiceSticketParameter param)
+        {
+             db.DELETE_SERVICE_TICKET(param.ID);
+        }
+
+        /// <summary>
+        /// UpdateServiceSticket
+        /// </summary>
+        /// <returns>void</returns>
+        public void UpdateServiceSticket(UpdateServiceSticketParameter param)
+        {
+             db.UPDATE_SERVICE_TICKET(param.ID,param.idDatPhong,param.NgayDat,param.idDichVu,param.SoLuong,param.Gia,param.TinhTrang,param.idNV);
+        }
     }
 }

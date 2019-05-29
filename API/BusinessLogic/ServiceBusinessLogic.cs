@@ -188,5 +188,62 @@ namespace BusinessLogic
             }
             return await Task.FromResult(response);
         }
+
+        /// <summary>
+        /// UpdateServiceSticket
+        /// </summary>
+        /// <returns>bool</returns>
+        public async Task<bool> UpdateServiceSticket(UpdateServiceSticketRequest request)
+        {
+            bool result = false;
+            try
+            {
+                var param = new UpdateServiceSticketParameter()
+                {
+                    ID=request.ID,
+                    idDatPhong=request.idDatPhong,
+                    NgayDat=request.NgayDat,
+                    idDichVu=request.idDichVu,
+                    SoLuong=request.SoLuong,
+                    Gia=request.Gia,
+                    TinhTrang=request.TinhTrang,
+                    idNV=request.idNV
+                };
+                _dataAccess.UpdateServiceSticket(param);
+                result = true;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                return result;
+            }
+            return await Task.FromResult(result);
+        }
+
+        /// <summary>
+        /// DeleteItemService
+        /// </summary>
+        /// <returns>bool</returns>
+        public async Task<bool> DeleteServiceSticket(DeleteServiceSticketRequest request)
+        {
+            bool result = false;
+            try
+            {
+                var param = new DeleteServiceSticketParameter()
+                {
+                    ID=request.ID
+                };
+                _dataAccess.DeleteServiceSticket(param);
+                result = true;
+                return result;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                return result;
+            }
+            return await Task.FromResult(result);
+        }
     }
 }

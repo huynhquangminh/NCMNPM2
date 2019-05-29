@@ -95,14 +95,17 @@
     <Compile Include="Parameter\DeleteBookingTicketParameter.cs" />
     <Compile Include="Parameter\DeleteBookRoomParameter.cs" />
     <Compile Include="Parameter\DeleteItemServiceParameter.cs" />
+    <Compile Include="Parameter\DeleteServiceSticketParameter.cs" />
     <Compile Include="Parameter\FindBookRoomParameter.cs" />
     <Compile Include="Parameter\FindServiceTicketParameter.cs" />
     <Compile Include="Parameter\GetInfoFromRoomNoParameter.cs" />
     <Compile Include="Parameter\GetListOrderFromIdentitycardParameter.cs" />
+    <Compile Include="Parameter\GetListRoomFromDateParameter.cs" />
     <Compile Include="Parameter\InsertBookingTicketParameter.cs" />
     <Compile Include="Parameter\SetBookingRoomParameter.cs" />
     <Compile Include="Parameter\UpdateBookingRoomParameter.cs" />
     <Compile Include="Parameter\UpdateBookingTicketParameter.cs" />
+    <Compile Include="Parameter\UpdateServiceSticketParameter.cs" />
     <Compile Include="Parameter\UserRegisterParameter.cs" />
     <Compile Include="Parameter\UpdateItemServiceParameter.cs" />
     <Compile Include="Parameter\UserLoginParameter.cs" />

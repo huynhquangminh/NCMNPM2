@@ -42,6 +42,19 @@ namespace DataAcceessInterface
         /// <returns>FIND_SERVICE_TICKET_Result</returns>
         IEnumerable<FIND_SERVICE_TICKET_Result> FindServiceTicket(FindServiceTicketParameter param);
 
+
+        /// <summary>
+        /// DeleteServiceSticket
+        /// </summary>
+        /// <returns>void</returns>
+        void DeleteServiceSticket(DeleteServiceSticketParameter param);
+
+        /// <summary>
+        /// UpdateServiceSticket
+        /// </summary>
+        /// <returns>void</returns>
+        void UpdateServiceSticket(UpdateServiceSticketParameter param);
+
     }
 
 }

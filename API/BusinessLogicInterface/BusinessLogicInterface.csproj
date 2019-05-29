@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Dtos\GetListBookRoomDto.cs" />
     <Compile Include="Dtos\FindServiceTicketDTO.cs" />
+    <Compile Include="Dtos\GetListRoomFromDateDTO.cs" />
     <Compile Include="Dtos\GetListServiceTicketDTO.cs" />
     <Compile Include="IBookingTicketBusnessLogic.cs" />
     <Compile Include="Dtos\GetInfoFromRoomNoDTO.cs" />
@@ -113,16 +114,19 @@
     <Compile Include="Requests\DeleteBookingTicketRequest.cs" />
     <Compile Include="Requests\DeleteBookRoomRequest.cs" />
     <Compile Include="Requests\DeleteItemServiceRequest.cs" />
+    <Compile Include="Requests\DeleteServiceSticketRequest.cs" />
     <Compile Include="Requests\FindBookRoomRequest.cs" />
     <Compile Include="Requests\FindServiceTicketRequest.cs" />
     <Compile Include="Requests\GetInfoFromRoomNoRequest.cs" />
     <Compile Include="Requests\GetListOrderFromIdentitycardRequest.cs" />
+    <Compile Include="Requests\GetListRoomFromDateRequest.cs" />
     <Compile Include="Requests\InsertBookingTicketRequest.cs" />
     <Compile Include="Requests\SendMailCommentCustomerRequest.cs" />
     <Compile Include="Requests\SetBookingRoomRequest.cs" />
     <Compile Include="Requests\UpdateBookingRoomRequest.cs" />
     <Compile Include="Requests\UpdateBookingTicketRequest.cs" />
     <Compile Include="Requests\UpdateItemServiceRequest.cs" />
+    <Compile Include="Requests\UpdateServiceSticketRequest.cs" />
     <Compile Include="Requests\UserLoginRequest.cs" />
     <Compile Include="Requests\UserRegisterRequest.cs" />
     <Compile Include="Response\FindServiceTicketResponse.cs" />
@@ -130,11 +134,13 @@
     <Compile Include="Response\GetListBookingTicketResponse.cs" />
     <Compile Include="Response\GetListBookRoomResponse.cs" />
     <Compile Include="Response\GetListOrderFromIdentitycardResponse.cs" />
+    <Compile Include="Response\GetListRoomFromDateResponse.cs" />
     <Compile Include="Response\GetListRoomResponse.cs" />
     <Compile Include="Response\GetListServiceTicketResponse.cs" />
     <Compile Include="Response\GetRoomAllResponse.cs" />
     <Compile Include="Response\GetServiceResponse.cs" />
     <Compile Include="Response\GetPostsResponse.cs" />
+    <Compile Include="Response\UpdateServiceSticketResponse.cs" />
     <Compile Include="Response\UserLoginResponse.cs" />
   </ItemGroup>
   <ItemGroup>
