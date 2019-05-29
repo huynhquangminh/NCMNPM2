@@ -46,5 +46,16 @@ namespace BusinessLogicInterface
         /// <returns>FindServiceTicketResponse</returns>
         Task<FindServiceTicketResponse> FindServiceTicket(FindServiceTicketRequest request);
 
+        /// <summary>
+        /// UpdateServiceSticket
+        /// </summary>
+        /// <returns>bool</returns>
+        Task<bool> UpdateServiceSticket(UpdateServiceSticketRequest request);
+
+        /// <summary>
+        /// DeleteServiceSticket
+        /// </summary>
+        /// <returns>bool</returns>
+        Task<bool> DeleteServiceSticket(DeleteServiceSticketRequest request);
     }
 }
