@@ -23,6 +23,7 @@ import { OrderserviceComponent } from './orderservice/orderservice.component';
 import { ListorderserviceComponent } from './listorderservice/listorderservice.component';
 import { ListbookroomComponent } from './listbookroom/listbookroom.component';
 import { EditbookroomComponent } from './editbookroom/editbookroom.component';
+import { PayComponent } from './pay/pay.component';
 
 @NgModule({
   imports: [
@@ -51,6 +52,7 @@ import { EditbookroomComponent } from './editbookroom/editbookroom.component';
     ListorderserviceComponent,
     ListbookroomComponent,
     EditbookroomComponent,
+    PayComponent,
   ],
   providers: []
 })
