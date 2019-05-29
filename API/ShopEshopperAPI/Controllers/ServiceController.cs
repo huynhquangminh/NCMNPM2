@@ -58,5 +58,27 @@ namespace ShopEshopperAPI.Controllers
             var result = _businessLogic.UpdateItemService(request);
             return new ActionResult<bool>(result.Result, Request);
         }
+
+        /// <summary>
+        /// GetListServiceTicket
+        /// </summary>
+        /// <returns>GetListServiceTicketResponse</returns>
+        [HttpPost]
+        public IHttpActionResult GetListServiceTicket()
+        {
+            var result = _businessLogic.GetListServiceTicket();
+            return new ActionResult<GetListServiceTicketResponse>(result.Result, Request);
+        }
+
+        /// <summary>
+        /// FindServiceTicket
+        /// </summary>
+        /// <returns>bool</returns>
+        [HttpPost]
+        public IHttpActionResult FindServiceTicket(FindServiceTicketRequest request)
+        {
+            var result = _businessLogic.FindServiceTicket(request);
+            return new ActionResult<FindServiceTicketResponse>(result.Result, Request);
+        }
     }
 }

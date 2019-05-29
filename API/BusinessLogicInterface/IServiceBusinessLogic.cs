@@ -34,5 +34,17 @@ namespace BusinessLogicInterface
         /// <returns>bool</returns>
         Task<bool> UpdateItemService(UpdateItemServiceRequest request);
 
+        /// <summary>
+        /// GetListServiceTicket
+        /// </summary>
+        /// <returns>GetListServiceTicketResponse</returns>
+        Task<GetListServiceTicketResponse> GetListServiceTicket();
+
+        /// <summary>
+        /// FindServiceTicket
+        /// </summary>
+        /// <returns>FindServiceTicketResponse</returns>
+        Task<FindServiceTicketResponse> FindServiceTicket(FindServiceTicketRequest request);
+
     }
 }

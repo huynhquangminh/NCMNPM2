@@ -44,5 +44,23 @@ namespace DataAccess
         {
             db.UPDATE_ITEM_SERVICE(param.id, param.tenDichVu, param.donViTinh, param.gia, param.imgDichVu);
         }
+
+        /// <summary>
+        /// GetListServiceTicket
+        /// </summary>
+        /// <returns>GET_LIST_SERVICE_TICKET_Result</returns>
+        public IEnumerable<GET_LIST_SERVICE_TICKET_Result> GetListServiceTicket()
+        {
+           return db.GET_LIST_SERVICE_TICKET();
+        }
+
+        /// <summary>
+        /// FindServiceTicket
+        /// </summary>
+        /// <returns>FIND_SERVICE_TICKET_Result</returns>
+        public IEnumerable<FIND_SERVICE_TICKET_Result> FindServiceTicket(FindServiceTicketParameter param)
+        {
+            return db.FIND_SERVICE_TICKET(param.SoPhong);
+        }
     }
 }

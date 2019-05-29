@@ -138,5 +138,55 @@ namespace BusinessLogic
             }
             return await Task.FromResult(result);
         }
+
+        /// <summary>
+        /// GetListServiceTicket
+        /// </summary>
+        /// <returns>GetListServiceTicketResponse</returns>
+        public async Task<GetListServiceTicketResponse> GetListServiceTicket()
+        {
+            var response = new GetListServiceTicketResponse();
+            try
+            {
+                var result = _dataAccess.GetListServiceTicket();
+                if (result != null)
+                {
+                    response.List = MapList<GET_LIST_SERVICE_TICKET_Result, GetListServiceTicketDTO>(result.ToList());
+                    response.Success = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+            }
+            return await Task.FromResult(response);
+        }
+
+        /// <summary>
+        /// FindServiceTicket
+        /// </summary>
+        /// <returns>FindServiceTicketResponse</returns>
+        public async Task<FindServiceTicketResponse> FindServiceTicket(FindServiceTicketRequest request)
+        {
+            var response = new FindServiceTicketResponse();
+            try
+            {
+                var param = new FindServiceTicketParameter()
+                {
+                    SoPhong=request.SoPhong
+                };
+                var result = _dataAccess.FindServiceTicket(param);
+                if (result != null)
+                {
+                    response.ServiceInfo = MapList<FIND_SERVICE_TICKET_Result, FindServiceTicketDTO>(result.ToList());
+                    response.Success = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+            }
+            return await Task.FromResult(response);
+        }
     }
 }
