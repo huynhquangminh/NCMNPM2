@@ -402,5 +402,19 @@ namespace EntityData
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_BOOK_ROOM", iDParameter, soPhongParameter, ngayVaoParameter, ngayRaParameter, tenKhachHangParameter, cMNDParameter, tinhTrangParameter);
         }
+    
+        public virtual ObjectResult<FIND_SERVICE_TICKET_Result> FIND_SERVICE_TICKET(Nullable<int> soPhong)
+        {
+            var soPhongParameter = soPhong.HasValue ?
+                new ObjectParameter("SoPhong", soPhong) :
+                new ObjectParameter("SoPhong", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FIND_SERVICE_TICKET_Result>("FIND_SERVICE_TICKET", soPhongParameter);
+        }
+    
+        public virtual ObjectResult<GET_LIST_SERVICE_TICKET_Result> GET_LIST_SERVICE_TICKET()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_SERVICE_TICKET_Result>("GET_LIST_SERVICE_TICKET");
+        }
     }
 }
