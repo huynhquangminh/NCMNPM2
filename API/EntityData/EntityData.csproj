@@ -92,6 +92,9 @@
     <Compile Include="DatPhong.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
+    <Compile Include="FIND_BOOK_ROOM_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
     <Compile Include="GETROOM_ALL_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
@@ -99,6 +102,9 @@
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_LIST_BOOKING_TICKET_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GET_LIST_BOOKROOM_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
     <Compile Include="GET_LIST_ORDER_FROM_IDENTITYCARD_Result.cs">

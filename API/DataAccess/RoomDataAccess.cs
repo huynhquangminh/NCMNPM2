@@ -2,6 +2,7 @@
 using DataAcceessInterface.Parameter;
 using EntityData;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataAccess
 {
@@ -15,6 +16,7 @@ namespace DataAccess
         /// <returns>GetRoomList</returns>
         public IEnumerable<GET_LIST_ROOM_Result> GetRoomList()
         {
+            var tamp = db.GET_LIST_ROOM().ToList();
             return db.GET_LIST_ROOM();
         }
 

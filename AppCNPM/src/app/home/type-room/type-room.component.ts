@@ -9,7 +9,7 @@ import { GETROOMALL_UTL } from './config';
 })
 export class TypeRoomComponent implements OnInit {
   urlImage = 'http://localhost:3100/image/';
-  listRoom: any;
+  listDataRoom: any;
   constructor(private service: AppService) { }
 
   ngOnInit() {
@@ -23,7 +23,7 @@ export class TypeRoomComponent implements OnInit {
           if (data.Success === false) {
             alert('Your Request Is Unsuccessful');
           } else {
-            this.listRoom = data.ListRoomAll;
+            this.listDataRoom = data.ListRoom;
           }
         }
       });

@@ -1,10 +1,6 @@
 ﻿using DataAcceessInterface.Parameter;
 using EntityData;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAcceessInterface
 {
@@ -29,7 +25,7 @@ namespace DataAcceessInterface
         void AddListRoom(AddListRoomParameter param);
 
         /// <summary>
-        /// GetInfoFromRoomNo 
+        /// GetInfoFromRoomNo
         /// </summary>
         /// <returns>GET_INFO_FROM_ROOM_NO_Result</returns>
         IEnumerable<GET_INFO_FROM_ROOM_NO_Result> GetInfoFromRoomNo(GetInfoFromRoomNoParameter param);

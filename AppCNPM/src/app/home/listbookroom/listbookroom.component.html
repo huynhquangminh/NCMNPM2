@@ -1,3 +1,61 @@
-<p>
-  listbookroom works!
-</p>
+<div class="container">
+  <br><br><br><br>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Danh sách phiếu đặt phòng</h3>
+    </div>
+    <div class="panel-body">
+
+
+      <form novalidate [formGroup]="addForm">
+        <div class="row">
+          <div class="col-md-3">
+            <input class="form-control" formControlName="CMND" placeholder="Số CMND" type="text" [(ngModel)]="keycmnd">
+          </div>
+          <div class="col-md-3">
+            <input type="submit" class="btn btn-primary btn-block" (click)="searchBookRoom(keycmnd)"
+              value="Tìm phòng đặt">
+          </div>
+          <div class="col-md-3">
+            <label *ngIf="isThongbao"> <i style="color: red">* Không tìm thấy thông tin </i></label>
+          </div>
+        </div>
+      </form> <br>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered text-center align-middle">
+          <tbody>
+            <tr>
+
+              <th>Số phòng</th>
+              <th>Ngày vào </th>
+              <th>Ngày ra</th>
+              <th>Tên Khách Hàng</th>
+              <th>Số CMND</th>
+              <th>Tình Trạng </th>
+              <th width="300px"></th>
+            </tr>
+            <tr *ngFor="let item of listBookRoom">
+
+              <td> {{item.SoPhong}}</td>
+              <td> {{item.NgayVao | date :'dd/MM/yyyy'}} </td>
+              <td> {{item.NgayRa | date :'dd/MM/yyyy'}}</td>
+              <td> {{item.TenKhachHang}}</td>
+              <td> {{item.CMND}}</td>
+              <td *ngIf="item.TinhTrang == 1"> <label class="checkbox-inline"><input type="checkbox" disabled="true"
+                    checked="true">Đã thanh toán </label></td>
+              <td *ngIf="item.TinhTrang == 0"> <label class="checkbox-inline"><input type="checkbox"
+                    disabled="true">Chưa thanh toán </label></td>
+              <td>
+                <button *ngIf="item.TinhTrang == 0" class="btn btn-primary">Thanh Toán</button>
+                <button *ngIf="item.TinhTrang == 0" class="btn btn-danger">Chỉnh Sửa</button>
+                <button *ngIf="item.TinhTrang == 0" class="btn ">Hủy </button>
+
+                <!-- <button  *ngIf = "item.TinhTrang == 1" id="btn_18" class="btn btn-danger" >Đặt Phòng</button> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
