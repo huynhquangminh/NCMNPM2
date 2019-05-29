@@ -47,5 +47,14 @@ namespace DataAccess
         {
             return db.GET_INFO_FROM_ROOM_NO(param.roomNo);
         }
+
+        /// <summary>
+        /// GetListRoomFromDate
+        /// </summary>
+        /// <returns>GET_LIST_ROOM_FROM_DATE_Result</returns>
+        public IEnumerable<GET_LIST_ROOM_FROM_DATE_Result> GetListRoomFromDate(GetListRoomFromDateParameter param)
+        {
+            return db.GET_LIST_ROOM_FROM_DATE(param.NgayVao,param.NgayRa);
+        }
     }
 }

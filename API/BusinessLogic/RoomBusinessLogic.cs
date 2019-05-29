@@ -136,5 +136,36 @@ namespace BusinessLogic
             }
             return await Task.FromResult(response);
         }
+
+        /// <summary>
+        /// GetListRoomFromDate
+        /// </summary>
+        /// <returns>GetListRoomFromDateResponse</returns>
+        public async Task<GetListRoomFromDateResponse> GetListRoomFromDate(GetListRoomFromDateRequest request)
+        {
+            var response = new GetListRoomFromDateResponse();
+            try
+            {
+                var param = new GetListRoomFromDateParameter()
+                {
+                    NgayVao =request.NgayVao,
+                    NgayRa = request.NgayRa
+                };
+                var result= _dataAccess.GetListRoomFromDate(param);
+               
+                if (result != null)
+                {
+                    response.Success = true;
+                    response.List = MapList<GET_LIST_ROOM_FROM_DATE_Result, GetListRoomFromDateDTO>(result.ToList());
+                }
+
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+                
+            }
+            return await Task.FromResult(response);
+        }
     }
 }

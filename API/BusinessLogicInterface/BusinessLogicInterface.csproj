@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Dtos\GetListBookRoomDto.cs" />
     <Compile Include="Dtos\FindServiceTicketDTO.cs" />
+    <Compile Include="Dtos\GetListRoomFromDateDTO.cs" />
     <Compile Include="Dtos\GetListServiceTicketDTO.cs" />
     <Compile Include="IBookingTicketBusnessLogic.cs" />
     <Compile Include="Dtos\GetInfoFromRoomNoDTO.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Requests\FindServiceTicketRequest.cs" />
     <Compile Include="Requests\GetInfoFromRoomNoRequest.cs" />
     <Compile Include="Requests\GetListOrderFromIdentitycardRequest.cs" />
+    <Compile Include="Requests\GetListRoomFromDateRequest.cs" />
     <Compile Include="Requests\InsertBookingTicketRequest.cs" />
     <Compile Include="Requests\SendMailCommentCustomerRequest.cs" />
     <Compile Include="Requests\SetBookingRoomRequest.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Response\GetListBookingTicketResponse.cs" />
     <Compile Include="Response\GetListBookRoomResponse.cs" />
     <Compile Include="Response\GetListOrderFromIdentitycardResponse.cs" />
+    <Compile Include="Response\GetListRoomFromDateResponse.cs" />
     <Compile Include="Response\GetListRoomResponse.cs" />
     <Compile Include="Response\GetListServiceTicketResponse.cs" />
     <Compile Include="Response\GetRoomAllResponse.cs" />
