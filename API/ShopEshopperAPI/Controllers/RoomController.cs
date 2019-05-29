@@ -47,5 +47,16 @@ namespace ShopEshopperAPI.Controllers
             var result = _businessLogic.AddListRoom(request);
             return new ActionResult<bool>(result.Result, Request);
         }
+
+        /// <summary>
+        /// GetListRoomFromDate
+        /// </summary>
+        /// <returns>GetListRoomFromDateResponse</returns>
+        [HttpPost]
+        public IHttpActionResult GetListRoomFromDate(GetListRoomFromDateRequest request)
+        {
+            var result = _businessLogic.GetListRoomFromDate(request);
+            return new ActionResult<GetListRoomFromDateResponse>(result.Result, Request);
+        }
     }
 }
