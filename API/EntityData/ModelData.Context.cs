@@ -346,5 +346,75 @@ namespace EntityData
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USER_REGISTER", tenNhanVienParameter, userNameParameter, passwordParameter, cMNDParameter, idLoaiNVParameter, sDTParameter, addressParameter);
         }
+    
+        public virtual ObjectResult<GET_LIST_BOOKROOM_Result> GET_LIST_BOOKROOM()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_BOOKROOM_Result>("GET_LIST_BOOKROOM");
+        }
+    
+        public virtual ObjectResult<FIND_BOOK_ROOM_Result> FIND_BOOK_ROOM(string cMND)
+        {
+            var cMNDParameter = cMND != null ?
+                new ObjectParameter("CMND", cMND) :
+                new ObjectParameter("CMND", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FIND_BOOK_ROOM_Result>("FIND_BOOK_ROOM", cMNDParameter);
+        }
+    
+        public virtual int DELETE_BOOK_ROOM(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_BOOK_ROOM", iDParameter);
+        }
+    
+        public virtual int UPDATE_BOOK_ROOM(Nullable<int> iD, Nullable<int> soPhong, string ngayVao, string ngayRa, string tenKhachHang, string cMND, Nullable<int> tinhTrang)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var soPhongParameter = soPhong.HasValue ?
+                new ObjectParameter("SoPhong", soPhong) :
+                new ObjectParameter("SoPhong", typeof(int));
+    
+            var ngayVaoParameter = ngayVao != null ?
+                new ObjectParameter("NgayVao", ngayVao) :
+                new ObjectParameter("NgayVao", typeof(string));
+    
+            var ngayRaParameter = ngayRa != null ?
+                new ObjectParameter("NgayRa", ngayRa) :
+                new ObjectParameter("NgayRa", typeof(string));
+    
+            var tenKhachHangParameter = tenKhachHang != null ?
+                new ObjectParameter("TenKhachHang", tenKhachHang) :
+                new ObjectParameter("TenKhachHang", typeof(string));
+    
+            var cMNDParameter = cMND != null ?
+                new ObjectParameter("CMND", cMND) :
+                new ObjectParameter("CMND", typeof(string));
+    
+            var tinhTrangParameter = tinhTrang.HasValue ?
+                new ObjectParameter("TinhTrang", tinhTrang) :
+                new ObjectParameter("TinhTrang", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_BOOK_ROOM", iDParameter, soPhongParameter, ngayVaoParameter, ngayRaParameter, tenKhachHangParameter, cMNDParameter, tinhTrangParameter);
+        }
+    
+        public virtual ObjectResult<FIND_SERVICE_TICKET_Result> FIND_SERVICE_TICKET(Nullable<int> soPhong)
+        {
+            var soPhongParameter = soPhong.HasValue ?
+                new ObjectParameter("SoPhong", soPhong) :
+                new ObjectParameter("SoPhong", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FIND_SERVICE_TICKET_Result>("FIND_SERVICE_TICKET", soPhongParameter);
+        }
+    
+        public virtual ObjectResult<GET_LIST_SERVICE_TICKET_Result> GET_LIST_SERVICE_TICKET()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_SERVICE_TICKET_Result>("GET_LIST_SERVICE_TICKET");
+        }
     }
 }

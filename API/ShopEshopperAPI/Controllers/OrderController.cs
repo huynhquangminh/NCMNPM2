@@ -41,5 +41,27 @@ namespace ShopEshopperAPI.Controllers
             return new ActionResult<bool>(result.Result, Request);
         }
 
+        /// <summary>
+        /// GetBookRoomAll
+        /// </summary>
+        /// <returns>IHttpActionResult</returns>
+        [HttpPost]
+        public IHttpActionResult GetBookRoomAll()
+        {
+            var result = _businessLogic.GetBookRoomAll();
+            return new ActionResult<GetListBookRoomResponse>(result.Result, Request);
+        }
+
+        /// <summary>
+        /// FindBookRoom
+        /// </summary>
+        /// <returns>IHttpActionResult</returns>
+        [HttpPost]
+        public IHttpActionResult FindBookRoom(FindBookRoomRequest request)
+        {
+            var result = _businessLogic.FindBookRoom(request);
+            return new ActionResult<GetListBookRoomResponse>(result.Result, Request);
+        }
+
     }
 }

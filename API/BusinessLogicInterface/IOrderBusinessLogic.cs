@@ -22,5 +22,9 @@ namespace BusinessLogicInterface
         /// </summary>
         /// <returns>bool</returns>
         Task<bool> UpdateBookingRoom(UpdateBookingRoomRequest request);
+
+        Task<GetListBookRoomResponse> GetBookRoomAll();
+
+        Task<GetListBookRoomResponse> FindBookRoom(FindBookRoomRequest request);
     }
 }

@@ -45,6 +45,7 @@ export class BookRoomComponent implements OnInit {
     if (this.addForm.valid) {
       if (!this.checkDayBooking()) {
         this.bookRoomModel.idNV = 1;
+        this.bookRoomModel.TinhTrang = 0;
         this.appService.CallByResquestService(INSERT_BOOK_ROOM_URL, this.bookRoomModel).subscribe(data => {
           if (data) {
             if (data.Success === false) {

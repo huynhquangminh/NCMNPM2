@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HotelDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HotelDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BaiViet">
           <Key>
             <PropertyRef Name="id" />
@@ -267,6 +267,9 @@
           <Parameter Name="Gia" Type="int" Mode="In" />
           <Parameter Name="imgDichVu" Type="char" Mode="In" />
         </Function>
+        <Function Name="DELETE_BOOK_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
         <Function Name="DELETE_BOOKING_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
@@ -276,15 +279,23 @@
         <Function Name="DELETE_ITEM_SERVICE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
         </Function>
+        <Function Name="FIND_BOOK_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CMND" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="FIND_SERVICE_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SoPhong" Type="int" Mode="In" />
+        </Function>
         <Function Name="GET_INFO_FROM_ROOM_NO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RoomNo" Type="int" Mode="In" />
         </Function>
         <Function Name="GET_LIST_BOOKING_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GET_LIST_BOOKROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GET_LIST_ORDER_FROM_IDENTITYCARD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CMND" Type="char" Mode="In" />
         </Function>
         <Function Name="GET_LIST_POSTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GET_LIST_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GET_LIST_SERVICE_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GET_SERVICE_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GETROOM_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="INSERT_BOOKING_STICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -302,6 +313,15 @@
           <Parameter Name="CMND" Type="char" Mode="In" />
           <Parameter Name="idNV" Type="char" Mode="In" />
           <Parameter Name="tinhtrang" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UPDATE_BOOK_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="SoPhong" Type="int" Mode="In" />
+          <Parameter Name="NgayVao" Type="varchar" Mode="In" />
+          <Parameter Name="NgayRa" Type="varchar" Mode="In" />
+          <Parameter Name="TenKhachHang" Type="nvarchar" Mode="In" />
+          <Parameter Name="CMND" Type="varchar" Mode="In" />
+          <Parameter Name="TinhTrang" Type="int" Mode="In" />
         </Function>
         <Function Name="UPDATE_BOOKING_ROOM" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="int" Mode="In" />
@@ -396,8 +416,7 @@
             <End Role="Phong" EntitySet="Phong" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HotelDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -736,20 +755,20 @@
             <Parameter Name="imgDichVu" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="DELETE_BOOKING_TICKET">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DELETE_ITEM_ROOM">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="DELETE_ITEM_SERVICE">
-            <Parameter Name="ID" Mode="In" Type="Int32" />
+          <Parameter Name="ID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GET_INFO_FROM_ROOM_NO" ReturnType="Collection(HotelDatabaseModel.GET_INFO_FROM_ROOM_NO_Result)">
-            <Parameter Name="RoomNo" Mode="In" Type="Int32" />
+          <Parameter Name="RoomNo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GET_LIST_BOOKING_TICKET" ReturnType="Collection(HotelDatabaseModel.GET_LIST_BOOKING_TICKET_Result)" />
           <FunctionImport Name="GET_LIST_ORDER_FROM_IDENTITYCARD" ReturnType="Collection(HotelDatabaseModel.GET_LIST_ORDER_FROM_IDENTITYCARD_Result)">
-            <Parameter Name="CMND" Mode="In" Type="String" />
+          <Parameter Name="CMND" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GET_LIST_POSTS" ReturnType="Collection(HotelDatabaseModel.GET_LIST_POSTS_Result)" />
           <FunctionImport Name="GET_LIST_ROOM" ReturnType="Collection(HotelDatabaseModel.GET_LIST_ROOM_Result)" />
@@ -811,6 +830,26 @@
             <Parameter Name="SDT" Mode="In" Type="String" />
             <Parameter Name="Address" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="GET_LIST_BOOKROOM" ReturnType="Collection(HotelDatabaseModel.GET_LIST_BOOKROOM_Result)" />
+          <FunctionImport Name="FIND_BOOK_ROOM" ReturnType="Collection(HotelDatabaseModel.FIND_BOOK_ROOM_Result)">
+          <Parameter Name="CMND" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DELETE_BOOK_ROOM">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UPDATE_BOOK_ROOM">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="SoPhong" Mode="In" Type="Int32" />
+            <Parameter Name="NgayVao" Mode="In" Type="String" />
+            <Parameter Name="NgayRa" Mode="In" Type="String" />
+            <Parameter Name="TenKhachHang" Mode="In" Type="String" />
+            <Parameter Name="CMND" Mode="In" Type="String" />
+            <Parameter Name="TinhTrang" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FIND_SERVICE_TICKET" ReturnType="Collection(HotelDatabaseModel.FIND_SERVICE_TICKET_Result)">
+            <Parameter Name="SoPhong" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_LIST_SERVICE_TICKET" ReturnType="Collection(HotelDatabaseModel.GET_LIST_SERVICE_TICKET_Result)" />
         </EntityContainer>
         <ComplexType Name="GET_INFO_FROM_ROOM_NO_Result">
           <Property Type="Int32" Name="SoPhong" Nullable="false" />
@@ -879,6 +918,50 @@
           <Property Type="Int32" Name="idLoaiNV" Nullable="false" />
           <Property Type="String" Name="SDT" Nullable="false" MaxLength="11" />
           <Property Type="String" Name="Address" Nullable="false" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="GET_LIST_BOOKROOM_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="SoPhong" Nullable="false" />
+          <Property Type="DateTime" Name="NgayVao" Nullable="false" />
+          <Property Type="DateTime" Name="NgayRa" Nullable="false" />
+          <Property Type="String" Name="TenKhachHang" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="CMND" Nullable="false" MaxLength="9" />
+          <Property Type="Int32" Name="idNV" Nullable="false" />
+          <Property Type="Boolean" Name="TinhTrang" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="FIND_BOOK_ROOM_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="SoPhong" Nullable="false" />
+          <Property Type="DateTime" Name="NgayVao" Nullable="false" />
+          <Property Type="DateTime" Name="NgayRa" Nullable="false" />
+          <Property Type="String" Name="TenKhachHang" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="CMND" Nullable="false" MaxLength="9" />
+          <Property Type="Int32" Name="idNV" Nullable="false" />
+          <Property Type="Boolean" Name="TinhTrang" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="FIND_SERVICE_TICKET_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="DateTime" Name="NgayDat" Nullable="false" />
+          <Property Type="Int32" Name="SoLuong" Nullable="false" />
+          <Property Type="Decimal" Name="Tong" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="TinhTrang" Nullable="false" />
+          <Property Type="Int32" Name="idNv" Nullable="false" />
+          <Property Type="Int32" Name="SoPhong" Nullable="false" />
+          <Property Type="Decimal" Name="Gia" Nullable="false" Precision="19" />
+          <Property Type="String" Name="TenDichVu" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="imgDichVu" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="GET_LIST_SERVICE_TICKET_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="DateTime" Name="NgayDat" Nullable="false" />
+          <Property Type="Int32" Name="SoLuong" Nullable="false" />
+          <Property Type="Decimal" Name="Tong" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="TinhTrang" Nullable="false" />
+          <Property Type="Int32" Name="idNv" Nullable="false" />
+          <Property Type="Int32" Name="SoPhong" Nullable="false" />
+          <Property Type="Decimal" Name="Gia" Nullable="false" Precision="19" />
+          <Property Type="String" Name="TenDichVu" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="imgDichVu" Nullable="true" MaxLength="500" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1137,6 +1220,68 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="USER_REGISTER" FunctionName="HotelDatabaseModel.Store.USER_REGISTER" />
+          <FunctionImportMapping FunctionImportName="GET_LIST_BOOKROOM" FunctionName="HotelDatabaseModel.Store.GET_LIST_BOOKROOM">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_LIST_BOOKROOM_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
+                <ScalarProperty Name="NgayVao" ColumnName="NgayVao" />
+                <ScalarProperty Name="NgayRa" ColumnName="NgayRa" />
+                <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="idNV" ColumnName="idNV" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FIND_BOOK_ROOM" FunctionName="HotelDatabaseModel.Store.FIND_BOOK_ROOM">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HotelDatabaseModel.FIND_BOOK_ROOM_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
+                <ScalarProperty Name="NgayVao" ColumnName="NgayVao" />
+                <ScalarProperty Name="NgayRa" ColumnName="NgayRa" />
+                <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+                <ScalarProperty Name="CMND" ColumnName="CMND" />
+                <ScalarProperty Name="idNV" ColumnName="idNV" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DELETE_BOOK_ROOM" FunctionName="HotelDatabaseModel.Store.DELETE_BOOK_ROOM" />
+          <FunctionImportMapping FunctionImportName="UPDATE_BOOK_ROOM" FunctionName="HotelDatabaseModel.Store.UPDATE_BOOK_ROOM" />
+          <FunctionImportMapping FunctionImportName="FIND_SERVICE_TICKET" FunctionName="HotelDatabaseModel.Store.FIND_SERVICE_TICKET">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HotelDatabaseModel.FIND_SERVICE_TICKET_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="Tong" ColumnName="Tong" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="idNv" ColumnName="idNv" />
+                <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
+                <ScalarProperty Name="imgDichVu" ColumnName="imgDichVu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_LIST_SERVICE_TICKET" FunctionName="HotelDatabaseModel.Store.GET_LIST_SERVICE_TICKET">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HotelDatabaseModel.GET_LIST_SERVICE_TICKET_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="Tong" ColumnName="Tong" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="idNv" ColumnName="idNv" />
+                <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
+                <ScalarProperty Name="imgDichVu" ColumnName="imgDichVu" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

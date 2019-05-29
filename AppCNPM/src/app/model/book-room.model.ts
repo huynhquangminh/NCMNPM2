@@ -5,4 +5,5 @@ export class BookRoomModel {
     public TenKhachHang: string;
     public CMND: string;
     public idNV: number;
+    public TinhTrang: number;
 }

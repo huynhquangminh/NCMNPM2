@@ -32,7 +32,8 @@ namespace BusinessLogic
         {
             configMap = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<GET_LIST_ORDER_FROM_IDENTITYCARD_Result, GetListOrderFromIdentitycardDTO>();
+                cfg.CreateMap<GET_LIST_BOOKROOM_Result, GetListBookRoomDto>();
+                cfg.CreateMap<FIND_BOOK_ROOM_Result, GetListBookRoomDto>();
             });
             mapper = configMap.CreateMapper();
         }
@@ -97,5 +98,50 @@ namespace BusinessLogic
             }
             return await Task.FromResult(result);
         }
+
+        public async Task<GetListBookRoomResponse> GetBookRoomAll()
+        {
+            var response = new GetListBookRoomResponse();
+
+            try
+            {
+                var result = _dataAccess.GetListBookRoomAll();
+                if (result != null)
+                {
+                    response.ListBookRoomp = MapList<GET_LIST_BOOKROOM_Result, GetListBookRoomDto>(result.ToList());
+                    response.Success = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+            }
+            return await Task.FromResult(response);
+        }
+
+        public async Task<GetListBookRoomResponse> FindBookRoom(FindBookRoomRequest request)
+        {
+            var response = new GetListBookRoomResponse();
+
+            try
+            {
+                var param = new FindBookRoomParameter()
+                {
+                    CMND = request.CMND
+                };
+                var result = _dataAccess.FindBookRoom(param);
+                if (result != null)
+                {
+                    response.ListBookRoomp = MapList<FIND_BOOK_ROOM_Result, GetListBookRoomDto>(result.ToList());
+                    response.Success = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                response.Success = false;
+            }
+            return await Task.FromResult(response);
+        }
     }
 }
+

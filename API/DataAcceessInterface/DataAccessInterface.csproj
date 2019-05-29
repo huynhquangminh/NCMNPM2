@@ -93,8 +93,10 @@
     <Compile Include="Parameter\AddListRoomParameter.cs" />
     <Compile Include="Parameter\AddListServiceParameter.cs" />
     <Compile Include="Parameter\DeleteBookingTicketParameter.cs" />
+    <Compile Include="Parameter\DeleteBookRoomParameter.cs" />
     <Compile Include="Parameter\DeleteItemServiceParameter.cs" />
     <Compile Include="Parameter\DeleteServiceSticketParameter.cs" />
+    <Compile Include="Parameter\FindBookRoomParameter.cs" />
     <Compile Include="Parameter\FindServiceTicketParameter.cs" />
     <Compile Include="Parameter\GetInfoFromRoomNoParameter.cs" />
     <Compile Include="Parameter\GetListOrderFromIdentitycardParameter.cs" />
