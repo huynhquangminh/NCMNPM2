@@ -15,16 +15,6 @@ BEGIN
 		 where (CONVERT(date,@NgayVao) BETWEEN  d.NgayVao AND d.NgayRa) AND (CONVERT(date,@NgayRa) NOT BETWEEN  d.NgayVao AND d.NgayRa))
 END
 
-CREATE PROC [dbo].[TINH_TIEN_DICH_VU](
- @ID int
-)
-AS
-BEGIN
-  select SUM(Gia) 
-  from PhieuDichVu
-  where idDatPhong = @ID
-END
-
 CREATE PROC [dbo].[TINH_TIEN_PHONG](
    @ID int,
    @SoPhong int,
@@ -34,12 +24,14 @@ CREATE PROC [dbo].[TINH_TIEN_PHONG](
 AS
 BEGIN
       select d.SoPhong,d.NgayVao,d.NgayRa,(DATEDIFF(DAY,d.NgayRa,d.NgayVao)*l.GiaPhong) as 'TienPhong',
-		 0 as 'TienDichVu',0 as 'PhuThu',0 as 'TongTien',0 as TinhTrang,'' as GhiChu,d.idNv
+		 dbo.[dbo.TINH_TIEN_DICH_VU](@ID) as 'TienDichVu',0 as 'PhuThu',(DATEDIFF(DAY,d.NgayRa,d.NgayVao)*l.GiaPhong)+dbo.[dbo.TINH_TIEN_DICH_VU](@ID) as 'TongTien',0 as TinhTrang,'' as GhiChu,d.idNv
 	from DatPhong d
 	left join Phong p on d.SoPhong = p.SoPhong
 	left join LoaiPhong l on p.idLoaiPhong = l.ID
 	where d.ID=@ID
 END
+
+
 
 CREATE PROC [dbo].[NHAP_HOA_DON](
    @ID int,
@@ -58,4 +50,16 @@ AS
 BEGIN
     insert into HoaDon(SoPhong,NgayVao,NgayRa,TienPhong,TienDichVu,PhuThu,TongTien,TinhTrang,GhiChu,idNV) 
 	values(@SoPhong,@NgayRa,@NgayVao,@TienPhong,@TienDichVu,@PhuThu,@TongTien,@TinhTrang,@GhiChu,@idNV)  
+END
+
+CREATE FUNCTION [dbo].[dbo.TINH_TIEN_DICH_VU] (
+ @ID int
+)
+RETURNS INTEGER AS
+BEGIN
+     DECLARE @data INTEGER
+     select @data = SUM(Gia) 
+     from PhieuDichVu
+     where idDatPhong = @ID
+    RETURN @data
 END
