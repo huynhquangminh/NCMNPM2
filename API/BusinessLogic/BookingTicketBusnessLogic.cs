@@ -123,6 +123,7 @@ namespace BusinessLogic
                 {
                     ID = request.ID,
                     TinhTrang = request.TinhTrang,
+                    TinhTrangDatPhong = request.TinhTrangDatPhong
                 };
                 _dataAccess.UpdateBookingTicket(param);
             }

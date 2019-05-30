@@ -156,7 +156,7 @@ namespace BusinessLogic
                 if (result != null)
                 {
                     response.Success = true;
-                    response.List = MapList<GET_LIST_ROOM_FROM_DATE_Result, GetListRoomFromDateDTO>(result.ToList());
+                    response.ListRoom = MapList<GET_LIST_ROOM_FROM_DATE_Result, GetListRoomFromDateDTO>(result.ToList());
                 }
 
             }

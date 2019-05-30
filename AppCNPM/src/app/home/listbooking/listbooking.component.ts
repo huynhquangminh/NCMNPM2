@@ -63,12 +63,13 @@ export class ListbookingComponent implements OnInit {
     const ngayVao = formatDate(data.NgayVao, 'yyyy-MM-dd', 'en');
     const ngayRa = formatDate(data.NgayVao, 'yyyy-MM-dd', 'en');
     this.router.navigate(['/home/book-room',
-    { isbook: 'true', sophong: data.SoPhong, ngayvao: ngayVao, ngayra: ngayRa, cmnd: data.CMND }]);
+    { isbook: 'true', id: data.ID, sophong: data.SoPhong, ngayvao: ngayVao, ngayra: ngayRa, cmnd: data.CMND }]);
   }
   btnComfrim(value) {
     this.updateBookingTicketRequest = {
       ID: value,
-      TinhTrang: 1
+      TinhTrang: 1,
+      TinhTrangDatPhong: 0
     };
     this.appService.CallByResquestService(UPDATE_BOOKINGTICKET_URL, this.updateBookingTicketRequest).subscribe(data => {
       if (data) {

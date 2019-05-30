@@ -85,7 +85,8 @@ namespace BusinessLogic
                     ngayRa = request.ngayRa,
                     tenKhachHang = request.tenKhachHang,
                     cMND = request.cMND,
-                    idNV = request.idNV
+                    idNV = request.idNV,
+                    iD = request.iD
                 };
                 _dataAccess.UpdateBookingRoom(param);
                 result = true;

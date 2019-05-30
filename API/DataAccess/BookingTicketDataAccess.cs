@@ -38,7 +38,7 @@ namespace DataAccess
         /// <param name="param"></param>
         public void UpdateBookingTicket(UpdateBookingTicketParameter param)
         {
-            db.UPDATE_STATUS_BOOKING_STICKET(param.ID, param.TinhTrang);
+            db.UPDATE_STATUS_BOOKING_STICKET(param.ID, param.TinhTrang, param.TinhTrangDatPhong );
         }
 
         /// <summary>

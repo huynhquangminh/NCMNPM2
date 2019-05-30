@@ -37,7 +37,6 @@ namespace EntityData
         public virtual DbSet<PhieuDatPhongKhachSan> PhieuDatPhongKhachSans { get; set; }
         public virtual DbSet<PhieuDichVu> PhieuDichVus { get; set; }
         public virtual DbSet<Phong> Phongs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     
         public virtual int ADD_LIST_ROOM(string tenLoaiPhong, Nullable<int> giaPhong, string imgLoaiPhong)
         {
@@ -77,6 +76,15 @@ namespace EntityData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ADD_LIST_SERVICE", tenDichVuParameter, donViTinhParameter, giaParameter, imgDichVuParameter);
         }
     
+        public virtual int DELETE_BOOK_ROOM(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_BOOK_ROOM", iDParameter);
+        }
+    
         public virtual int DELETE_BOOKING_TICKET(Nullable<int> iD)
         {
             var iDParameter = iD.HasValue ?
@@ -104,6 +112,33 @@ namespace EntityData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_ITEM_SERVICE", iDParameter);
         }
     
+        public virtual int DELETE_SERVICE_TICKET(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_SERVICE_TICKET", iDParameter);
+        }
+    
+        public virtual ObjectResult<FIND_BOOK_ROOM_Result> FIND_BOOK_ROOM(string cMND)
+        {
+            var cMNDParameter = cMND != null ?
+                new ObjectParameter("CMND", cMND) :
+                new ObjectParameter("CMND", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FIND_BOOK_ROOM_Result>("FIND_BOOK_ROOM", cMNDParameter);
+        }
+    
+        public virtual ObjectResult<FIND_SERVICE_TICKET_Result> FIND_SERVICE_TICKET(Nullable<int> soPhong)
+        {
+            var soPhongParameter = soPhong.HasValue ?
+                new ObjectParameter("SoPhong", soPhong) :
+                new ObjectParameter("SoPhong", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FIND_SERVICE_TICKET_Result>("FIND_SERVICE_TICKET", soPhongParameter);
+        }
+    
         public virtual ObjectResult<GET_INFO_FROM_ROOM_NO_Result> GET_INFO_FROM_ROOM_NO(Nullable<int> roomNo)
         {
             var roomNoParameter = roomNo.HasValue ?
@@ -116,6 +151,11 @@ namespace EntityData
         public virtual ObjectResult<GET_LIST_BOOKING_TICKET_Result> GET_LIST_BOOKING_TICKET()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_BOOKING_TICKET_Result>("GET_LIST_BOOKING_TICKET");
+        }
+    
+        public virtual ObjectResult<GET_LIST_BOOKROOM_Result> GET_LIST_BOOKROOM()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_BOOKROOM_Result>("GET_LIST_BOOKROOM");
         }
     
         public virtual ObjectResult<GET_LIST_ORDER_FROM_IDENTITYCARD_Result> GET_LIST_ORDER_FROM_IDENTITYCARD(string cMND)
@@ -135,6 +175,24 @@ namespace EntityData
         public virtual ObjectResult<GET_LIST_ROOM_Result> GET_LIST_ROOM()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_ROOM_Result>("GET_LIST_ROOM");
+        }
+    
+        public virtual ObjectResult<GET_LIST_ROOM_FROM_DATE_Result> GET_LIST_ROOM_FROM_DATE(string ngayVao, string ngayRa)
+        {
+            var ngayVaoParameter = ngayVao != null ?
+                new ObjectParameter("NgayVao", ngayVao) :
+                new ObjectParameter("NgayVao", typeof(string));
+    
+            var ngayRaParameter = ngayRa != null ?
+                new ObjectParameter("NgayRa", ngayRa) :
+                new ObjectParameter("NgayRa", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_ROOM_FROM_DATE_Result>("GET_LIST_ROOM_FROM_DATE", ngayVaoParameter, ngayRaParameter);
+        }
+    
+        public virtual ObjectResult<GET_LIST_SERVICE_TICKET_Result> GET_LIST_SERVICE_TICKET()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_SERVICE_TICKET_Result>("GET_LIST_SERVICE_TICKET");
         }
     
         public virtual ObjectResult<GET_SERVICE_ALL_Result> GET_SERVICE_ALL()
@@ -288,7 +346,44 @@ namespace EntityData
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_ITEM_SERVICE", iDParameter, tenDichVuParameter, donViTinhParameter, giaParameter, imgDichVuParameter);
         }
     
-        public virtual int UPDATE_STATUS_BOOKING_STICKET(Nullable<int> iD, Nullable<int> tinhTrang)
+        public virtual int UPDATE_SERVICE_TICKET(Nullable<int> iD, Nullable<int> idDatPhong, string ngayDat, Nullable<int> idDichVu, Nullable<int> soLuong, Nullable<int> gia, Nullable<int> tinhTrang, Nullable<int> idNv)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idDatPhongParameter = idDatPhong.HasValue ?
+                new ObjectParameter("IdDatPhong", idDatPhong) :
+                new ObjectParameter("IdDatPhong", typeof(int));
+    
+            var ngayDatParameter = ngayDat != null ?
+                new ObjectParameter("NgayDat", ngayDat) :
+                new ObjectParameter("NgayDat", typeof(string));
+    
+            var idDichVuParameter = idDichVu.HasValue ?
+                new ObjectParameter("idDichVu", idDichVu) :
+                new ObjectParameter("idDichVu", typeof(int));
+    
+            var soLuongParameter = soLuong.HasValue ?
+                new ObjectParameter("SoLuong", soLuong) :
+                new ObjectParameter("SoLuong", typeof(int));
+    
+            var giaParameter = gia.HasValue ?
+                new ObjectParameter("Gia", gia) :
+                new ObjectParameter("Gia", typeof(int));
+    
+            var tinhTrangParameter = tinhTrang.HasValue ?
+                new ObjectParameter("TinhTrang", tinhTrang) :
+                new ObjectParameter("TinhTrang", typeof(int));
+    
+            var idNvParameter = idNv.HasValue ?
+                new ObjectParameter("idNv", idNv) :
+                new ObjectParameter("idNv", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_SERVICE_TICKET", iDParameter, idDatPhongParameter, ngayDatParameter, idDichVuParameter, soLuongParameter, giaParameter, tinhTrangParameter, idNvParameter);
+        }
+    
+        public virtual int UPDATE_STATUS_BOOKING_STICKET(Nullable<int> iD, Nullable<int> tinhTrang, Nullable<int> tinhTrangDatPhong)
         {
             var iDParameter = iD.HasValue ?
                 new ObjectParameter("ID", iD) :
@@ -298,7 +393,11 @@ namespace EntityData
                 new ObjectParameter("TinhTrang", tinhTrang) :
                 new ObjectParameter("TinhTrang", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_STATUS_BOOKING_STICKET", iDParameter, tinhTrangParameter);
+            var tinhTrangDatPhongParameter = tinhTrangDatPhong.HasValue ?
+                new ObjectParameter("TinhTrangDatPhong", tinhTrangDatPhong) :
+                new ObjectParameter("TinhTrangDatPhong", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_STATUS_BOOKING_STICKET", iDParameter, tinhTrangParameter, tinhTrangDatPhongParameter);
         }
     
         public virtual ObjectResult<USER_LOGIN_Result> USER_LOGIN(string userName, string password)
@@ -345,76 +444,6 @@ namespace EntityData
                 new ObjectParameter("Address", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USER_REGISTER", tenNhanVienParameter, userNameParameter, passwordParameter, cMNDParameter, idLoaiNVParameter, sDTParameter, addressParameter);
-        }
-    
-        public virtual ObjectResult<GET_LIST_BOOKROOM_Result> GET_LIST_BOOKROOM()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_BOOKROOM_Result>("GET_LIST_BOOKROOM");
-        }
-    
-        public virtual ObjectResult<FIND_BOOK_ROOM_Result> FIND_BOOK_ROOM(string cMND)
-        {
-            var cMNDParameter = cMND != null ?
-                new ObjectParameter("CMND", cMND) :
-                new ObjectParameter("CMND", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FIND_BOOK_ROOM_Result>("FIND_BOOK_ROOM", cMNDParameter);
-        }
-    
-        public virtual int DELETE_BOOK_ROOM(Nullable<int> iD)
-        {
-            var iDParameter = iD.HasValue ?
-                new ObjectParameter("ID", iD) :
-                new ObjectParameter("ID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DELETE_BOOK_ROOM", iDParameter);
-        }
-    
-        public virtual int UPDATE_BOOK_ROOM(Nullable<int> iD, Nullable<int> soPhong, string ngayVao, string ngayRa, string tenKhachHang, string cMND, Nullable<int> tinhTrang)
-        {
-            var iDParameter = iD.HasValue ?
-                new ObjectParameter("ID", iD) :
-                new ObjectParameter("ID", typeof(int));
-    
-            var soPhongParameter = soPhong.HasValue ?
-                new ObjectParameter("SoPhong", soPhong) :
-                new ObjectParameter("SoPhong", typeof(int));
-    
-            var ngayVaoParameter = ngayVao != null ?
-                new ObjectParameter("NgayVao", ngayVao) :
-                new ObjectParameter("NgayVao", typeof(string));
-    
-            var ngayRaParameter = ngayRa != null ?
-                new ObjectParameter("NgayRa", ngayRa) :
-                new ObjectParameter("NgayRa", typeof(string));
-    
-            var tenKhachHangParameter = tenKhachHang != null ?
-                new ObjectParameter("TenKhachHang", tenKhachHang) :
-                new ObjectParameter("TenKhachHang", typeof(string));
-    
-            var cMNDParameter = cMND != null ?
-                new ObjectParameter("CMND", cMND) :
-                new ObjectParameter("CMND", typeof(string));
-    
-            var tinhTrangParameter = tinhTrang.HasValue ?
-                new ObjectParameter("TinhTrang", tinhTrang) :
-                new ObjectParameter("TinhTrang", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UPDATE_BOOK_ROOM", iDParameter, soPhongParameter, ngayVaoParameter, ngayRaParameter, tenKhachHangParameter, cMNDParameter, tinhTrangParameter);
-        }
-    
-        public virtual ObjectResult<FIND_SERVICE_TICKET_Result> FIND_SERVICE_TICKET(Nullable<int> soPhong)
-        {
-            var soPhongParameter = soPhong.HasValue ?
-                new ObjectParameter("SoPhong", soPhong) :
-                new ObjectParameter("SoPhong", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FIND_SERVICE_TICKET_Result>("FIND_SERVICE_TICKET", soPhongParameter);
-        }
-    
-        public virtual ObjectResult<GET_LIST_SERVICE_TICKET_Result> GET_LIST_SERVICE_TICKET()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GET_LIST_SERVICE_TICKET_Result>("GET_LIST_SERVICE_TICKET");
         }
     }
 }

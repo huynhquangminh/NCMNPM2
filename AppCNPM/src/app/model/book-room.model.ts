@@ -1,4 +1,5 @@
 export class BookRoomModel {
+    public ID: number;
     public SoPhong: number;
     public NgayVao: string;
     public NgayRa: string;

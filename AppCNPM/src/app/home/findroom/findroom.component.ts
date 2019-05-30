@@ -2,11 +2,12 @@ import { BookingTicketService } from './../../service/booking-ticket.service';
 
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { AppService } from 'src/app/service/app-service';
-import { GETROOM_URL } from './config';
+import { GETROOM_URL, FIND_ROOM_URL } from './config';
 import { BookingTicket } from 'src/app/model/booking-ticket-model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { formatDate } from '@angular/common';
 import { Router } from '@angular/router';
+import { GetListRoomFromDateRequest } from 'src/app/model/find-room.model';
 
 @Component({
   selector: 'app-findroom',
@@ -16,7 +17,8 @@ import { Router } from '@angular/router';
 export class FindroomComponent implements OnInit {
   listRoom: any;
   public addForm: FormGroup;
-  booking = new  BookingTicket();
+  booking = new BookingTicket();
+  findroom = new GetListRoomFromDateRequest();
   urlImage = 'http://localhost:3100/image/';
   arrPhong = [];
   ishidden: true;
@@ -47,6 +49,13 @@ export class FindroomComponent implements OnInit {
     });
   }
 
+  btnFindRoom() {
+    this.findroom.NgayVao = this.addForm.get('DateStart').value;
+    this.findroom.NgayRa = this.addForm.get('DateEnd').value;
+    this.service.CallByResquestService(FIND_ROOM_URL, this.findroom).subscribe(data => {
+      this.listRoom = data.ListRoom;
+    });
+  }
 
   btnClick(value) {
     const id = 'btn_' + value;

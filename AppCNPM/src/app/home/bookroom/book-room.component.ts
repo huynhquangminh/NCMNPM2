@@ -5,6 +5,8 @@ import { BookRoomModel } from 'src/app/model/book-room.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { INSERT_BOOK_ROOM_URL } from './config';
 import { formatDate } from '@angular/common';
+import { UpdateBookingTicketRequest } from 'src/app/model/update-booking-ticket.request';
+import { UPDATE_BOOKINGTICKET_URL } from '../listbooking/config';
 
 @Component({
   selector: 'app-bookroom',
@@ -14,6 +16,7 @@ import { formatDate } from '@angular/common';
 export class BookRoomComponent implements OnInit {
   public addForm: FormGroup;
   bookRoomModel = new BookRoomModel();
+  bookingticketRequest = new UpdateBookingTicketRequest();
   checkrouter: string;
   startDate: Date;
   endDate: Date;
@@ -35,10 +38,10 @@ export class BookRoomComponent implements OnInit {
   ngOnInit() {
     this.checkrouter = this.route.snapshot.paramMap.get('isbook');
     if (this.checkrouter === 'true') {
-     this.bookRoomModel.SoPhong = Number(this.checkrouter = this.route.snapshot.paramMap.get('sophong'));
-     this.bookRoomModel.NgayVao = formatDate(new Date(this.route.snapshot.paramMap.get('ngayvao')), 'yyyy-MM-dd', 'en') ;
-     this.bookRoomModel.NgayRa = formatDate(new Date(this.route.snapshot.paramMap.get('ngayra')), 'yyyy-MM-dd', 'en') ;
-     this.bookRoomModel.CMND = this.route.snapshot.paramMap.get('cmnd');
+      this.bookRoomModel.SoPhong = Number(this.checkrouter = this.route.snapshot.paramMap.get('sophong'));
+      this.bookRoomModel.NgayVao = formatDate(new Date(this.route.snapshot.paramMap.get('ngayvao')), 'yyyy-MM-dd', 'en');
+      this.bookRoomModel.NgayRa = formatDate(new Date(this.route.snapshot.paramMap.get('ngayra')), 'yyyy-MM-dd', 'en');
+      this.bookRoomModel.CMND = this.route.snapshot.paramMap.get('cmnd');
     }
   }
   btnBookRoom() {
@@ -52,6 +55,13 @@ export class BookRoomComponent implements OnInit {
               alert('Your Request Is Unsuccessful');
             } else {
               alert('Book room successful');
+              if (this.checkrouter === 'true') {
+                this.bookingticketRequest.ID = Number(this.route.snapshot.paramMap.get('id'));
+                this.bookingticketRequest.TinhTrang = 1;
+                this.bookingticketRequest.TinhTrangDatPhong = 1;
+                this.appService.CallByResquestService(UPDATE_BOOKINGTICKET_URL, this.bookingticketRequest).subscribe(item => {
+                });
+              }
               this.bookRoomModel.SoPhong = null;
             }
           }

@@ -73,8 +73,8 @@ export class ListbookroomComponent implements OnInit {
   btnChangeBookRoom(data) {
     const ngayVao = formatDate(data.NgayVao, 'yyyy-MM-dd', 'en');
     const ngayRa = formatDate(data.NgayVao, 'yyyy-MM-dd', 'en');
-    this.router.navigate(['/home/book-room',
-    { isbook: 'true', sophong: data.SoPhong, ngayvao: ngayVao, ngayra: ngayRa, cmnd: data.CMND }]);
+    this.router.navigate(['/home/update-book-room',
+    { isbook: 'true', id: data.ID, sophong: data.SoPhong, ngayvao: ngayVao, ngayra: ngayRa, cmnd: data.CMND, tenkh: data.TenKhachHang }]);
   }
 
 }

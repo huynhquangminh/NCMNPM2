@@ -116,6 +116,9 @@
     <Compile Include="GET_LIST_POSTS_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
+    <Compile Include="GET_LIST_ROOM_FROM_DATE_Result.cs">
+      <DependentUpon>ModelData.tt</DependentUpon>
+    </Compile>
     <Compile Include="GET_LIST_ROOM_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
@@ -165,9 +168,6 @@
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>ModelData.tt</DependentUpon>
-    </Compile>
     <Compile Include="USER_LOGIN_Result.cs">
       <DependentUpon>ModelData.tt</DependentUpon>
     </Compile>

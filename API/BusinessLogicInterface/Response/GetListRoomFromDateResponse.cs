@@ -10,6 +10,6 @@ namespace BusinessLogicInterface.Response
 {
     public class GetListRoomFromDateResponse: BaseResponse
     {
-        public List<GetListRoomFromDateDTO> List { get; set; }
+        public List<GetListRoomFromDateDTO> ListRoom { get; set; }
     }
 }

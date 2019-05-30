@@ -11,15 +11,15 @@
         <div class="row">
           <div class="col-md-3">
             <label for="date_start">Start Date</label>
-            <input class="form-control" formControlName="DateStart"  id="datestart" name="datestart" type="date" value="14/05/2019">
+            <input class="form-control" formControlName="DateStart"  id="datestart" name="datestart" type="date" value="">
           </div>
           <div class="col-md-3">
             <label for="date_end">End Date</label>
-            <input class="form-control" formControlName="DateEnd" id="dateend" name="dateend" type="date" value="15/05/2019">
+            <input class="form-control" formControlName="DateEnd" id="dateend" name="dateend" type="date" value="">
           </div>
           <div class="col-md-2">
             <label for="date_end" style="visibility:hidden">End Date</label>
-            <input type="submit" onclick="return checkday()" class="btn btn-primary btn-block" value="Tìm phòng">
+            <input type="submit"  class="btn btn-primary btn-block" (click) = "btnFindRoom()" value="Tìm phòng">
           </div>
           <div class="col-md-4">
             <label for="date_end" style="visibility:hidden">OK</label>
@@ -33,7 +33,7 @@
             <tr>
               <th width="100px"></th>
               <th>Số phòng</th>
-              <th>Mô tả</th>
+              <th>Loại Phòng </th>
               <th>Tầng</th>
               <th>Giá</th>
               <th width="300px"></th>

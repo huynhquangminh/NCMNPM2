@@ -10,19 +10,16 @@
 namespace EntityData
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class PhieuDatPhongKhachSan
+    public partial class GET_LIST_ROOM_FROM_DATE_Result
     {
-        public int ID { get; set; }
         public int SoPhong { get; set; }
-        public System.DateTime NgayVao { get; set; }
-        public System.DateTime NgayRa { get; set; }
-        public int TinhTrang { get; set; }
-        public string idKhachHang { get; set; }
-        public bool TinhTrangDatPhong { get; set; }
-    
-        public virtual KhachHang KhachHang { get; set; }
-        public virtual Phong Phong { get; set; }
+        public int idLoaiPhong { get; set; }
+        public int Tang { get; set; }
+        public string imgPhong { get; set; }
+        public bool TinhTrang { get; set; }
+        public string MoTaPhong { get; set; }
+        public decimal GiaPhong { get; set; }
+        public string TenLoaiPhong { get; set; }
     }
 }
